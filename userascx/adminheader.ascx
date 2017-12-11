@@ -5,7 +5,7 @@
 <style type="text/css">
 	.linkbutton{
 		margin-left:0%;
-		column-width:32px;
+		column-width:64px;
 		text-decoration:none;
 	}
 </style>
@@ -21,14 +21,22 @@
 		</table>
 	</div>
 	<ul class="layui-nav layui-header" style="width: 100%; margin-top:135px; background-color:#2F4056; font-size:larger">
-		<li class="layui-nav-item" style="position:absolute; left:2%; top:8%; font-size:12pt">
+		<li class="layui-nav-item" style="position:absolute; left:2%; top:8%; font-size:1.6em; font-family:华文新魏">
 			禹步工单系统
 		</li>
 		<%--<li class="layui-nav-item" style="position:absolute; right:11.5%; top:10%; ">
 			<asp:Label ID="lbTips" runat="server" ForeColor="white" Font-Size="11.4pt"></asp:Label>
 		</li>--%>
 		<li class="layui-nav-item" style="position:absolute; right:4.5%; top:10%; margin-right:1.1%;">
-			<asp:LinkButton ID="lbtnUserManager" runat="server" Font-Size="11.4pt" CssClass="linkbutton" OnClick="lbtnUserManager_Click">人员管理</asp:LinkButton>
+			<span style="font-size:11.4pt;">员工管理</span>
+			<dl class="layui-nav-child">
+				<dd>
+					<asp:LinkButton ID="lbAddDepartment" runat="server" OnClick="lbAddDepartment_Click">新增部门</asp:LinkButton></dd>
+				<dd>
+					<asp:LinkButton ID="lbAddPost" runat="server" OnClick="lbAddPost_Click">新增职务</asp:LinkButton></dd>
+				<dd>
+					<asp:LinkButton ID="lbAddUserInfo" runat="server" OnClick="lbAddUserInfo_Click">新增员工信息</asp:LinkButton></dd>
+			</dl>
 		</li>
 		<li class="layui-nav-item" style="position:absolute; right:0.5%; top:10%;">
 			<asp:LinkButton ID="lbtnExitSystem" runat="server" Font-Size="11.5pt" CssClass="linkbutton" OnClick="lbtnExitSystem_Click">退出系统</asp:LinkButton>

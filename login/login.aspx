@@ -27,8 +27,12 @@
 			-webkit-box-shadow: #666 0px 0px 10px;
 			-moz-box-shadow: #666 0px 0px 10px;
 			box-shadow: #666 0px 0px 10px;
-			background: white;
+			background: #2F4056;
 			behavior: url(/PIE.htc);
+		}
+		.buttonSty
+		{
+			font-size:11pt;
 		}
 	</style>
 </head>
@@ -42,28 +46,28 @@
 				<tr>
 					<td style="width:100%; height:80%;">
 						<div class="layui-form-item" style="height:160px;">
-							<div style="height:64px;"></div>
-							<span style="font-size:3.2em; font-family:华文楷体; font-weight:800; color:#01AAED">禹步工单系统入口</span>
+							<div style="height:72px;"></div>
+							<span style="font-size:3.2em; font-family:华文新魏; font-weight:900; color:#fff">禹步工单系统入口</span>
 						</div>
 						<div class="layui-form-item" style="margin-left:25%;">
-							<label class="layui-form-label">用户名:</label>
+							<label class="layui-form-label" style="font-size:11pt">用户名:</label>
 							<div class="layui-input-inline">
 								<asp:TextBox ID="tbUserName" TextMode="SingleLine" runat="server" placeholder="请输入用户名" required lay-verify="required" autocomplete="off" CssClass="layui-input" Width="240px" BorderColor="LightGray" ></asp:TextBox>
 							</div>
 						</div>
 						<div class="layui-form-item" style="margin-left:25%;">
-							<label class="layui-form-label">密&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
+							<label class="layui-form-label" style="font-size:11pt">密&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
 							<div class="layui-input-inline">
-								<asp:TextBox ID="tbPassWord" TextMode="Password" runat="server" placeholder="请输入密码" required lay-verify="required" autocomplete="off" CssClass="layui-input" Width="240px" BorderColor="LightGray" ></asp:TextBox>
+								<asp:TextBox ID="tbPassWord" TextMode="Password" runat="server" placeholder="请输入密码" required lay-verify="required" autocomplete="off" CssClass="layui-input" Width="240px" BorderColor="LightGrey" ></asp:TextBox>
 							</div>
 						</div>
 						<div class="layui-form-item" style="margin-right:14.8%">
 							<div class="layui-input-block">
-								<asp:Button ID="btnSubmit" runat="server" Text="登    录" CssClass="layui-btn" lay-filter="formDemo" Width="350px" OnClick="btnSubmit_Click" />
+								<asp:Button ID="btnSubmit" runat="server" Text="登    录" CssClass="layui-btn buttonSty" Font-Size="11pt" lay-filter="formDemo" Width="350px" OnClick="btnSubmit_Click" />
 							</div>
 						</div>
 						<div align="left" class="layui-form-item" style="margin-left:24.8%">
-							<asp:Label ID="lbAlert" runat="server" ForeColor="Gray">Tips: 如果忘记密码，请联系管理员</asp:Label>
+							<asp:Label ID="lbAlert" runat="server" ForeColor="LightGray">Tips: 如果忘记密码，请联系管理员</asp:Label>
 						</div>
 						<%--<div class="layui-form-item">
 							<div class="layui-input-block">

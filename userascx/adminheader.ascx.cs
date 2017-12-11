@@ -13,17 +13,21 @@ public partial class userascx_adminheader : System.Web.UI.UserControl
 		{
 			Response.Write("<script>alert('请先登录！'); window.location='../login/login.aspx';</script>");
 		}
-		//else if (Session["UserName"].ToString() != null)
-		//{
-		//	string searChineseName = "select U_ChineseName from tb_UserInfo where U_UserName = '" + Session["UserName"].ToString() + "'";
-		//	string chineseName = DBHelper.DBHelper.ExecuteScalar(searChineseName).ToString();
-		//	//lbTips.Text = chineseName;
-		//}
 	}
 
-	protected void lbtnUserManager_Click(object sender, EventArgs e)
+	protected void lbAddDepartment_Click(object sender, EventArgs e)
 	{
-		
+
+	}
+
+	protected void lbAddPost_Click(object sender, EventArgs e)
+	{
+
+	}
+
+	protected void lbAddUserInfo_Click(object sender, EventArgs e)
+	{
+
 	}
 
 	protected void lbtnExitSystem_Click(object sender, EventArgs e)
