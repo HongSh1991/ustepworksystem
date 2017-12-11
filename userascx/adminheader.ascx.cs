@@ -17,17 +17,17 @@ public partial class userascx_adminheader : System.Web.UI.UserControl
 
 	protected void lbAddDepartment_Click(object sender, EventArgs e)
 	{
-
+		
 	}
 
 	protected void lbAddPost_Click(object sender, EventArgs e)
 	{
-
+		
 	}
 
 	protected void lbAddUserInfo_Click(object sender, EventArgs e)
 	{
-
+		
 	}
 
 	protected void lbtnExitSystem_Click(object sender, EventArgs e)
