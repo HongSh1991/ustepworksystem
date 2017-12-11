@@ -24,11 +24,11 @@
 		<li class="layui-nav-item" style="position:absolute; left:2%; top:8%; font-size:12pt">
 			禹步工单系统
 		</li>
-		<li class="layui-nav-item" style="position:absolute; right:11.5%; top:10%; ">
-			<asp:Label ID="lbTips" runat="server" ForeColor="white"></asp:Label>
-		</li>
+		<%--<li class="layui-nav-item" style="position:absolute; right:11.5%; top:10%; ">
+			<asp:Label ID="lbTips" runat="server" ForeColor="white" Font-Size="11.4pt"></asp:Label>
+		</li>--%>
 		<li class="layui-nav-item" style="position:absolute; right:4.5%; top:10%; margin-right:1.1%;">
-			<asp:LinkButton ID="lbtnCourseManager" runat="server" Font-Size="11.4pt" CssClass="linkbutton" OnClick="lbtnCourseManager_Click">人员管理</asp:LinkButton>
+			<asp:LinkButton ID="lbtnUserManager" runat="server" Font-Size="11.4pt" CssClass="linkbutton" OnClick="lbtnUserManager_Click">人员管理</asp:LinkButton>
 		</li>
 		<li class="layui-nav-item" style="position:absolute; right:0.5%; top:10%;">
 			<asp:LinkButton ID="lbtnExitSystem" runat="server" Font-Size="11.5pt" CssClass="linkbutton" OnClick="lbtnExitSystem_Click">退出系统</asp:LinkButton>

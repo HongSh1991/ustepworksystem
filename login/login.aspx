@@ -41,7 +41,7 @@
 			<table class="tableSty" align="center" valign="middle" style="width:36%; margin-top:6%;">
 				<tr>
 					<td style="width:100%; height:80%;">
-						<div class="layui-form-item"  style="height:160px;">
+						<div class="layui-form-item" style="height:160px;">
 							<div style="height:64px;"></div>
 							<span style="font-size:3.2em; font-family:华文楷体; font-weight:800; color:#01AAED">禹步工单系统入口</span>
 						</div>

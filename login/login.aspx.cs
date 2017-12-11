@@ -32,11 +32,13 @@ public partial class login_login : System.Web.UI.Page
 				int roleID = Convert.ToInt32(DBHelper.DBHelper.ExecuteScalar(searchRole).ToString());
 				if (roleID == 1)
 				{
-					Response.Write("<script>alert('登录成功！'); window.location.href='../admin/adminPage.aspx';</script>");
+					Response.Redirect("../admin/adminPage.aspx?username=" + userName);
+					//Response.Write("<script>alert('登录成功！'); window.location.href='../admin/adminPage.aspx';</script>");
 				}
 				else if (roleID == 2)
 				{
-					Response.Write("<script>alert('登录成功！'); window.location.href='../common/commonPage.aspx';</script>");
+					Response.Redirect("../common/commonPage.aspx?username=" + userName);
+					//Response.Write("<script>alert('登录成功！'); window.location.href='../common/commonPage.aspx';</script>");
 				}
 			}
 		}
