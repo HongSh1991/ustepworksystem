@@ -27,15 +27,15 @@
 		<%--<li class="layui-nav-item" style="position:absolute; right:11.5%; top:10%; ">
 			<asp:Label ID="lbTips" runat="server" ForeColor="white" Font-Size="11.4pt"></asp:Label>
 		</li>--%>
-		<li class="layui-nav-item" style="position:absolute; right:4.5%; top:10%; margin-right:1.1%;">
-			<span style="font-size:11.4pt;">员工管理</span>
+		<li class="layui-nav-item" style="position:absolute; right:5.5%; top:10%; margin-right:1.1%;">
+			<asp:LinkButton ID="lbUserManager" runat="server" Font-Size="11.4pt">信息管理</asp:LinkButton>
 			<dl class="layui-nav-child">
 				<dd>
-					<asp:LinkButton ID="lbAddDepartment" runat="server" OnClick="lbAddDepartment_Click">新增部门</asp:LinkButton></dd>
+					<asp:LinkButton ID="lbAddDepartmentAndPost" runat="server" OnClick="lbAddDepartmentAndPost_Click">[增删改查]部门/职务</asp:LinkButton></dd>
 				<dd>
-					<asp:LinkButton ID="lbAddPost" runat="server" OnClick="lbAddPost_Click">新增职务</asp:LinkButton></dd>
+					<asp:LinkButton ID="lbAddUserInfo" runat="server" OnClick="lbAddUserInfo_Click">[新增]员工信息</asp:LinkButton></dd>
 				<dd>
-					<asp:LinkButton ID="lbAddUserInfo" runat="server" OnClick="lbAddUserInfo_Click">新增员工信息</asp:LinkButton></dd>
+					<asp:LinkButton ID="lbAddMaterialAndSoft" runat="server" OnClick="lbAddMaterialAndSoft_Click">[增删改查]公司文档/软件资源</asp:LinkButton></dd>
 			</dl>
 		</li>
 		<li class="layui-nav-item" style="position:absolute; right:0.5%; top:10%;">

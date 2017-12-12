@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="" title="信息管理"  description="">
+    <siteMapNode url="../admin/adminPage.aspx" title="员工信息"  description="" />
+    <siteMapNode url="" title="[增删改查]部门/职务信息"  description="" />
+		<siteMapNode url="" title="[新增]员工信息"  description="" />
+		<siteMapNode url="" title="[增删改查]公司内部资料/常用软件"  description="" />
+  </siteMapNode>
+</siteMap>

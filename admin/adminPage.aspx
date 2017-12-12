@@ -1,7 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="adminPage.aspx.cs" Inherits="admin_adminPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="adminPage.aspx.cs" MaintainScrollPositionOnPostback="true" Inherits="admin_adminPage" %>
 <%@ Register Src="~/userascx/adminheader.ascx" TagName="adminheader" TagPrefix="uc1" %>
 <%@ Register Src="~/userascx/pagefooter.ascx" TagName="pagefooter" TagPrefix="uc2" %>
-<%@ Register Src="~/admin/departmentAndPost.ascx" TagName="departmentAndPost" TagPrefix="uc3" %>
 
 <!DOCTYPE html>
 
@@ -76,154 +75,48 @@
 								</div>
 							</div>
 						</aside>
-						<div style="height:72.8%; width:72%; left:21.5%; right:6%; position:absolute;">
-							<div class="layui-tab layui-tab-card" style="height:98%;">
-								<ul class="layui-tab-title">
-									<li class="layui-this">[删改查]员工信息</li>
-									<li>[增删改]部门/职务</li>
-									<li>[删改查]公司文档/软件资源</li>
-									<li>[新增]员工信息</li>
-									<li>[新增]公司文档/软件资源</li>
-								</ul>
-								<div class="layui-tab-content">
-									<!--[删改查]员工信息-->
-									<div class="layui-tab-item layui-show">
-										<div class="layui-form-item">
-											<label class="layui-form-label">用户名:</label>
-											<div class="layui-input-inline">
-												<asp:TextBox ID="tbSearchUserName" runat="server" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" CssClass="layui-input"></asp:TextBox>
-											</div>
-
-											<label class="layui-form-label">所属部门:</label>
-											<div class="layui-input-inline">
-												<asp:DropDownList ID="ddlSearchDepartment" runat="server" AutoPostBack="True" CssClass="ddl">
-												</asp:DropDownList>
-											</div>
-
-											<label class="layui-form-label">职务:</label>
-											<div class="layui-input-inline">
-												<asp:DropDownList ID="ddlSearchRole" runat="server" AutoPostBack="True" CssClass="ddl">
-												</asp:DropDownList>
-											</div>
-											<asp:Button ID="btnSearch" runat="server" Text="查询用户" CssClass="layui-btn" />
-										</div>
-										<asp:GridView ID="gvUser" runat="server" OnRowEditing="gvUser_RowEditing" OnRowUpdating="gvUser_RowUpdating" OnRowDeleting="gvUser_RowDeleting" OnRowCancelingEdit="gvUser_RowCancelingEdit" OnPageIndexChanging="gvUser_PageIndexChanging" OnRowDataBound="gvUser_RowDataBound" AutoGenerateColumns="False" AllowPaging="true" PageSize="10" CssClass="layui-table">
-											<Columns>
-												<asp:TemplateField HeaderText="序号" ItemStyle-Width="30px">
-													<ItemStyle HorizontalAlign="Center" />
-													<HeaderStyle HorizontalAlign="Center" Width="30px" />
-												</asp:TemplateField>
-												<asp:BoundField DataField="U_UserName" HeaderText="用户名" ItemStyle-Width="100px" />
-												<asp:BoundField DataField="U_ChineseName" HeaderText="姓名" ItemStyle-Width="120px" />
-												<asp:BoundField DataField="U_Department" HeaderText="部门" ItemStyle-Width="120px" />
-												<asp:BoundField DataField="U_Job" HeaderText="职务" ItemStyle-Width="160px" />
-												<asp:BoundField DataField="U_Contact" HeaderText="联系方式" ItemStyle-Width="120px" />
-												<asp:CommandField HeaderText="编辑" ControlStyle-CssClass="layui-btn layui-btn-sm" ShowEditButton="true" ControlStyle-Width="60px" />
-												<asp:CommandField HeaderText="删除" ControlStyle-CssClass="layui-btn layui-btn-danger layui-btn-sm" ShowDeleteButton="true" ControlStyle-Width="60px" />
-											</Columns>
-											<HeaderStyle HorizontalAlign="Center" BackColor="#2F4056" ForeColor="White" Height="42px" />
-											<RowStyle HorizontalAlign="Center" />
-										</asp:GridView>
+						<div style="height: 72.8%; width: 72%; left: 21.5%; right: 6%; margin-top:0.5%; position: absolute;">
+							<div>
+								
+							</div>
+							<!--[删改查]员工信息-->
+							<div>
+								<div class="layui-form-item">
+									<label class="layui-form-label">用户名:</label>
+									<div class="layui-input-inline">
+										<asp:TextBox ID="tbSearchUserName" runat="server" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" CssClass="layui-input"></asp:TextBox>
 									</div>
 
-									<!--[删改查]部门/职务-->
-									<div class="layui-tab-item">
-										<div class="site-text site-block" style="position: absolute; width: 47%; height:100%; border-right-style: dashed; border-right-width:thin;">
-											<div class="layui-form-item">
-												<label class="layui-form-label">部门名称:</label>
-												<div class="layui-input-inline">
-													<asp:TextBox ID="tbAddDepartment" runat="server" required lay-verify="required" placeholder="请输入部门名称" autocomplete="off" CssClass="layui-input"></asp:TextBox>
-												</div>
-												<div align="left">
-													<asp:Button ID="btnSaveDep" runat="server" Text="新增部门" CssClass="layui-btn" OnClick="btnSaveDep_Click" />
-												</div>
-											</div>
-											<asp:GridView ID="gvDepartment" runat="server" OnRowEditing="gvDepartment_RowEditing" OnRowUpdating="gvDepartment_RowUpdating" OnRowDeleting="gvDepartment_RowDeleting" OnRowCancelingEdit="gvDepartment_RowCancelingEdit" OnPageIndexChanging="gvDepartment_PageIndexChanging" OnRowDataBound="gvDepartment_RowDataBound" AutoGenerateColumns="False" AllowPaging="true" PageSize="10" CssClass="layui-table">
-												<Columns>
-													<asp:BoundField DataField="D_DepID" HeaderText="序号" ItemStyle-Width="30px" />
-													<asp:BoundField DataField="D_DepartmentName" HeaderText="部门名称" />
-													<asp:CommandField HeaderText="编辑" ControlStyle-CssClass="layui-btn layui-btn-sm" ShowEditButton="true" ControlStyle-Width="60px" />
-													<asp:CommandField HeaderText="删除" ControlStyle-CssClass="layui-btn layui-btn-danger layui-btn-sm" ShowDeleteButton="true" ControlStyle-Width="60px" />
-												</Columns>
-												<HeaderStyle HorizontalAlign="Center" BackColor="#2F4056" ForeColor="White" Height="42px" />
-												<RowStyle HorizontalAlign="Center" />
-											</asp:GridView>
-										</div>
-										<div style="position: absolute; width: 48%; margin-right: 2%;">
-										</div>
+									<label class="layui-form-label">所属部门:</label>
+									<div class="layui-input-inline">
+										<asp:DropDownList ID="ddlSearchDepartment" runat="server" AutoPostBack="True" CssClass="ddl">
+										</asp:DropDownList>
 									</div>
 
-									<!--[删改查]公司文档/软件资源-->
-									<div class="layui-tab-item">
-										
+									<label class="layui-form-label">职务:</label>
+									<div class="layui-input-inline">
+										<asp:DropDownList ID="ddlSearchRole" runat="server" AutoPostBack="True" CssClass="ddl">
+										</asp:DropDownList>
 									</div>
-
-									<!--[新增]员工信息-->
-									<div class="layui-tab-item" style="width:72%; margin-left:15%">
-										<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%; margin-top: 12px;">
-											<label class="layui-form-label" style="text-align: right">用户名:</label>
-											<div class="layui-input-block">
-												<asp:TextBox ID="tbUserName" runat="server" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" CssClass="layui-input"></asp:TextBox>
-											</div>
-										</div>
-										<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%">
-											<label class="layui-form-label" style="text-align: right">密&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
-											<div class="layui-input-block">
-												<asp:TextBox ID="tbPassWord" runat="server" required lay-verify="required" placeholder="请输入密码" autocomplete="off" CssClass="layui-input"></asp:TextBox>
-											</div>
-										</div>
-										<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%">
-											<label class="layui-form-label" style="text-align: right">中文名:</label>
-											<div class="layui-input-block">
-												<asp:TextBox ID="tbChineseName" runat="server" required lay-verify="required" placeholder="请输入中文名" autocomplete="off" CssClass="layui-input" TextMode="SingleLine"></asp:TextBox>
-											</div>
-										</div>
-										<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%">
-											<label class="layui-form-label" style="text-align: right">权&nbsp;&nbsp;&nbsp;&nbsp;限:</label>
-											<div class="layui-input-block">
-												<input type="radio" name="role" runat="server" value="1" title="系统操作员" checked="true" />
-												<input type="radio" name="role" runat="server" value="2" title="普通用户" />
-												<%--<asp:RadioButtonList ID="rblRole" runat="server" RepeatDirection="Horizontal" Width="180px" CellPadding="4">
-													<asp:ListItem Value="1" Selected="True">系统操作员</asp:ListItem>
-													<asp:ListItem Value="2">普通用户</asp:ListItem>
-												</asp:RadioButtonList>--%>
-											</div>
-										</div>
-										<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%">
-											<label class="layui-form-label" style="text-align: right">职&nbsp;&nbsp;&nbsp;&nbsp;务:</label>
-											<div class="layui-input-block">
-												<asp:DropDownList ID="ddlJob" runat="server" AutoPostBack="True"></asp:DropDownList>
-											</div>
-										</div>
-										<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%">
-											<label class="layui-form-label" style="text-align: right">岗&nbsp;&nbsp;&nbsp;&nbsp;位:</label>
-											<div class="layui-input-block">
-												<asp:DropDownList ID="ddlDepartment" runat="server" AutoPostBack="True"></asp:DropDownList>
-											</div>
-										</div>
-										<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%">
-											<label class="layui-form-label" style="text-align: right">联系方式:</label>
-											<div class="layui-input-block">
-												<asp:TextBox ID="tbContact" runat="server" required lay-verify="required" placeholder="请输入联系方式" autocomplete="off" CssClass="layui-input" TextMode="Phone"></asp:TextBox>
-											</div>
-										</div>
-										<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%">
-											<label class="layui-form-label" style="text-align: right">入职时间:</label>
-											<div class="layui-input-block">
-												<asp:TextBox ID="tbDate" runat="server" required lay-verify="required" placeholder="请输入入职时间" autocomplete="off" CssClass="layui-input" TextMode="Date"></asp:TextBox>
-											</div>
-										</div>
-										<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%">
-											<asp:Button ID="btnSave" runat="server" Text="保存人员信息" CssClass="layui-btn" OnClick="btnSave_Click" />
-											<button type="reset" class="layui-btn">重置</button>
-										</div>
-									</div>
-
-									<!--[新增]公司文档/软件资源-->
-									<div class="layui-tab-item">
-										
-									</div>
+									<asp:Button ID="btnSearch" runat="server" Text="查询用户" CssClass="layui-btn" />
 								</div>
+								<asp:GridView ID="gvUser" runat="server" OnRowEditing="gvUser_RowEditing" OnRowUpdating="gvUser_RowUpdating" OnRowDeleting="gvUser_RowDeleting" OnRowCancelingEdit="gvUser_RowCancelingEdit" OnPageIndexChanging="gvUser_PageIndexChanging" OnRowDataBound="gvUser_RowDataBound" AutoGenerateColumns="False" AllowPaging="true" PageSize="10" CssClass="layui-table">
+									<Columns>
+										<asp:TemplateField HeaderText="序号" ItemStyle-Width="30px">
+											<ItemStyle HorizontalAlign="Center" />
+											<HeaderStyle HorizontalAlign="Center" Width="30px" />
+										</asp:TemplateField>
+										<asp:BoundField DataField="U_UserName" HeaderText="用户名" ItemStyle-Width="100px" />
+										<asp:BoundField DataField="U_ChineseName" HeaderText="姓名" ItemStyle-Width="120px" />
+										<asp:BoundField DataField="U_Department" HeaderText="部门" ItemStyle-Width="120px" />
+										<asp:BoundField DataField="U_Job" HeaderText="职务" ItemStyle-Width="160px" />
+										<asp:BoundField DataField="U_Contact" HeaderText="联系方式" ItemStyle-Width="120px" />
+										<asp:CommandField HeaderText="编辑" ControlStyle-CssClass="layui-btn layui-btn-sm" ShowEditButton="true" ControlStyle-Width="60px" />
+										<asp:CommandField HeaderText="删除" ControlStyle-CssClass="layui-btn layui-btn-danger layui-btn-sm" ShowDeleteButton="true" ControlStyle-Width="60px" />
+									</Columns>
+									<HeaderStyle HorizontalAlign="Center" BackColor="#2F4056" ForeColor="White" Height="42px" />
+									<RowStyle HorizontalAlign="Center" />
+								</asp:GridView>
 							</div>
 						</div>
 					</td>
