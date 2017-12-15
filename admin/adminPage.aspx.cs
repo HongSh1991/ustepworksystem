@@ -17,7 +17,7 @@ public partial class admin_adminPage : System.Web.UI.Page
 		{
 			string searChineseName = "select U_ChineseName from tb_UserInfo where U_UserName = '" + Session["UserName"].ToString() + "'";
 			string searDepartment = "select U_Department from tb_UserInfo where U_UserName = '" + Session["UserName"].ToString() + "'";
-			string searJob = "select U_Job from tb_UserInfo where U_UserName = '" + Session["UserName"].ToString() + "'";
+			string searJob = "select U_ProjectName from tb_UserInfo where U_UserName = '" + Session["UserName"].ToString() + "'";
 			string chineseName = DBHelper.DBHelper.ExecuteScalar(searChineseName).ToString();
 			string department = DBHelper.DBHelper.ExecuteScalar(searDepartment).ToString();
 			string job = DBHelper.DBHelper.ExecuteScalar(searJob).ToString();
@@ -98,7 +98,7 @@ public partial class admin_adminPage : System.Web.UI.Page
 		string updateRow = "update tb_UserInfo set U_UserName='"
 			+ ((TextBox)(gvUser.Rows[e.RowIndex].Cells[1].Controls[0])).Text.ToString().Trim() + "', U_ChineseName='"
 			+ ((TextBox)(gvUser.Rows[e.RowIndex].Cells[2].Controls[0])).Text.ToString().Trim() + "', U_Department='"
-			+ ((TextBox)(gvUser.Rows[e.RowIndex].Cells[3].Controls[0])).Text.ToString().Trim() + "', U_Job='"
+			+ ((TextBox)(gvUser.Rows[e.RowIndex].Cells[3].Controls[0])).Text.ToString().Trim() + "', U_ProjectName='"
 			+ ((TextBox)(gvUser.Rows[e.RowIndex].Cells[4].Controls[0])).Text.ToString().Trim() + "', U_Contact='"
 			+ ((TextBox)(gvUser.Rows[e.RowIndex].Cells[5].Controls[0])).Text.ToString().Trim() + "' where U_ID= '" + gvUser.DataKeys[e.RowIndex].Value.ToString() + "'";
 		DBHelper.DBHelper.ExectueNonQuery(updateRow);

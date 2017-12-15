@@ -30,12 +30,12 @@ public partial class login_login : System.Web.UI.Page
 				Session.Timeout = 9000;
 				string searchRole = "select U_Role from tb_UserInfo where U_UserName = '" + userName + "'";
 				int roleID = Convert.ToInt32(DBHelper.DBHelper.ExecuteScalar(searchRole).ToString());
-				if (roleID == 1)
+				if (roleID == 0)
 				{
 					Response.Redirect("../admin/adminPage.aspx?username=" + userName);
 					//Response.Write("<script>alert('登录成功！'); window.location.href='../admin/adminPage.aspx';</script>");
 				}
-				else if (roleID == 2)
+				else if (roleID == 1)
 				{
 					Response.Redirect("../common/commonPage.aspx?username=" + userName);
 					//Response.Write("<script>alert('登录成功！'); window.location.href='../common/commonPage.aspx';</script>");

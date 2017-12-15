@@ -37,18 +37,18 @@
 		}
 	</style>
 </head>
-<body style="overflow-x:hidden; overflow-y:hidden; margin:auto; height:auto; width:auto;">
+<body style="overflow-x:hidden; overflow-y:auto; margin:auto;">
 	<form id="form1" runat="server" class="layui-form layui-form-pane">
-		<div style="height:16%; width:100%;">
+		<div style="height:21%; width:100%;">
 			<uc1:adminheader ID="adminheader" runat="server" />
 		</div>
-		<div align="center" style="height:72.8%; width:100%; top:16%;">
-			<table style="width:100%; height:100%">
+		<div style="height:68%; width:100%; top:22%; position:absolute; left:5.6%; right:5.6%">
+			<table align="center" style="width:100%; height:100%">
 				<tr>
 					<td>
-						<aside style="height:72.8%; width:15%; left:6%; right:0.5%; padding-top:0.1%; position:absolute;">
+						<aside style="height:68%; width:15%; position:absolute; top:0; right:0.5%; left:0">
 							<div style="height:28%;">
-								<div align="center" style="line-height:42px; background-color:#2F4056; color:whitesmoke; padding-top:2%; font-size:12pt">
+								<div align="center" style="line-height:42px; background-color:#2F4056; color:whitesmoke; font-size:12pt">
 									用户信息
 								</div>
 								<div style=" border-style:dashed; border-width:thin; height:90%; width:96%; margin-left:2%">
@@ -75,10 +75,7 @@
 								</div>
 							</div>
 						</aside>
-						<div style="height: 72.8%; width: 72%; left: 21.5%; right: 6%; margin-top:0.5%; position: absolute;">
-							<div>
-								
-							</div>
+						<div style="height: 72.8%; width: 74.3%; margin-top:0.5%; position: absolute; left: 15.5%; right:0; top:0;">
 							<!--[删改查]员工信息-->
 							<div>
 								<div class="layui-form-item">
@@ -109,7 +106,7 @@
 										<asp:BoundField DataField="U_UserName" HeaderText="用户名" ItemStyle-Width="100px" />
 										<asp:BoundField DataField="U_ChineseName" HeaderText="姓名" ItemStyle-Width="120px" />
 										<asp:BoundField DataField="U_Department" HeaderText="部门" ItemStyle-Width="120px" />
-										<asp:BoundField DataField="U_Job" HeaderText="职务" ItemStyle-Width="160px" />
+										<asp:BoundField DataField="U_ProjectName" HeaderText="项目名称" ItemStyle-Width="160px" />
 										<asp:BoundField DataField="U_Contact" HeaderText="联系方式" ItemStyle-Width="120px" />
 										<asp:CommandField HeaderText="编辑" ControlStyle-CssClass="layui-btn layui-btn-sm" ShowEditButton="true" ControlStyle-Width="60px" />
 										<asp:CommandField HeaderText="删除" ControlStyle-CssClass="layui-btn layui-btn-danger layui-btn-sm" ShowDeleteButton="true" ControlStyle-Width="60px" />
@@ -123,7 +120,7 @@
 				</tr>
 			</table>
 		</div>
-		<div style="height:4%; width:100%; position:absolute; bottom:0; left:0; top:96%;">
+		<div style="height:8%; width:100%; position:absolute; bottom:0; left:0;">
 			<uc2:pagefooter ID="pagefooter" runat="server" />
 		</div>
 	</form>

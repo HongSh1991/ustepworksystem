@@ -10,24 +10,25 @@
 	}
 </style>
 
-<div>
-	<div style="margin-top: 0; position: absolute; top: 0px; left: 0px;">
-		<table>
+<div style="height:21%">
+	<div style="position: absolute; top: 0px; left: 0px; height:14.3%; width:100%;" class="layui-bg-blue">
+		<table style="height:100%; width:100%;">
 			<tr>
-				<td style="width: 100%;">
-					<img alt="" src="../resources/images/header.png" />
+				<td align="center" style="width: 100%; height:100%">
+					<div style="width:100%;">
+							<span style="font-size:4.2em; font-family:华文新魏; text-align:center; font-weight:600; text-shadow:3px 4px 2px #333; color:whitesmoke">禹步工单系统</span>
+					</div>
+					<%--<img alt="" src="../resources/images/header.png" />--%>
 				</td>
 			</tr>
 		</table>
 	</div>
-	<ul class="layui-nav layui-header" style="width: 100%; margin-top:135px; background-color:#2F4056; font-size:larger">
-		<li class="layui-nav-item" style="position:absolute; left:2%; top:8%; font-size:1.6em; font-family:华文新魏">
-			禹步工单系统
-		</li>
+	<ul class="layui-nav" style="width: 100%; background-color:#2F4056; font-size:larger; height:6.8%; position:absolute; left:0; top:14.3%;">
+		<li class="layui-nav-item" style="position:absolute; left:2%; top:8%; font-size:1.6em; font-family:华文新魏"></li>
 		<%--<li class="layui-nav-item" style="position:absolute; right:11.5%; top:10%; ">
 			<asp:Label ID="lbTips" runat="server" ForeColor="white" Font-Size="11.4pt"></asp:Label>
 		</li>--%>
-		<li class="layui-nav-item" style="position:absolute; right:5.5%; top:10%; margin-right:1.1%;">
+		<li class="layui-nav-item" style="position:absolute; right:7.2%; top:10%; margin-right:1.1%;">
 			<asp:LinkButton ID="lbUserManager" runat="server" Font-Size="11.4pt">信息管理</asp:LinkButton>
 			<dl class="layui-nav-child">
 				<dd>
@@ -38,7 +39,7 @@
 					<asp:LinkButton ID="lbAddMaterialAndSoft" runat="server" OnClick="lbAddMaterialAndSoft_Click">[增删改查]公司文档/软件资源</asp:LinkButton></dd>
 			</dl>
 		</li>
-		<li class="layui-nav-item" style="position:absolute; right:0.5%; top:10%;">
+		<li class="layui-nav-item" style="position:absolute; right:1.2%; top:10%;">
 			<asp:LinkButton ID="lbtnExitSystem" runat="server" Font-Size="11.5pt" CssClass="linkbutton" OnClick="lbtnExitSystem_Click">退出系统</asp:LinkButton>
 		</li>
 	</ul>

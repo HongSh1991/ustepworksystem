@@ -42,7 +42,7 @@
 			<uc1:loginheader ID="loginheader" runat="server" />
 		</div>
 		<div style="top:16%; height:84%; width:100%;">
-			<table class="tableSty" align="center" valign="middle" style="width:36%; margin-top:6%;">
+			<table class="tableSty" align="center" valign="middle" style="width:42%; margin-top:3.2%; height:64%;">
 				<tr>
 					<td style="width:100%; height:80%;">
 						<div class="layui-form-item" style="height:160px;">
@@ -61,7 +61,7 @@
 								<asp:TextBox ID="tbPassWord" TextMode="Password" runat="server" placeholder="请输入密码" required lay-verify="required" autocomplete="off" CssClass="layui-input" Width="240px" BorderColor="LightGrey" ></asp:TextBox>
 							</div>
 						</div>
-						<div class="layui-form-item" style="margin-right:14.8%">
+						<div class="layui-form-item" style="margin-right:13.6%">
 							<div class="layui-input-block">
 								<asp:Button ID="btnSubmit" runat="server" Text="登    录" CssClass="layui-btn buttonSty" Font-Size="11pt" lay-filter="formDemo" Width="350px" OnClick="btnSubmit_Click" />
 							</div>
