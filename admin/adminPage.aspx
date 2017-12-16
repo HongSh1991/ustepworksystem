@@ -42,40 +42,42 @@
 		<div style="height:21%; width:100%;">
 			<uc1:adminheader ID="adminheader" runat="server" />
 		</div>
-		<div style="height:68%; width:100%; top:22%; position:absolute; left:5.6%; right:5.6%">
+		<div style="height:68%; width:93.6%; top:21.6%; position:absolute; left:3.2%; right:3.2%">
 			<table align="center" style="width:100%; height:100%">
 				<tr>
 					<td>
-						<aside style="height:68%; width:15%; position:absolute; top:0; right:0.5%; left:0">
-							<div style="height:28%;">
-								<div align="center" style="line-height:42px; background-color:#2F4056; color:whitesmoke; font-size:12pt">
-									用户信息
+						<aside style="height:68%; width:15%; position:absolute; top:0; left:0">
+							<div style="height:28%; top:0;">
+								<div align="center" style="height:42%; background-color:#2F4056; color:whitesmoke; font-size:12pt">
+									<div style="height:11px"></div>
+									<span style="padding-top:32%">用户信息</span>
 								</div>
-								<div style=" border-style:dashed; border-width:thin; height:90%; width:96%; margin-left:2%">
-									<div class="layui-form-item" style="margin-top:3.2%; border-top-style:dashed; border-top-width:thin; border-bottom-style:dashed; border-bottom-width:thin;">
-										<label style="font-size:11pt; line-height:42px; margin-left:12%">用户名:</label>
+								<div style=" border-style:dashed; border-width:thin; height:150%; width:96%; margin-left:2%; border-style:dashed; border-width:thin;">
+									<div class="layui-form-item" style="margin-top:3.2%;">
+										<label style="font-size:11pt; line-height:42px; margin-left:12%">用&nbsp;户&nbsp;名:</label>
 										<asp:Label ID="lbChineseName" runat="server" style="font-size:11pt; margin-left:3.6%; text-decoration:underline" ></asp:Label>
 									</div>
-									<div class="layui-form-item" style="margin-top:-4%; border-top-style:dashed; border-top-width:thin; border-bottom-style:dashed; border-bottom-width:thin;">
-										<label style="font-size:11pt; line-height:42px; margin-left:12%">部&nbsp;&nbsp;&nbsp;&nbsp;门:</label>
+									<div class="layui-form-item" style="margin-top:-4%;">
+										<label style="font-size:11pt; line-height:42px; margin-left:12%">部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;门:</label>
 										<asp:Label ID="lbDepartment" runat="server" style="font-size:11pt; margin-left:8%; text-decoration:underline" ></asp:Label>
 									</div>
-									<div class="layui-form-item" style="margin-top:-4%; border-top-style:dashed; border-top-width:thin; border-bottom-style:dashed; border-bottom-width:thin;">
-										<label style="font-size:11pt; line-height:42px; margin-left:12%">职&nbsp;&nbsp;&nbsp;&nbsp;务:</label>
+									<div class="layui-form-item" style="margin-top:-4%;">
+										<label style="font-size:11pt; line-height:42px; margin-left:12%">所属项目:</label>
 										<asp:Label ID="lbJob" runat="server" style="font-size:11pt; margin-left:6%; text-decoration:underline" ></asp:Label>
 									</div>
 								</div>
 							</div>
-							<div style="height:72%;">
-								<div align="center" style="line-height: 42px; background-color: #2F4056; color: whitesmoke; padding-top:2%; font-size:12pt">
+							<div style="height:72%; padding-top:44%">
+								<div align="center" style="height: 16%; background-color: #2F4056; color: whitesmoke; padding-top:2%; font-size:12pt">
+									<div style="height:8px"></div>
 									最新工单
 								</div>
-								<div style=" border-style:dashed; border-width:thin; height:90%; width:96%; margin-left:2%">
+								<div style=" border-style:dashed; border-width:thin; height:114%; width:96%; margin-left:2%">
 									
 								</div>
 							</div>
 						</aside>
-						<div style="height: 72.8%; width: 74.3%; margin-top:0.5%; position: absolute; left: 15.5%; right:0; top:0;">
+						<div style="height: 68%; width: 84.5%; margin-top:0.5%; position: absolute; left: 15.5%; right:0; top:0;">
 							<!--[删改查]员工信息-->
 							<div>
 								<div class="layui-form-item">
