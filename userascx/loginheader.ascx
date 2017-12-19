@@ -15,7 +15,7 @@
 	</div>
 	<ul class="layui-nav layui-header" style="width: 100%; margin-top:135px; background-color:#2F4056; font-size:larger">
 		<li class="layui-nav-item" style="position:absolute; right:2%; top:11%; font-size:12pt;">
-			北京时间 <asp:Label ID="lbYear" runat="server"></asp:Label>年<asp:Label ID="lbMonth" runat="server"></asp:Label>月<asp:Label ID="lbDay" runat="server"></asp:Label>日 <asp:Label ID="lbWeekDay" runat="server"></asp:Label>
+			<%--北京时间 <asp:Label ID="lbYear" runat="server"></asp:Label>年<asp:Label ID="lbMonth" runat="server"></asp:Label>月<asp:Label ID="lbDay" runat="server"></asp:Label>日 <asp:Label ID="lbWeekDay" runat="server"></asp:Label>--%>
 		</li>
 	</ul>
 </div>

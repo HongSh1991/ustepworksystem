@@ -11,7 +11,7 @@
 </style>
 
 <div style="height:21%">
-	<div style="position: absolute; top: 0px; left: 0px; height:15%; width:100%;" class="layui-bg-blue">
+	<div style="position: absolute; top: 0px; left: 0px; height:15%; width:100%;background-color:MidnightBlue">
 		<table style="height:100%; width:100%;">
 			<tr>
 				<td align="center" style="width: 100%; height:100%">
@@ -24,19 +24,31 @@
 		</table>
 	</div>
 	<ul class="layui-nav" style="width: 100%; background-color:#2F4056; font-size:larger; height:6%; position:absolute; left:0; top:15%;">
-		<li class="layui-nav-item" style="position:absolute; right:7.2%; top:8%; margin-right:1.1%;">
-			<asp:LinkButton ID="lbUserManager" runat="server" Font-Size="11.4pt">信息管理</asp:LinkButton>
-			<dl class="layui-nav-child">
+		<li class="layui-nav-item" style="position: absolute; left: 31.8%; top: 8%; margin-right: 1.1%;">
+			<asp:LinkButton ID="lbtnUserInfoManager" runat="server" Font-Size="10pt">[删改查]员工信息</asp:LinkButton>
+		</li>
+		<li class="layui-nav-item" style="position: absolute; left: 22.2%; top: 8%; margin-right: 1.1%;">
+			<asp:LinkButton ID="lbtnProDepManager" runat="server" Font-Size="10pt">[删改查]项目名称/部门</asp:LinkButton>
+		</li>
+		<li class="layui-nav-item" style="position: absolute; left: 14.6%; top: 8%; margin-right: 1.1%;">
+			<asp:LinkButton ID="lbtnComFiles" runat="server" Font-Size="10pt">[删改查]公司文档</asp:LinkButton>
+		</li>
+		<li class="layui-nav-item" style="position: absolute; left: 6.8%; top: 8%; margin-right: 1.1%;">
+			<asp:LinkButton ID="lbtnSoftWares" runat="server" Font-Size="10pt">[删改查]软件资源</asp:LinkButton>
+		</li>
+		<li class="layui-nav-item" style="position:absolute; left:1.2%; top:8%; margin-right:1.1%;">
+			<asp:LinkButton ID="lbUserManager" runat="server" Font-Size="10pt">新增信息</asp:LinkButton>
+			<dl class="layui-nav-child" style="font-weight:600;">
 				<dd>
-					<asp:LinkButton ID="lbAddDepartmentAndPost" runat="server" OnClick="lbAddDepartmentAndPost_Click">[增删改查]部门/职务</asp:LinkButton></dd>
+					<asp:LinkButton ID="lbAddDepartmentAndPost" runat="server" OnClick="lbAddDepartmentAndPost_Click">[新增] 项目名称 / 部门</asp:LinkButton></dd>
 				<dd>
-					<asp:LinkButton ID="lbAddUserInfo" runat="server" OnClick="lbAddUserInfo_Click">[新增]员工信息</asp:LinkButton></dd>
+					<asp:LinkButton ID="lbAddUserInfo" runat="server" OnClick="lbAddUserInfo_Click">[新增] 员工信息</asp:LinkButton></dd>
 				<dd>
-					<asp:LinkButton ID="lbAddMaterialAndSoft" runat="server" OnClick="lbAddMaterialAndSoft_Click">[增删改查]公司文档/软件资源</asp:LinkButton></dd>
+					<asp:LinkButton ID="lbAddMaterialAndSoft" runat="server" OnClick="lbAddMaterialAndSoft_Click">[新增] 公司文档 / 软件资源</asp:LinkButton></dd>
 			</dl>
 		</li>
-		<li class="layui-nav-item" style="position:absolute; right:1.2%; top:8%;">
-			<asp:LinkButton ID="lbtnExitSystem" runat="server" Font-Size="11.4pt" CssClass="linkbutton" OnClick="lbtnExitSystem_Click">退出系统</asp:LinkButton>
+		<li class="layui-nav-item" style="position:absolute; left:39.2%; top:8%;">
+			<asp:LinkButton ID="lbtnExitSystem" runat="server" Font-Size="10pt" CssClass="linkbutton" OnClick="lbtnExitSystem_Click">退出系统</asp:LinkButton>
 		</li>
 	</ul>
 </div>

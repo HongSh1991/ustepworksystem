@@ -42,9 +42,26 @@ public partial class admin_adminPage : System.Web.UI.Page
 			gvUser.DataBind();
 
 			//绑定部门
+			string bindDDLDep = "select * from tb_UserInfo";
+			if(DBHelper.DBHelper.ExecuteDataTable(bindDDLDep).Rows.Count > 0)
+			{
+				ddlDepartment.DataSource = DBHelper.DBHelper.ExecuteDataTable(bindDDLDep);
+				ddlDepartment.DataTextField = "U_Department";
+				ddlDepartment.DataValueField = "U_ID";
+				ddlDepartment.DataBind();
+				ddlDepartment.Items.Insert(0, new ListItem("请选择部门名称"));
+			}
 
-			//绑定职务
-
+			//绑定项目
+			string bindDDLPro = "select * from tb_UserInfo";
+			if (DBHelper.DBHelper.ExecuteDataTable(bindDDLPro).Rows.Count > 0)
+			{
+				ddlProjectName.DataSource = DBHelper.DBHelper.ExecuteDataTable(bindDDLPro);
+				ddlProjectName.DataTextField = "U_ProjectName";
+				ddlProjectName.DataValueField = "U_ID";
+				ddlProjectName.DataBind();
+				ddlProjectName.Items.Insert(0, new ListItem("请选择项目名称"));
+			}
 		}
 	}
 
@@ -112,4 +129,11 @@ public partial class admin_adminPage : System.Web.UI.Page
 		Bind();
 	}
 	#endregion
+
+	protected void btnReset_Click(object sender, EventArgs e)
+	{
+		tbSearchUserName.Text = "";
+		ddlDepartment.SelectedIndex = 0;
+		ddlProjectName.SelectedIndex = 0;
+	}
 }

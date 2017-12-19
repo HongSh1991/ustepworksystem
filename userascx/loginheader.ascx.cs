@@ -19,26 +19,26 @@ public partial class userascx_loginheader : System.Web.UI.UserControl
 	}
 	protected void Page_Load(object sender, EventArgs e)
 	{
-		lbYear.Text = System.DateTime.Now.Year.ToString();
-		lbMonth.Text = System.DateTime.Now.Month.ToString();
-		lbDay.Text = System.DateTime.Now.Day.ToString();
-		int dayNum = Convert.ToInt32(System.DateTime.Now.DayOfWeek.GetHashCode().ToString());
-		switch(dayNum)
-		{
-			case 0: lbWeekDay.Text = WeekDays.星期日.ToString();
-				break;
-			case 1: lbWeekDay.Text = WeekDays.星期一.ToString();
-				break;
-			case 2: lbWeekDay.Text = WeekDays.星期二.ToString();
-				break;
-			case 3: lbWeekDay.Text = WeekDays.星期三.ToString();
-				break;
-			case 4: lbWeekDay.Text = WeekDays.星期四.ToString();
-				break;
-			case 5: lbWeekDay.Text = WeekDays.星期五.ToString();
-				break;
-			case 6: lbWeekDay.Text = WeekDays.星期六.ToString();
-				break;
-		}
+		//lbYear.Text = System.DateTime.Now.Year.ToString();
+		//lbMonth.Text = System.DateTime.Now.Month.ToString();
+		//lbDay.Text = System.DateTime.Now.Day.ToString();
+		//int dayNum = Convert.ToInt32(System.DateTime.Now.DayOfWeek.GetHashCode().ToString());
+		//switch(dayNum)
+		//{
+		//	case 0: lbWeekDay.Text = WeekDays.星期日.ToString();
+		//		break;
+		//	case 1: lbWeekDay.Text = WeekDays.星期一.ToString();
+		//		break;
+		//	case 2: lbWeekDay.Text = WeekDays.星期二.ToString();
+		//		break;
+		//	case 3: lbWeekDay.Text = WeekDays.星期三.ToString();
+		//		break;
+		//	case 4: lbWeekDay.Text = WeekDays.星期四.ToString();
+		//		break;
+		//	case 5: lbWeekDay.Text = WeekDays.星期五.ToString();
+		//		break;
+		//	case 6: lbWeekDay.Text = WeekDays.星期六.ToString();
+		//		break;
+		//}
 	}
 }

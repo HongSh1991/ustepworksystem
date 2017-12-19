@@ -48,31 +48,31 @@
 					<td>
 						<aside style="height:68%; width:15%; position:absolute; top:0; left:0">
 							<div style="height:28%; top:0;">
-								<div align="center" style="height:42%; background-color:#2F4056; color:whitesmoke; font-size:12pt">
-									<div style="height:11px"></div>
-									<span style="padding-top:32%">用户信息</span>
+								<div align="center" style="height:40%; background-color:#2F4056; color:whitesmoke; font-size:12pt">
+									<div style="height:9px"></div>
+									用户信息
 								</div>
-								<div style=" border-style:dashed; border-width:thin; height:150%; width:96%; margin-left:2%; border-style:dashed; border-width:thin;">
-									<div class="layui-form-item" style="margin-top:3.2%;">
-										<label style="font-size:11pt; line-height:42px; margin-left:12%">用&nbsp;户&nbsp;名:</label>
-										<asp:Label ID="lbChineseName" runat="server" style="font-size:11pt; margin-left:3.6%; text-decoration:underline" ></asp:Label>
+								<div style=" border-style:dashed; border-width:thin; height:100%; width:96%; margin-left:2%; border-style:dashed; border-width:thin; font-weight:600;">
+									<div class="layui-form-item" style="margin-top:1.2%;">
+										<label style="font-size:11pt; line-height:24px; margin-left:12%">用&nbsp;&nbsp;户&nbsp;&nbsp;名:</label>
+										<asp:Label ID="lbChineseName" runat="server" style="font-size:11pt; text-decoration:underline" ></asp:Label>
 									</div>
-									<div class="layui-form-item" style="margin-top:-4%;">
-										<label style="font-size:11pt; line-height:42px; margin-left:12%">部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;门:</label>
-										<asp:Label ID="lbDepartment" runat="server" style="font-size:11pt; margin-left:8%; text-decoration:underline" ></asp:Label>
+									<div class="layui-form-item" style="margin-top:-2%;">
+										<label style="font-size:11pt; line-height:24px; margin-left:12%">部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;门:</label>
+										<asp:Label ID="lbDepartment" runat="server" style="font-size:11pt; text-decoration:underline" ></asp:Label>
 									</div>
-									<div class="layui-form-item" style="margin-top:-4%;">
-										<label style="font-size:11pt; line-height:42px; margin-left:12%">所属项目:</label>
-										<asp:Label ID="lbJob" runat="server" style="font-size:11pt; margin-left:6%; text-decoration:underline" ></asp:Label>
+									<div class="layui-form-item" style="margin-top:-2%;">
+										<label style="font-size:11pt; line-height:24px; margin-left:12%">所属项目:</label>
+										<asp:Label ID="lbJob" runat="server" style="font-size:11pt; text-decoration:underline" ></asp:Label>
 									</div>
 								</div>
 							</div>
-							<div style="height:72%; padding-top:44%">
-								<div align="center" style="height: 16%; background-color: #2F4056; color: whitesmoke; padding-top:2%; font-size:12pt">
-									<div style="height:8px"></div>
+							<div style="height:72%; padding-top:21%">
+								<div align="center" style="height: 14%; background-color: #2F4056; color: whitesmoke; padding-top:2%; font-size:12pt">
+									<div style="height:5px"></div>
 									最新工单
 								</div>
-								<div style=" border-style:dashed; border-width:thin; height:114%; width:96%; margin-left:2%">
+								<div style=" border-style:dashed; border-width:thin; height:136%; width:96%; margin-left:2%">
 									
 								</div>
 							</div>
@@ -88,16 +88,17 @@
 
 									<label class="layui-form-label">所属部门:</label>
 									<div class="layui-input-inline">
-										<asp:DropDownList ID="ddlSearchDepartment" runat="server" AutoPostBack="True" CssClass="ddl">
+										<asp:DropDownList ID="ddlDepartment" runat="server" AutoPostBack="True" CssClass="ddl">
 										</asp:DropDownList>
 									</div>
 
-									<label class="layui-form-label">职务:</label>
+									<label class="layui-form-label">项目名称:</label>
 									<div class="layui-input-inline">
-										<asp:DropDownList ID="ddlSearchRole" runat="server" AutoPostBack="True" CssClass="ddl">
+										<asp:DropDownList ID="ddlProjectName" runat="server" AutoPostBack="True" CssClass="ddl">
 										</asp:DropDownList>
 									</div>
 									<asp:Button ID="btnSearch" runat="server" Text="查询用户" CssClass="layui-btn" />
+									<asp:Button ID="btnReset" runat="server" Text="重			置" CssClass="layui-btn" OnClick="btnReset_Click" />
 								</div>
 								<asp:GridView ID="gvUser" runat="server" OnRowEditing="gvUser_RowEditing" OnRowUpdating="gvUser_RowUpdating" OnRowDeleting="gvUser_RowDeleting" OnRowCancelingEdit="gvUser_RowCancelingEdit" OnPageIndexChanging="gvUser_PageIndexChanging" OnRowDataBound="gvUser_RowDataBound" AutoGenerateColumns="False" AllowPaging="true" PageSize="10" CssClass="layui-table">
 									<Columns>
@@ -105,11 +106,11 @@
 											<ItemStyle HorizontalAlign="Center" />
 											<HeaderStyle HorizontalAlign="Center" Width="30px" />
 										</asp:TemplateField>
-										<asp:BoundField DataField="U_UserName" HeaderText="用户名" ItemStyle-Width="100px" />
-										<asp:BoundField DataField="U_ChineseName" HeaderText="姓名" ItemStyle-Width="120px" />
-										<asp:BoundField DataField="U_Department" HeaderText="部门" ItemStyle-Width="120px" />
+										<asp:BoundField DataField="U_UserName" HeaderText="用户名" ItemStyle-Width="60px" />
+										<asp:BoundField DataField="U_ChineseName" HeaderText="姓名" ItemStyle-Width="90px" />
+										<asp:BoundField DataField="U_Department" HeaderText="部门" ItemStyle-Width="100px" />
 										<asp:BoundField DataField="U_ProjectName" HeaderText="项目名称" ItemStyle-Width="160px" />
-										<asp:BoundField DataField="U_Contact" HeaderText="联系方式" ItemStyle-Width="120px" />
+										<asp:BoundField DataField="U_Contact" HeaderText="联系方式" ItemStyle-Width="100px" />
 										<asp:CommandField HeaderText="编辑" ControlStyle-CssClass="layui-btn layui-btn-sm" ShowEditButton="true" ControlStyle-Width="60px" />
 										<asp:CommandField HeaderText="删除" ControlStyle-CssClass="layui-btn layui-btn-danger layui-btn-sm" ShowDeleteButton="true" ControlStyle-Width="60px" />
 									</Columns>
