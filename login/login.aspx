@@ -38,13 +38,13 @@
 </head>
 <body class="bodySty" style=" margin:auto; overflow-x:hidden;">
 	<form id="form1" runat="server" class="layui-form-pane">
-		<div style="height:16%; width:100%; margin-top:0px;">
+		<div style="height:21%; width:100%; margin-top:0px;">
 			<uc1:loginheader ID="loginheader" runat="server" />
 		</div>
-		<div style="top:16%; height:84%; width:100%;">
-			<table class="tableSty" align="center" valign="middle" style="width:42%; margin-top:3.2%; height:64%;">
+		<div style="margin-top:14%; height:86%; width:100%;">
+			<table class="tableSty" align="center" valign="middle" style="width:42%; margin-top:3.2%; height:86%;">
 				<tr>
-					<td style="width:100%; height:80%;">
+					<td style="width:100%; height:100%;">
 						<div class="layui-form-item" style="height:160px;">
 							<div style="height:72px;"></div>
 							<span style="font-size:3.2em; font-family:华文新魏; font-weight:900; color:#fff">禹步工单系统入口</span>
