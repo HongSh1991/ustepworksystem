@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="adminPage.aspx.cs" MaintainScrollPositionOnPostback="true" Inherits="admin_adminPage" %>
-<%@ Register Src="~/userascx/adminheader.ascx" TagName="adminheader" TagPrefix="uc1" %>
+<%@ Register Src="~/admin/EmployeeInfo.ascx" TagName="EmployeeInfo" TagPrefix="uc1" %>
 <%@ Register Src="~/userascx/pagefooter.ascx" TagName="pagefooter" TagPrefix="uc2" %>
 
 <!DOCTYPE html>
@@ -38,10 +38,10 @@
 	</style>
 </head>
 <body class="layui-layout-body">
-	<form id="form1" runat="server" class="layui-form layui-form-pane">
+	<form id="form1" runat="server" class="layui-form-pane">
 		<div class="layui-layout layui-layout-admin">
 			<div class="layui-header">
-				<div class="layui-logo" style="color:aquamarine">禹步工单系统</div>
+				<div class="layui-logo" style="color:aquamarine; font-family:华文行楷; font-size:18pt">禹步工单系统</div>
 				<!-- 头部区域（可配合layui已有的水平导航） -->
 				<ul class="layui-nav layui-layout-left">
 					<%--<li class="layui-nav-item"><a href="">控制台</a></li>
@@ -67,7 +67,7 @@
 					<li class="layui-nav-item">
 						<a href="javascript:;">
 							<img alt="" src="../resources/images/admin.jpg" class="layui-nav-img" />
-							系统管理员
+							<asp:Label ID="lbUserName" runat="server" Text=""></asp:Label>
 						</a>
 						<dl class="layui-nav-child">
 							<dd>
@@ -85,18 +85,26 @@
 				<div class="layui-side-scroll">
 					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
 					<ul class="layui-nav layui-nav-tree" lay-filter="test">
-						<li class="layui-nav-item layui-nav-itemed">
+						<li class="layui-nav-item layui-nav-itemed"><!--layui-nav-item layui-nav-itemed-->
 							<a class="" href="javascript:;">员工信息管理</a>
 							<dl class="layui-nav-child">
-								<dd><a href="javascript:;">[删改查]项目名称/部门</a></dd>
-								<dd><a href="javascript:;">[删改查]员工信息</a></dd>
+								<dd>
+									<asp:LinkButton ID="lbtnEmployeeMana" runat="server" OnClick="lbtnEmployeeMana_Click">[删改查]员工信息</asp:LinkButton>
+								</dd>
+								<dd>
+									<asp:LinkButton ID="lbtnProAndDepMana" runat="server" OnClick="lbtnProAndDepMana_Click">[删改查]项目名称/部门</asp:LinkButton>
+								</dd>
 							</dl>
 						</li>
-						<li class="layui-nav-item">
+						<li class="layui-nav-item layui-nav-itemed">
 							<a href="javascript:;">公司资源管理</a>
 							<dl class="layui-nav-child">
-								<dd><a href="javascript:;">[删改查]公司文档</a></dd>
-								<dd><a href="javascript:;">[删改查]软件资源</a></dd>
+								<dd>
+									<asp:LinkButton ID="lbtnComFilesMana" runat="server" OnClick="lbtnComFilesMana_Click">[删改查]公司文档</asp:LinkButton>
+								</dd>
+								<dd>
+									<asp:LinkButton ID="lbtnComSoftWMana" runat="server" OnClick="lbtnComSoftWMana_Click">[删改查]软件资源</asp:LinkButton>
+								</dd>
 							</dl>
 						</li>
 					</ul>
@@ -105,9 +113,19 @@
 
 			<div class="layui-body">
 				<!-- 内容主体区域 -->
-				<div style="padding: 15px;">
-
+				<!--[删改查]员工信息-->
+				<div id ="display1" runat="server" style="padding: 1.2%;display:block; text-align-last:center">
+					<uc1:EmployeeInfo ID="EmployeeInfo" runat="server" />
 				</div>
+
+				<!--[删改查]项目名称/部门-->
+				<div id ="display2" runat="server" style="padding: 1.2%;display:none; text-align-last:center"></div>
+
+				<!--[删改查]公司文档-->
+				<div id ="display3" runat="server" style="padding: 1.2%;display:none; text-align-last:center"></div>
+
+				<!--[删改查]软件资源-->
+				<div id ="display4" runat="server" style="padding: 1.2%;display:none; text-align-last:center"></div>
 			</div>
   
 			<div class="layui-footer">

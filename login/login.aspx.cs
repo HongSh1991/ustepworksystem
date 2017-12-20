@@ -9,7 +9,7 @@ public partial class login_login : System.Web.UI.Page
 {
 	protected void Page_Load(object sender, EventArgs e)
 	{
-		
+		lbTime.Text = DateTime.Now.Year.ToString();
 	}
 
 	protected void btnSubmit_Click(object sender, EventArgs e)

@@ -6,7 +6,7 @@
 	<table style="height:100%;width:100%; text-align:center;">
 		<tr>
 			<td style="height:100%; width:100%">
-				Copyright © 
+				Copyright &copy; 
 				<asp:Label ID="lbTime" runat="server" Text=""></asp:Label>
 				 ustep. All rights reserved.
 			</td>
