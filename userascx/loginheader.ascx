@@ -30,7 +30,6 @@
 					<div style="width:100%;">
 							<span style="font-size:4.2em; font-family:华文新魏; text-align:center; font-weight:600; text-shadow:3px 4px 2px #333; color:whitesmoke">禹步工单系统</span>
 					</div>
-					<%--<img alt="" src="../resources/images/header.png" />--%>
 				</td>
 			</tr>
 		</table>
@@ -38,7 +37,6 @@
 	<ul class="layui-nav" style="width: 100%; background-color:#2F4056; font-size:larger; height:6%; position:absolute; left:0; top:15%;">
 		<li class="layui-nav-item" style="position:absolute; left:2%; top:8%; font-size:12pt;">
 			<p id="showTime">北京时间：</p>
-			<%--北京时间 <asp:Label ID="lbYear" runat="server"></asp:Label>年<asp:Label ID="lbMonth" runat="server"></asp:Label>月<asp:Label ID="lbDay" runat="server"></asp:Label>日 <asp:Label ID="lbWeekDay" runat="server"></asp:Label>--%>
 		</li>
 	</ul>
 </div>

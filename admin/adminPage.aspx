@@ -37,95 +37,67 @@
 		}
 	</style>
 </head>
-<body style="overflow-x:hidden; overflow-y:auto; margin:auto;">
+<body class="layui-layout-body">
 	<form id="form1" runat="server" class="layui-form layui-form-pane">
-		<div style="height:21%; width:100%;">
-			<uc1:adminheader ID="adminheader" runat="server" />
-		</div>
-		<div style="height:68%; width:93.6%; top:21.6%; position:absolute; left:3.2%; right:3.2%">
-			<table align="center" style="width:100%; height:100%">
-				<tr>
-					<td>
-						<aside style="height:68%; width:15%; position:absolute; top:0; left:0">
-							<div style="height:28%; top:0;">
-								<div align="center" style="height:40%; background-color:#2F4056; color:whitesmoke; font-size:12pt">
-									<div style="height:9px"></div>
-									用户信息
-								</div>
-								<div style=" border-style:dashed; border-width:thin; height:100%; width:96%; margin-left:2%; border-style:dashed; border-width:thin; font-weight:600;">
-									<div class="layui-form-item" style="margin-top:1.2%;">
-										<label style="font-size:11pt; line-height:24px; margin-left:12%">用&nbsp;&nbsp;户&nbsp;&nbsp;名:</label>
-										<asp:Label ID="lbChineseName" runat="server" style="font-size:11pt; text-decoration:underline" ></asp:Label>
-									</div>
-									<div class="layui-form-item" style="margin-top:-2%;">
-										<label style="font-size:11pt; line-height:24px; margin-left:12%">部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;门:</label>
-										<asp:Label ID="lbDepartment" runat="server" style="font-size:11pt; text-decoration:underline" ></asp:Label>
-									</div>
-									<div class="layui-form-item" style="margin-top:-2%;">
-										<label style="font-size:11pt; line-height:24px; margin-left:12%">所属项目:</label>
-										<asp:Label ID="lbJob" runat="server" style="font-size:11pt; text-decoration:underline" ></asp:Label>
-									</div>
-								</div>
-							</div>
-							<div style="height:72%; padding-top:21%">
-								<div align="center" style="height: 14%; background-color: #2F4056; color: whitesmoke; padding-top:2%; font-size:12pt">
-									<div style="height:5px"></div>
-									最新工单
-								</div>
-								<div style=" border-style:dashed; border-width:thin; height:136%; width:96%; margin-left:2%">
-									
-								</div>
-							</div>
-						</aside>
-						<div style="height: 68%; width: 84.5%; margin-top:0.5%; position: absolute; left: 15.5%; right:0; top:0;">
-							<!--[删改查]员工信息-->
-							<div>
-								<div class="layui-form-item">
-									<label class="layui-form-label">用户名:</label>
-									<div class="layui-input-inline">
-										<asp:TextBox ID="tbSearchUserName" runat="server" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" CssClass="layui-input"></asp:TextBox>
-									</div>
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header">
+				<div class="layui-logo">禹步工单系统</div>
+				<!-- 头部区域（可配合layui已有的水平导航） -->
+				<ul class="layui-nav layui-layout-left">
+					<li class="layui-nav-item"><a href="">控制台</a></li>
+					<li class="layui-nav-item"><a href="">商品管理</a></li>
+					<li class="layui-nav-item"><a href="">用户</a></li>
+					<li class="layui-nav-item">
+						<a href="javascript:;">其它系统</a>
+						<dl class="layui-nav-child">
+							<dd><a href="">邮件管理</a></dd>
+							<dd><a href="">消息管理</a></dd>
+							<dd><a href="">授权管理</a></dd>
+						</dl>
+					</li>
+				</ul>
+				<ul class="layui-nav layui-layout-right">
+					<li class="layui-nav-item">
+						<a href="javascript:;">
+							<img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+							贤心
+						</a>
+						<dl class="layui-nav-child">
+							<dd><a href="">基本资料</a></dd>
+							<dd><a href="">安全设置</a></dd>
+						</dl>
+					</li>
+					<li class="layui-nav-item"><a href="">退了</a></li>
+				</ul>
+			</div>
 
-									<label class="layui-form-label">所属部门:</label>
-									<div class="layui-input-inline">
-										<asp:DropDownList ID="ddlDepartment" runat="server" AutoPostBack="True" CssClass="ddl">
-										</asp:DropDownList>
-									</div>
-
-									<label class="layui-form-label">项目名称:</label>
-									<div class="layui-input-inline">
-										<asp:DropDownList ID="ddlProjectName" runat="server" AutoPostBack="True" CssClass="ddl">
-										</asp:DropDownList>
-									</div>
-									<asp:Button ID="btnSearch" runat="server" Text="查询用户" CssClass="layui-btn" />
-									<asp:Button ID="btnReset" runat="server" Text="重			置" CssClass="layui-btn" OnClick="btnReset_Click" />
-								</div>
-								<asp:GridView ID="gvUser" runat="server" OnRowEditing="gvUser_RowEditing" OnRowUpdating="gvUser_RowUpdating" OnRowDeleting="gvUser_RowDeleting" OnRowCancelingEdit="gvUser_RowCancelingEdit" OnPageIndexChanging="gvUser_PageIndexChanging" OnRowDataBound="gvUser_RowDataBound" AutoGenerateColumns="False" AllowPaging="true" PageSize="10" CssClass="layui-table">
-									<Columns>
-										<asp:TemplateField HeaderText="序号" ItemStyle-Width="30px">
-											<ItemStyle HorizontalAlign="Center" />
-											<HeaderStyle HorizontalAlign="Center" Width="30px" />
-										</asp:TemplateField>
-										<asp:BoundField DataField="U_UserName" HeaderText="用户名" ItemStyle-Width="60px" />
-										<asp:BoundField DataField="U_ChineseName" HeaderText="姓名" ItemStyle-Width="90px" />
-										<asp:BoundField DataField="U_Department" HeaderText="部门" ItemStyle-Width="100px" />
-										<asp:BoundField DataField="U_ProjectName" HeaderText="项目名称" ItemStyle-Width="160px" />
-										<asp:BoundField DataField="U_Contact" HeaderText="联系方式" ItemStyle-Width="100px" />
-										<asp:CommandField HeaderText="编辑" ControlStyle-CssClass="layui-btn layui-btn-sm" ShowEditButton="true" ControlStyle-Width="60px" />
-										<asp:CommandField HeaderText="删除" ControlStyle-CssClass="layui-btn layui-btn-danger layui-btn-sm" ShowDeleteButton="true" ControlStyle-Width="60px" />
-									</Columns>
-									<HeaderStyle HorizontalAlign="Center" BackColor="#2F4056" ForeColor="White" Height="42px" />
-									<RowStyle HorizontalAlign="Center" />
-								</asp:GridView>
-							</div>
-						</div>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<div style="height:8%; width:100%; position:absolute; bottom:0; left:0;">
-			<uc2:pagefooter ID="pagefooter" runat="server" />
-		</div>
+			<div class="layui-side layui-bg-black">
+				<div class="layui-side-scroll">
+					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+					<ul class="layui-nav layui-nav-tree" lay-filter="test">
+						<li class="layui-nav-item layui-nav-itemed">
+							<a class="" href="javascript:;">所有商品</a>
+							<dl class="layui-nav-child">
+								<dd><a href="javascript:;">列表一</a></dd>
+								<dd><a href="javascript:;">列表二</a></dd>
+								<dd><a href="javascript:;">列表三</a></dd>
+								<dd><a href="">超链接</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">解决方案</a>
+							<dl class="layui-nav-child">
+								<dd><a href="javascript:;">列表一</a></dd>
+								<dd><a href="javascript:;">列表二</a></dd>
+								<dd><a href="">超链接</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item"><a href="">云市场</a></li>
+						<li class="layui-nav-item"><a href="">发布商品</a></li>
+					</ul>
+				</div>
+			</div>
+		
 	</form>
 
 	<script src="../layui/layui.js"></script>
