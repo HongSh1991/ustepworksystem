@@ -7,80 +7,93 @@
 <head runat="server">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<title></title>
+	<title>用户登入</title>
 	<link rel="stylesheet" href="../layui/css/layui.css" type="text/css" />
-	<link rel="stylesheet" href="../StyleSheet.css" type="text/css" />
-	<style type="text/css">
-		.bodySty {
-			background-image: url("../resources/images/bgLogin2.png");
-			background-repeat: repeat;
-		}
-
-		.tableSty {
-			border: 1px solid #696;
-			padding: 60px 0;
-			text-align: center;
-			width: 72%;
-			-webkit-border-radius: 8px;
-			-moz-border-radius: 8px;
-			border-radius: 8px;
-			-webkit-box-shadow: #666 0px 0px 10px;
-			-moz-box-shadow: #666 0px 0px 10px;
-			box-shadow: #666 0px 0px 10px;
-			background: #2F4056;
-			behavior: url(/PIE.htc);
-		}
-		.buttonSty
-		{
-			font-size:11pt;
-		}
-	</style>
+	<link rel="stylesheet" href="../layui/css/global.css" type="text/css" />
 </head>
-<body class="bodySty" style=" margin:auto; overflow-x:hidden;">
-	<form id="form1" runat="server" class="layui-form-pane">
-		<div style="height:21%; width:100%; margin-top:0px;">
-			<uc1:loginheader ID="loginheader" runat="server" />
-		</div>
-		<div style="margin-top:14%; height:86%; width:100%;">
-			<table class="tableSty" align="center" valign="middle" style="width:42%; margin-top:3.2%; height:86%;">
-				<tr>
-					<td style="width:100%; height:100%;">
-						<div class="layui-form-item" style="height:160px;">
-							<div style="height:72px;"></div>
-							<span style="font-size:3.2em; font-family:华文新魏; font-weight:900; color:#fff">禹步工单系统入口</span>
-						</div>
-						<div class="layui-form-item" style="margin-left:25%;">
-							<label class="layui-form-label" style="font-size:11pt">用户名:</label>
-							<div class="layui-input-inline">
-								<asp:TextBox ID="tbUserName" TextMode="SingleLine" runat="server" placeholder="请输入用户名" required lay-verify="required" autocomplete="off" CssClass="layui-input" Width="240px" BorderColor="LightGray" ></asp:TextBox>
-							</div>
-						</div>
-						<div class="layui-form-item" style="margin-left:25%;">
-							<label class="layui-form-label" style="font-size:11pt">密&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
-							<div class="layui-input-inline">
-								<asp:TextBox ID="tbPassWord" TextMode="Password" runat="server" placeholder="请输入密码" required lay-verify="required" autocomplete="off" CssClass="layui-input" Width="240px" BorderColor="LightGrey" ></asp:TextBox>
-							</div>
-						</div>
-						<div class="layui-form-item" style="margin-right:13.6%">
-							<div class="layui-input-block">
-								<asp:Button ID="btnSubmit" runat="server" Text="登    录" CssClass="layui-btn buttonSty" Font-Size="11pt" lay-filter="formDemo" Width="350px" OnClick="btnSubmit_Click" />
-							</div>
-						</div>
-						<div align="left" class="layui-form-item" style="margin-left:24.8%">
-							<asp:Label ID="lbAlert" runat="server" ForeColor="LightGray">Tips: 如果忘记密码，请联系管理员</asp:Label>
-						</div>
-						<%--<div class="layui-form-item">
-							<div class="layui-input-block">
-								<button type="reset" class="layui-btn" style="width:340px" >重    置</button>
-							</div>
-						</div>--%>
-						<div style="height:96px;"></div>
-					</td>
-				</tr>
-			</table>
-		</div>
-	</form>
+<body>
+	<div class="fly-header layui-bg-black">
+		<div class="layui-container">
+			<a class="fly-logo" href="/">
+				<%--<img src="../../res/images/logo.png" alt="layui">--%>
+			</a>
+			<ul class="layui-nav fly-nav layui-hide-xs">
+				<li class="layui-nav-item layui-this">
+					<%--<a href="/"><i class="iconfont icon-jiaoliu"></i>交流</a>--%>
+				</li>
+				<li class="layui-nav-item">
+					<%--<a href="../case/case.html"><i class="iconfont icon-iconmingxinganli"></i>案例</a>--%>
+				</li>
+				<li class="layui-nav-item">
+					<%--<a href="http://www.layui.com/" target="_blank"><i class="iconfont icon-ui"></i>框架</a>--%>
+				</li>
+			</ul>
 
+			<ul class="layui-nav fly-nav-user">
+				<!-- 未登入的状态 -->
+				<li class="layui-nav-item">
+					<a class="iconfont icon-touxiang layui-hide-xs" href="user/login.html"></a>
+				</li>
+				<li class="layui-nav-item">
+					<a href="user/login.html">登入</a>
+				</li>
+				<li class="layui-nav-item">
+					<a href="user/reg.html">注册</a>
+				</li>
+				<li class="layui-nav-item layui-hide-xs">
+					<a href="/app/qq/" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" title="QQ登入" class="iconfont icon-qq"></a>
+				</li>
+				<li class="layui-nav-item layui-hide-xs">
+					<a href="/app/weibo/" onclick="layer.msg('正在通过微博登入', {icon:16, shade: 0.1, time:0})" title="微博登入" class="iconfont icon-weibo"></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="layui-container fly-marginTop">
+		<div class="fly-panel fly-panel-user" pad20>
+			<div class="layui-tab layui-tab-brief" lay-filter="user">
+				<ul class="layui-tab-title">
+					<li class="layui-this">登入</li>
+				</ul>
+				<div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
+					<div class="layui-tab-item layui-show">
+						<div class="layui-form layui-form-pane">
+							<form id="form1" runat="server">
+								<div class="layui-form-item">
+									<label class="layui-form-label" style="font-size: 11pt">用户名:</label>
+									<div class="layui-input-inline">
+										<asp:TextBox ID="tbUserName" TextMode="SingleLine" runat="server" placeholder="请输入用户名" required lay-verify="required" autocomplete="off" CssClass="layui-input" Width="240px" BorderColor="LightGray"></asp:TextBox>
+									</div>
+								</div>
+								<div class="layui-form-item">
+									<label class="layui-form-label" style="font-size: 11pt">密&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
+									<div class="layui-input-inline">
+										<asp:TextBox ID="tbPassWord" TextMode="Password" runat="server" placeholder="请输入密码" required lay-verify="required" autocomplete="off" CssClass="layui-input" Width="240px" BorderColor="LightGrey"></asp:TextBox>
+									</div>
+								</div>
+								<div class="layui-input-block">
+									<asp:Button ID="btnSubmit" runat="server" Text="登    录" CssClass="layui-btn buttonSty" Font-Size="11pt" lay-filter="formDemo" Width="350px" OnClick="btnSubmit_Click" />
+								</div>
+								<div align="left" class="layui-form-item" style="margin-left: 24.8%">
+									<asp:Label ID="lbAlert" runat="server" ForeColor="LightGray">Tips: 如果忘记密码，请联系管理员</asp:Label>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="fly-footer">
+		<p><a href="http://fly.layui.com/" target="_blank">Fly社区</a> 2017 &copy; <a href="http://www.layui.com/" target="_blank">layui.com 出品</a></p>
+		<p>
+			<a href="http://fly.layui.com/jie/3147/" target="_blank">付费计划</a>
+			<a href="http://www.layui.com/template/fly/" target="_blank">获取Fly社区模版</a>
+			<a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
+		</p>
+	</div>
 	<script src="layui/layui.js"></script>
 	<script>
 		//JavaScript代码区域
@@ -95,6 +108,8 @@
 				return false;
 			});
 		});
+
+		layui.cache.page = 'user';
 	</script>
 </body>
 </html>

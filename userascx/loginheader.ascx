@@ -35,7 +35,7 @@
 		</table>
 	</div>
 	<ul class="layui-nav" style="width: 100%; background-color:#2F4056; font-size:larger; height:6%; position:absolute; left:0; top:15%;">
-		<li class="layui-nav-item" style="position:absolute; left:2%; top:8%; font-size:12pt;">
+		<li class="layui-nav-item" style="position:absolute; left:2%; font-size:12pt;">
 			<p id="showTime">北京时间：</p>
 		</li>
 	</ul>

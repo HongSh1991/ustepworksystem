@@ -29,4 +29,11 @@ public partial class admin_adminPage : System.Web.UI.Page
 		//}
 		#endregion
 	}
+
+	protected void lbtnExitSystem_Click(object sender, EventArgs e)
+	{
+		Session.Clear();
+		Session.Abandon();
+		this.Response.Redirect("../login/login.aspx"); // 退出并跳转到登录页
+	}
 }

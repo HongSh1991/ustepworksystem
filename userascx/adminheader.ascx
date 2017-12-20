@@ -48,7 +48,7 @@
 			</dl>
 		</li>
 		<li class="layui-nav-item" style="position:absolute; left:39.2%; top:8%;">
-			<asp:LinkButton ID="lbtnExitSystem" runat="server" Font-Size="10pt" CssClass="linkbutton" OnClick="lbtnExitSystem_Click">退出系统</asp:LinkButton>
+			
 		</li>
 	</ul>
 </div>
