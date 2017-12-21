@@ -33,38 +33,39 @@
 			border-bottom: Gainsboro 1px solid;
 		}
 	</style>
+	<base id="baseB" runat="server" target="_self"/>
 </head>
 <body>
-	<form id="form1" runat="server" class="layui-form layui-form-pane">
+	<form id="form1" runat="server" class="layui-form-pane">
 		<div class="site-text site-block">
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%; margin-top: 12px;">
 				<label class="layui-form-label" style="text-align: right">用户名:</label>
 				<div class="layui-input-block">
-					<asp:TextBox ID="tbUserName" runat="server" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" CssClass="layui-input"></asp:TextBox>
+					<asp:TextBox ID="tbUserName" runat="server" placeholder="请输入用户名" autocomplete="off" CssClass="layui-input"></asp:TextBox>
 				</div>
 			</div>
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%">
 				<label class="layui-form-label" style="text-align: right">中文名:</label>
 				<div class="layui-input-block">
-					<asp:TextBox ID="tbChineseName" runat="server" required lay-verify="required" placeholder="请输入中文名" autocomplete="off" CssClass="layui-input" TextMode="SingleLine"></asp:TextBox>
+					<asp:TextBox ID="tbChineseName" runat="server" placeholder="请输入中文名" autocomplete="off" CssClass="layui-input" TextMode="SingleLine"></asp:TextBox>
 				</div>
 			</div>
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%">
 				<label class="layui-form-label" style="text-align: right">部门名称:</label>
 				<div class="layui-input-block">
-					<asp:DropDownList ID="ddlDepName" runat="server" AutoPostBack="True"></asp:DropDownList>
+					<asp:TextBox ID="tbDepName" runat="server" placeholder="请输入部门名称" autocomplete="off" CssClass="layui-input" TextMode="SingleLine"></asp:TextBox>
 				</div>
 			</div>
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%">
 				<label class="layui-form-label" style="text-align: right">项目名称:</label>
 				<div class="layui-input-block">
-					<asp:DropDownList ID="ddlProjName" runat="server" AutoPostBack="True"></asp:DropDownList>
+					<asp:TextBox ID="tbProjName" runat="server" placeholder="请输入项目名称" autocomplete="off" CssClass="layui-input" TextMode="SingleLine"></asp:TextBox>
 				</div>
 			</div>
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%">
 				<label class="layui-form-label" style="text-align: right">联系方式:</label>
 				<div class="layui-input-block">
-					<asp:TextBox ID="tbContact" runat="server" required lay-verify="required" placeholder="请输入联系方式" autocomplete="off" CssClass="layui-input" TextMode="Phone"></asp:TextBox>
+					<asp:TextBox ID="tbContact" runat="server" placeholder="请输入联系方式" autocomplete="off" CssClass="layui-input" TextMode="Phone"></asp:TextBox>
 				</div>
 			</div>
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%">

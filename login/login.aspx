@@ -8,7 +8,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<title>用户登入</title>
-	<link rel="stylesheet" href="../layui/css/layui.css" type="text/css" />
+	<%--<link rel="stylesheet" href="../layui/css/layui.css" type="text/css" />--%>
 	<link rel="stylesheet" href="../res/layui/css/layui.css" type="text/css" />
 	<link rel="stylesheet" href="../res/css/global.css" type="text/css" />
 </head>
@@ -80,8 +80,7 @@
 	<script>
 		//JavaScript代码区域
 		layui.use(['layer', 'form', 'element'], function () {
-			var layer = layui.layer,
-				form = layui.form,
+			var form = layui.form,
 				element = layui.element;
 
 			//监听提交

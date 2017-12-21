@@ -26,13 +26,13 @@
 
 		<label class="layui-form-label">所属部门:</label>
 		<div class="layui-input-inline">
-			<asp:DropDownList ID="ddlDepartment" runat="server" AutoPostBack="True" CssClass="ddl" OnSelectedIndexChanged="ddlDepartment_SelectedIndexChanged" ForeColor="Gray">
+			<asp:DropDownList ID="ddlDepartment" runat="server" AutoPostBack="True" ForeColor="Gray">
 			</asp:DropDownList>
 		</div>
 
 		<label class="layui-form-label">项目名称:</label>
 		<div class="layui-input-inline">
-			<asp:DropDownList ID="ddlProjectName" runat="server" AutoPostBack="True" CssClass="ddl" OnSelectedIndexChanged="ddlProjectName_SelectedIndexChanged" ForeColor="Gray">
+			<asp:DropDownList ID="ddlProjectName" runat="server" AutoPostBack="True" ForeColor="Gray">
 			</asp:DropDownList>
 		</div>
 

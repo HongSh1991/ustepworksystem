@@ -26,23 +26,23 @@ public partial class admin_EmployeeInfo : System.Web.UI.UserControl
 			gvUser.DataBind();
 
 			//绑定部门
-			string bindDDLDep = "select * from tb_UserInfo";
+			string bindDDLDep = "select distinct U_Department from tb_UserInfo";
 			if (DBHelper.DBHelper.ExecuteDataTable(bindDDLDep).Rows.Count > 0)
 			{
 				ddlDepartment.DataSource = DBHelper.DBHelper.ExecuteDataTable(bindDDLDep);
 				ddlDepartment.DataTextField = "U_Department";
-				ddlDepartment.DataValueField = "U_ID";
+				//ddlDepartment.DataValueField = "U_ID";
 				ddlDepartment.DataBind();
 				ddlDepartment.Items.Insert(0, new ListItem("----请选择部门名称----"));
 			}
 
 			//绑定项目
-			string bindDDLPro = "select * from tb_UserInfo";
+			string bindDDLPro = "select distinct U_ProjectName from tb_UserInfo";
 			if (DBHelper.DBHelper.ExecuteDataTable(bindDDLPro).Rows.Count > 0)
 			{
 				ddlProjectName.DataSource = DBHelper.DBHelper.ExecuteDataTable(bindDDLPro);
 				ddlProjectName.DataTextField = "U_ProjectName";
-				ddlProjectName.DataValueField = "U_ID";
+				//ddlProjectName.DataValueField = "U_ID";
 				ddlProjectName.DataBind();
 				ddlProjectName.Items.Insert(0, new ListItem("----请选择项目名称----"));
 			}
@@ -192,7 +192,7 @@ public partial class admin_EmployeeInfo : System.Web.UI.UserControl
 		}
 		else if(cmd == "Ed")
 		{
-			Response.Write("<script>window.open</script>");
+			Response.Write("<script>window.open('modifyUserInfo.aspx?username=" + e.CommandArgument + "','','width=460,height=420,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((1920-720)/2, (1080-640)/2);</script>");
 		}
 	}
 }
