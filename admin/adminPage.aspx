@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="adminPage.aspx.cs" MaintainScrollPositionOnPostback="true" Inherits="admin_adminPage" %>
 <%@ Register Src="~/admin/EmployeeInfo.ascx" TagName="EmployeeInfo" TagPrefix="uc1" %>
 <%@ Register Src="~/userascx/pagefooter.ascx" TagName="pagefooter" TagPrefix="uc2" %>
+<%@ Register Src="~/admin/Department.ascx" TagName="Department" TagPrefix="uc3" %>
 
 <!DOCTYPE html>
 
@@ -49,16 +50,27 @@
 					<li class="layui-nav-item"><a href="">用户</a></li>--%>
 					<li class="layui-nav-item">
 						<a href="javascript:;">新增员工信息</a>
-						<dl class="layui-nav-child" style="font-weight: 600;">
-							<dd><a href="">[ 新增 ] 部门&&项目名称</a></dd>
-							<dd><a href="">[ 新增 ] 员工信息</a></dd>
+						<dl class="layui-nav-child" style="font-weight: 600; font-size:11pt">
+							<dd>
+								<asp:LinkButton ID="lbtnAddProjectName" runat="server" OnClick="lbtnAddProjectName_Click">[ 新增 ] 项目名称</asp:LinkButton>
+							</dd>
+							<dd>
+								<asp:LinkButton ID="lbtnAddDepName" runat="server" OnClick="lbtnAddDepName_Click">[ 新增 ] 部门名称</asp:LinkButton>
+							</dd>
+							<dd>
+								<asp:LinkButton ID="lbtnAddEmpoyee" runat="server" OnClick="lbtnAddEmpoyee_Click">[ 新增 ] 员工信息</asp:LinkButton>
+							</dd>
 						</dl>
 					</li>
 					<li class="layui-nav-item">
 						<a href="javascript:;">新增公司资源</a>
 						<dl class="layui-nav-child" style="font-weight: 600;">
-							<dd><a href="">[ 新增 ] 公司文档</a></dd>
-							<dd><a href="">[ 新增 ] 软件资源</a></dd>
+							<dd>
+								<asp:LinkButton ID="lbtnAddComFiles" runat="server" OnClick="lbtnAddComFiles_Click">[ 新增 ] 公司文档</asp:LinkButton>
+							</dd>
+							<dd>
+								<asp:LinkButton ID="lbtnAddComSofts" runat="server" OnClick="lbtnAddComSofts_Click">[ 新增 ] 软件资源</asp:LinkButton>
+							</dd>
 						</dl>
 					</li>
 				</ul>
@@ -91,7 +103,10 @@
 									<asp:LinkButton ID="lbtnEmployeeMana" runat="server" OnClick="lbtnEmployeeMana_Click">[删改查]员工信息</asp:LinkButton>
 								</dd>
 								<dd>
-									<asp:LinkButton ID="lbtnProAndDepMana" runat="server" OnClick="lbtnProAndDepMana_Click">[删改查]部门名称/项目</asp:LinkButton>
+									<asp:LinkButton ID="lbtnProMana" runat="server" OnClick="lbtnProMana_Click">[删改查]项目名称</asp:LinkButton>
+								</dd>
+								<dd>
+									<asp:LinkButton ID="lbtnDepMana" runat="server" OnClick="lbtnDepMana_Click">[删改查]部门名称</asp:LinkButton>
 								</dd>
 							</dl>
 						</li>
@@ -117,14 +132,25 @@
 					<uc1:EmployeeInfo ID="EmployeeInfo" runat="server" />
 				</div>
 
-				<!--[删改查]项目名称/部门-->
-				<div id ="display2" runat="server" style="padding: 1.2%;display:none; text-align-last:center"></div>
+				<!--[删改查]项目名称-->
+				<div id ="display2" runat="server" style="padding: 1.2%;display:none; text-align-last:center">
+
+				</div>
+
+				<!--[删改查]部门名称-->
+				<div id ="display3" runat="server" style="padding: 1.2%;display:none; text-align-last:center">
+					<uc3:Department ID="Department" runat="server" />
+				</div>
 
 				<!--[删改查]公司文档-->
-				<div id ="display3" runat="server" style="padding: 1.2%;display:none; text-align-last:center"></div>
+				<div id ="display4" runat="server" style="padding: 1.2%;display:none; text-align-last:center">
+
+				</div>
 
 				<!--[删改查]软件资源-->
-				<div id ="display4" runat="server" style="padding: 1.2%;display:none; text-align-last:center"></div>
+				<div id ="display5" runat="server" style="padding: 1.2%;display:none; text-align-last:center">
+
+				</div>
 			</div>
   
 			<div class="layui-footer" style="color:gray; ">

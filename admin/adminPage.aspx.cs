@@ -36,6 +36,7 @@ public partial class admin_adminPage : System.Web.UI.Page
 		this.Response.Redirect("../login/login.aspx"); // 退出并跳转到登录页
 	}
 
+	#region 后台页面显示管理
 	protected void lbtnEmployeeMana_Click(object sender, EventArgs e)
 	{
 		display1.Visible = true;
@@ -44,20 +45,34 @@ public partial class admin_adminPage : System.Web.UI.Page
 		display4.Visible = false;
 	}
 
-	protected void lbtnProAndDepMana_Click(object sender, EventArgs e)
+	protected void lbtnProMana_Click(object sender, EventArgs e)
 	{
 		display1.Visible = false;
 		display2.Visible = true;
+		display2.Attributes.Add("style", "display:block");
 		display3.Visible = false;
 		display4.Visible = false;
+		display5.Visible = false;
+	}
+
+	protected void lbtnDepMana_Click(object sender, EventArgs e)
+	{
+		display1.Visible = false;
+		display2.Visible = false;
+		display3.Visible = true;
+		display3.Attributes.Add("style", "padding:1.2%;display:block;text-align-last:center;");
+		display4.Visible = false;
+		display5.Visible = false;
 	}
 
 	protected void lbtnComFilesMana_Click(object sender, EventArgs e)
 	{
 		display1.Visible = false;
 		display2.Visible = false;
-		display3.Visible = true;
-		display4.Visible = false;
+		display3.Visible = false;
+		display4.Visible = true;
+		display4.Attributes.Add("style", "display:block");
+		display5.Visible = false;
 	}
 
 	protected void lbtnComSoftWMana_Click(object sender, EventArgs e)
@@ -65,6 +80,34 @@ public partial class admin_adminPage : System.Web.UI.Page
 		display1.Visible = false;
 		display2.Visible = false;
 		display3.Visible = false;
-		display4.Visible = true;
+		display4.Visible = false;
+		display5.Visible = true;
+		display5.Attributes.Add("style", "display:block");
+	}
+	#endregion
+
+	protected void lbtnAddProjectName_Click(object sender, EventArgs e)
+	{
+		Response.Write("<script>window.open('addProjectName.aspx','','width=460,height=120,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((1920-660)/2, (1080-500)/2);</script>");
+	}
+
+	protected void lbtnAddDepName_Click(object sender, EventArgs e)
+	{
+		Response.Write("<script>window.open('addDep.aspx','','width=460,height=200,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((1920-660)/2, (1080-500)/2);</script>");
+	}
+
+	protected void lbtnAddEmpoyee_Click(object sender, EventArgs e)
+	{
+		Response.Write("<script>window.open('addEmployeeInfo.aspx','','width=460,height=520,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((1920-800)/2, (1080-820)/2);</script>");
+	}
+
+	protected void lbtnAddComFiles_Click(object sender, EventArgs e)
+	{
+
+	}
+
+	protected void lbtnAddComSofts_Click(object sender, EventArgs e)
+	{
+
 	}
 }

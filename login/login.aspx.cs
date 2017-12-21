@@ -29,13 +29,13 @@ public partial class login_login : System.Web.UI.Page
 				Session["UserName"] = userName;
 				Session.Timeout = 9000;
 				string searchRole = "select U_Role from tb_UserInfo where U_UserName = '" + userName + "'";
-				int roleID = Convert.ToInt32(DBHelper.DBHelper.ExecuteScalar(searchRole).ToString());
-				if (roleID == 0)
+				string role = DBHelper.DBHelper.ExecuteScalar(searchRole).ToString();
+				if (role == "系统管理员")
 				{
 					Response.Redirect("../admin/adminPage.aspx?username=" + userName);
 					//Response.Write("<script>alert('登录成功！'); window.location.href='../admin/adminPage.aspx';</script>");
 				}
-				else if (roleID == 1)
+				else if (role == "普通员工")
 				{
 					Response.Redirect("../common/commonPage.aspx?username=" + userName);
 					//Response.Write("<script>alert('登录成功！'); window.location.href='../common/commonPage.aspx';</script>");
