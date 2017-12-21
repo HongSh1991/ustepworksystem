@@ -183,6 +183,16 @@ public partial class admin_EmployeeInfo : System.Web.UI.UserControl
 	protected void gvUser_RowCommand(object sender, GridViewCommandEventArgs e)
 	{
 		string cmd = e.CommandName;
-		int id = Convert.ToInt32(e.CommandArgument);
+
+		if(cmd == "De")
+		{
+			string deleteRow = "delete from tb_UserInfo where U_UserName='" + e.CommandArgument + "'";
+			DBHelper.DBHelper.ExectueNonQuery(deleteRow);
+			Bind();
+		}
+		else if(cmd == "Ed")
+		{
+			Response.Write("<script>window.open</script>");
+		}
 	}
 }

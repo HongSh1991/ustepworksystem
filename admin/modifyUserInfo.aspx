@@ -68,7 +68,7 @@
 				</div>
 			</div>
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%">
-				<asp:Button ID="btnSave" runat="server" Text="确认修改" CssClass="layui-btn" OnClick="btnSave_Click" />
+				<asp:Button ID="btnUpdate" runat="server" Text="确认修改" CssClass="layui-btn" OnClick="btnUpdate_Click" />
 			</div>
 		</div>
 	</form>

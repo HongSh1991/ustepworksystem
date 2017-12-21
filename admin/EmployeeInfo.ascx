@@ -41,7 +41,7 @@
 			<asp:Button ID="btnReset" runat="server" Text="重			置" CssClass="layui-btn" OnClick="btnReset_Click" />
 		</div>
 	</div>
-	<asp:GridView ID="gvUser" runat="server" OnRowEditing="gvUser_RowEditing" OnRowUpdating="gvUser_RowUpdating" OnRowDeleting="gvUser_RowDeleting" OnRowCancelingEdit="gvUser_RowCancelingEdit" OnPageIndexChanging="gvUser_PageIndexChanging" OnRowDataBound="gvUser_RowDataBound" OnRowCommand="gvUser_RowCommand" AutoGenerateColumns="False" AllowPaging="true" PageSize="10" CssClass="layui-table">
+	<asp:GridView ID="gvUser" runat="server" OnPageIndexChanging="gvUser_PageIndexChanging" OnRowDataBound="gvUser_RowDataBound" OnRowCommand="gvUser_RowCommand" AutoGenerateColumns="False" AllowPaging="true" PageSize="10" CssClass="layui-table">
 		<Columns>
 			<asp:TemplateField HeaderText="序号" ItemStyle-Width="4.6%">
 				<ItemStyle HorizontalAlign="Center" />
@@ -54,14 +54,14 @@
 			<asp:BoundField DataField="U_Contact" HeaderText="联系方式" ItemStyle-Width="12%" HeaderStyle-HorizontalAlign="Center" />
 			<asp:TemplateField HeaderText="编辑" ItemStyle-Width="4.6%">
 				<ItemTemplate>
-					<asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/resources/images/edit.png" Height="31" Width="31" CommandName="Ed" CommandArgument='<%#Eval("U_UserName") %>'></asp:ImageButton>
+					<asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/resources/images/edit2.png" Height="21" Width="21" CommandName="Ed" CommandArgument='<%#Eval("U_UserName") %>'></asp:ImageButton>
 				</ItemTemplate>
 				<ItemStyle HorizontalAlign="Center" />
 				<HeaderStyle HorizontalAlign="Center" Width="4.6%" />
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="删除" ItemStyle-Width="4.6%">
 				<ItemTemplate>
-					<asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/resources/images/delete.png" Height="31" Width="31" CommandName="De" CommandArgument='<%#Eval("U_UserName") %>'></asp:ImageButton>
+					<asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/resources/images/delete1.png" Height="21" Width="21" CommandName="De" CommandArgument='<%#Eval("U_UserName") %>'></asp:ImageButton>
 				</ItemTemplate>
 				<ItemStyle HorizontalAlign="Center" />
 				<HeaderStyle HorizontalAlign="Center" Width="4.6%" />
