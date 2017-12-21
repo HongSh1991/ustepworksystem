@@ -66,46 +66,51 @@ public partial class admin_EmployeeInfo : System.Web.UI.UserControl
 		{
 			if (e.Row.RowState == DataControlRowState.Normal || e.Row.RowState == DataControlRowState.Alternate)
 			{
-				((LinkButton)e.Row.Cells[7].Controls[0]).Attributes.Add("onclick", "javascript:return confirm('你确认要删除：\"" + e.Row.Cells[1].Text + "\"吗?')");
+				ImageButton imgbtn = (ImageButton) e.Row.FindControl("ImageButton2");
+				imgbtn.Attributes.Add("onclick", "javascript:return confirm('你确认要删除：\"" + e.Row.Cells[1].Text + "\"吗?')");
+				//((LinkButton) e.Row.Cells[7].Controls[0]).Attributes.Add("onclick", "javascript:return confirm('你确认要删除：\"" + e.Row.Cells[1].Text + "\"吗?')");
 			}
 		}
 	}
-	protected void gvUser_RowEditing(object sender, GridViewEditEventArgs e)
-	{
-		gvUser.EditIndex = e.NewEditIndex;
-		Bind();
-	}
 
-	protected void gvUser_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-	{
-		gvUser.EditIndex = -1;
-		Bind();
-	}
+	#region 编辑/删除
+	//protected void gvUser_RowEditing(object sender, GridViewEditEventArgs e)
+	//{
+	//	gvUser.EditIndex = e.NewEditIndex;
+	//	Bind();
+	//}
 
-	protected void gvUser_RowDeleting(object sender, GridViewDeleteEventArgs e)
-	{
-		string deleteRow = "delete from tb_UserInfo where U_ID='" + gvUser.DataKeys[e.RowIndex].Value.ToString() + "'";
-		DBHelper.DBHelper.ExectueNonQuery(deleteRow);
-		Bind();
-	}
+	//protected void gvUser_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+	//{
+	//	gvUser.EditIndex = -1;
+	//	Bind();
+	//}
 
-	/// <summary>
-	/// GridView自带的更新要注意、细心
-	/// </summary>
-	/// <param name="sender"></param>
-	/// <param name="e"></param>
-	protected void gvUser_RowUpdating(object sender, GridViewUpdateEventArgs e)
-	{
-		string updateRow = "update tb_UserInfo set U_UserName='"
-			+ ((TextBox)(gvUser.Rows[e.RowIndex].Cells[1].Controls[0])).Text.ToString().Trim() + "', U_ChineseName='"
-			+ ((TextBox)(gvUser.Rows[e.RowIndex].Cells[2].Controls[0])).Text.ToString().Trim() + "', U_Department='"
-			+ ((TextBox)(gvUser.Rows[e.RowIndex].Cells[3].Controls[0])).Text.ToString().Trim() + "', U_ProjectName='"
-			+ ((TextBox)(gvUser.Rows[e.RowIndex].Cells[4].Controls[0])).Text.ToString().Trim() + "', U_Contact='"
-			+ ((TextBox)(gvUser.Rows[e.RowIndex].Cells[5].Controls[0])).Text.ToString().Trim() + "' where U_ID= '" + gvUser.DataKeys[e.RowIndex].Value.ToString() + "'";
-		DBHelper.DBHelper.ExectueNonQuery(updateRow);
-		gvUser.EditIndex = -1;
-		Bind();
-	}
+	//protected void gvUser_RowDeleting(object sender, GridViewDeleteEventArgs e)
+	//{
+	//	string deleteRow = "delete from tb_UserInfo where U_ID='" + gvUser.DataKeys[e.RowIndex].Value.ToString() + "'";
+	//	DBHelper.DBHelper.ExectueNonQuery(deleteRow);
+	//	Bind();
+	//}
+
+	///// <summary>
+	///// GridView自带的更新要注意、细心
+	///// </summary>
+	///// <param name="sender"></param>
+	///// <param name="e"></param>
+	//protected void gvUser_RowUpdating(object sender, GridViewUpdateEventArgs e)
+	//{
+	//	string updateRow = "update tb_UserInfo set U_UserName='"
+	//		+ ((TextBox)(gvUser.Rows[e.RowIndex].Cells[1].Controls[0])).Text.ToString().Trim() + "', U_ChineseName='"
+	//		+ ((TextBox)(gvUser.Rows[e.RowIndex].Cells[2].Controls[0])).Text.ToString().Trim() + "', U_Department='"
+	//		+ ((TextBox)(gvUser.Rows[e.RowIndex].Cells[3].Controls[0])).Text.ToString().Trim() + "', U_ProjectName='"
+	//		+ ((TextBox)(gvUser.Rows[e.RowIndex].Cells[4].Controls[0])).Text.ToString().Trim() + "', U_Contact='"
+	//		+ ((TextBox)(gvUser.Rows[e.RowIndex].Cells[5].Controls[0])).Text.ToString().Trim() + "' where U_ID= '" + gvUser.DataKeys[e.RowIndex].Value.ToString() + "'";
+	//	DBHelper.DBHelper.ExectueNonQuery(updateRow);
+	//	gvUser.EditIndex = -1;
+	//	Bind();
+	//}
+	#endregion
 
 	protected void gvUser_PageIndexChanging(object sender, GridViewPageEventArgs e)
 	{
@@ -173,5 +178,11 @@ public partial class admin_EmployeeInfo : System.Web.UI.UserControl
 		{
 			Response.Write("<script>alert('没有该项目对应的员工！！！');</script>");
 		}
+	}
+
+	protected void gvUser_RowCommand(object sender, GridViewCommandEventArgs e)
+	{
+		string cmd = e.CommandName;
+		int id = Convert.ToInt32(e.CommandArgument);
 	}
 }

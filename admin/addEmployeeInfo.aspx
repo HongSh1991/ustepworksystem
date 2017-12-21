@@ -58,8 +58,8 @@
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%">
 				<label class="layui-form-label" style="text-align: right">权&nbsp;&nbsp;&nbsp;&nbsp;限:</label>
 				<div class="layui-input-block">
-					<input type="radio" name="role" runat="server" value="1" title="系统操作员" checked="true" />
-					<input type="radio" name="role" runat="server" value="2" title="普通用户" />
+					<input type="radio" name="role" runat="server" value="0" title="系统操作员" checked="true" />
+					<input type="radio" name="role" runat="server" value="1" title="普通用户" />
 					<%--<asp:RadioButtonList ID="rblRole" runat="server" RepeatDirection="Horizontal" Width="180px" CellPadding="4">
 													<asp:ListItem Value="1" Selected="True">系统操作员</asp:ListItem>
 													<asp:ListItem Value="2">普通用户</asp:ListItem>
@@ -67,15 +67,15 @@
 				</div>
 			</div>
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%">
-				<label class="layui-form-label" style="text-align: right">职&nbsp;&nbsp;&nbsp;&nbsp;务:</label>
+				<label class="layui-form-label" style="text-align: right">部门名称:</label>
 				<div class="layui-input-block">
-					<asp:DropDownList ID="ddlJob" runat="server" AutoPostBack="True"></asp:DropDownList>
+					<asp:DropDownList ID="ddlDepName" runat="server" AutoPostBack="True"></asp:DropDownList>
 				</div>
 			</div>
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%">
-				<label class="layui-form-label" style="text-align: right">岗&nbsp;&nbsp;&nbsp;&nbsp;位:</label>
+				<label class="layui-form-label" style="text-align: right">项目名称:</label>
 				<div class="layui-input-block">
-					<asp:DropDownList ID="ddlDepartment" runat="server" AutoPostBack="True"></asp:DropDownList>
+					<asp:DropDownList ID="ddlProjName" runat="server" AutoPostBack="True"></asp:DropDownList>
 				</div>
 			</div>
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%">

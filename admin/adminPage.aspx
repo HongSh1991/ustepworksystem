@@ -92,7 +92,7 @@
 									<asp:LinkButton ID="lbtnEmployeeMana" runat="server" OnClick="lbtnEmployeeMana_Click">[删改查]员工信息</asp:LinkButton>
 								</dd>
 								<dd>
-									<asp:LinkButton ID="lbtnProAndDepMana" runat="server" OnClick="lbtnProAndDepMana_Click">[删改查]项目名称/部门</asp:LinkButton>
+									<asp:LinkButton ID="lbtnProAndDepMana" runat="server" OnClick="lbtnProAndDepMana_Click">[删改查]部门名称/项目</asp:LinkButton>
 								</dd>
 							</dl>
 						</li>
