@@ -21,7 +21,7 @@
 	<div class="layui-form-item">
 		<label class="layui-form-label">部门名称:</label>
 		<div class="layui-input-inline">
-			<asp:TextBox ID="tbAddDepartment" runat="server" required lay-verify="required" placeholder="请输入部门名称" autocomplete="off" CssClass="layui-input"></asp:TextBox>
+			<asp:TextBox ID="tbSearchDepartment" runat="server" placeholder="请输入部门名称" autocomplete="off" CssClass="layui-input"></asp:TextBox>
 		</div>
 
 		<div class="layui-input-inline">

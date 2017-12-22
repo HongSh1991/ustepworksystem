@@ -24,15 +24,15 @@
 			<asp:TextBox ID="tbSearchUserName" runat="server" placeholder="请输入用户名" autocomplete="off" CssClass="layui-input"></asp:TextBox>
 		</div>
 
-		<label class="layui-form-label">所属部门:</label>
+		<label class="layui-form-label">项目名称:</label>
 		<div class="layui-input-inline">
-			<asp:DropDownList ID="ddlDepartment" runat="server" AutoPostBack="True" ForeColor="Gray">
+			<asp:DropDownList ID="ddlProjectName" runat="server" OnSelectedIndexChanged="ddlProjectName_SelectedIndexChanged" AutoPostBack="True" ForeColor="Gray" CssClass="ddl">
 			</asp:DropDownList>
 		</div>
 
-		<label class="layui-form-label">项目名称:</label>
+		<label class="layui-form-label">所属部门:</label>
 		<div class="layui-input-inline">
-			<asp:DropDownList ID="ddlProjectName" runat="server" AutoPostBack="True" ForeColor="Gray">
+			<asp:DropDownList ID="ddlDepartment" runat="server" ForeColor="Gray" CssClass="ddl">
 			</asp:DropDownList>
 		</div>
 

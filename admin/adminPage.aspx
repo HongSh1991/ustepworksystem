@@ -2,6 +2,7 @@
 <%@ Register Src="~/admin/EmployeeInfo.ascx" TagName="EmployeeInfo" TagPrefix="uc1" %>
 <%@ Register Src="~/userascx/pagefooter.ascx" TagName="pagefooter" TagPrefix="uc2" %>
 <%@ Register Src="~/admin/Department.ascx" TagName="Department" TagPrefix="uc3" %>
+<%@ Register Src="~/admin/ProjectList.ascx" TagName="ProjectList" TagPrefix="uc4" %>
 
 <!DOCTYPE html>
 
@@ -39,7 +40,7 @@
 	</style>
 </head>
 <body class="layui-layout-body">
-	<form id="form1" runat="server" class="layui-form layui-form-pane">
+	<form id="form1" runat="server" class="layui-form-pane">
 		<div class="layui-layout layui-layout-admin">
 			<div class="layui-header">
 				<div class="layui-logo" style="color:aquamarine; font-family:华文行楷; font-size:18pt">禹步工单系统</div>
@@ -52,7 +53,7 @@
 						<a href="javascript:;">新增员工信息</a>
 						<dl class="layui-nav-child" style="font-weight: 600; font-size:11pt">
 							<dd>
-								<asp:LinkButton ID="lbtnAddProjectName" runat="server" OnClick="lbtnAddProjectName_Click">[ 新增 ] 项目名称</asp:LinkButton>
+								<asp:LinkButton ID="lbtnAddProjectName" runat="server" OnClick="lbtnAddProjectName_Click">[ 新增 ] 项目信息</asp:LinkButton>
 							</dd>
 							<dd>
 								<asp:LinkButton ID="lbtnAddDepName" runat="server" OnClick="lbtnAddDepName_Click">[ 新增 ] 部门名称</asp:LinkButton>
@@ -134,7 +135,7 @@
 
 				<!--[删改查]项目名称-->
 				<div id ="display2" runat="server" style="padding: 1.2%;display:none; text-align-last:center">
-
+					<uc4:ProjectList ID="ProjectList" runat="server" />
 				</div>
 
 				<!--[删改查]部门名称-->

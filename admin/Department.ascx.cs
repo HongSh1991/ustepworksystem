@@ -26,7 +26,21 @@ public partial class admin_Department : System.Web.UI.UserControl
 
 	protected void btnSearchDep_Click(object sender, EventArgs e)
 	{
-		
+		string getDepName = tbSearchDepartment.Text.Trim().ToString();
+		string sqlSearch = "select * from tb_Department where D_DepartmentName='" + getDepName + "'";
+		if(DBHelper.DBHelper.ExecuteDataTable(sqlSearch).Rows.Count == 0)
+		{
+			//Page.RegisterStartupScript("ServiceManHistoryButtonClick","<script>alert('部门名称不存在！！！');</script>"); //已经过时
+			Page.ClientScript.RegisterStartupScript(this.GetType(), "ServiceManHistoryButtonClick", "<script>alert('部门名称不存在！！！');</script>");
+			BindDep();
+			tbSearchDepartment.Text = "";
+		}
+		else
+		{
+			gvDepartment.DataSource = DBHelper.DBHelper.ExecuteDataTable(sqlSearch);
+			gvDepartment.DataKeyNames = new string[] { "D_DepID" };
+			gvDepartment.DataBind();
+		}
 	}
 
 	protected void gvDepartment_RowDataBound(object sender, GridViewRowEventArgs e)

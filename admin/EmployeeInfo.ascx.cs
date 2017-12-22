@@ -25,17 +25,6 @@ public partial class admin_EmployeeInfo : System.Web.UI.UserControl
 			gvUser.DataKeyNames = new string[] { "U_ID" };
 			gvUser.DataBind();
 
-			//绑定部门
-			string bindDDLDep = "select distinct U_Department from tb_UserInfo";
-			if (DBHelper.DBHelper.ExecuteDataTable(bindDDLDep).Rows.Count > 0)
-			{
-				ddlDepartment.DataSource = DBHelper.DBHelper.ExecuteDataTable(bindDDLDep);
-				ddlDepartment.DataTextField = "U_Department";
-				//ddlDepartment.DataValueField = "U_ID";
-				ddlDepartment.DataBind();
-				ddlDepartment.Items.Insert(0, new ListItem("----请选择部门名称----"));
-			}
-
 			//绑定项目
 			string bindDDLPro = "select distinct U_ProjectName from tb_UserInfo";
 			if (DBHelper.DBHelper.ExecuteDataTable(bindDDLPro).Rows.Count > 0)
@@ -46,8 +35,21 @@ public partial class admin_EmployeeInfo : System.Web.UI.UserControl
 				ddlProjectName.DataBind();
 				ddlProjectName.Items.Insert(0, new ListItem("----请选择项目名称----"));
 			}
+
+			//绑定部门
+			//string bindDDLDep = "select distinct U_Department from tb_UserInfo";
+			//if (DBHelper.DBHelper.ExecuteDataTable(bindDDLDep).Rows.Count > 0)
+			//{
+			//	ddlDepartment.DataSource = DBHelper.DBHelper.ExecuteDataTable(bindDDLDep);
+			//	ddlDepartment.DataTextField = "U_Department";
+			//	//ddlDepartment.DataValueField = "U_ID";
+			//	ddlDepartment.DataBind();
+			//	ddlDepartment.Items.Insert(0, new ListItem("----请选择部门名称----"));
+			//}
 		}
 	}
+
+
 
 	protected void gvUser_RowDataBound(object sender, GridViewRowEventArgs e)
 	{
@@ -137,47 +139,62 @@ public partial class admin_EmployeeInfo : System.Web.UI.UserControl
 			Response.Write("<script>alert('没有该用户！！！');</script>");
 		}
 	}
+
+	/// <summary>
+	/// 重置查询信息
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	protected void btnReset_Click(object sender, EventArgs e)
 	{
 		Bind();
 		tbSearchUserName.Text = "";
-		ddlDepartment.SelectedIndex = 0;
 		ddlProjectName.SelectedIndex = 0;
+		ddlDepartment.SelectedItem.Text = "";
 	}
 
-	protected void ddlDepartment_SelectedIndexChanged(object sender, EventArgs e)
-	{
-		string depName = ddlDepartment.SelectedItem.Text.ToString();
-		string sqlSearch = "select * from tb_UserInfo where U_Department = '" + depName + "'";
+	//protected void ddlDepartment_SelectedIndexChanged(object sender, EventArgs e)
+	//{
+	//	string depName = ddlDepartment.SelectedItem.Text.ToString();
+	//	string sqlSearch = "select * from tb_UserInfo where U_Department = '" + depName + "'";
 
-		if (DBHelper.DBHelper.ExecuteDataTable(sqlSearch).Rows.Count != 0)
-		{
-			gvUser.DataSource = DBHelper.DBHelper.ExecuteDataTable(sqlSearch);
-			gvUser.DataKeyNames = new string[] { "U_ID" };
-			gvUser.DataBind();
-		}
-		else
-		{
-			Response.Write("<script>alert('没有该部门员工！！！');</script>");
-		}
-	}
+	//	if (DBHelper.DBHelper.ExecuteDataTable(sqlSearch).Rows.Count != 0)
+	//	{
+	//		gvUser.DataSource = DBHelper.DBHelper.ExecuteDataTable(sqlSearch);
+	//		gvUser.DataKeyNames = new string[] { "U_ID" };
+	//		gvUser.DataBind();
+	//	}
+	//	else
+	//	{
+	//		Response.Write("<script>alert('没有该部门员工！！！');</script>");
+	//	}
+	//}
 
+	/// <summary>
+	/// 项目名称联动部门名称
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	protected void ddlProjectName_SelectedIndexChanged(object sender, EventArgs e)
 	{
-		string depName = ddlDepartment.SelectedItem.Text.ToString();
 		string proName = ddlProjectName.SelectedItem.Text.ToString();
-		string sqlSearch = "select * from tb_UserInfo where U_Department = '" + depName + "' and U_ProjectName = '" + proName + "'";
-
-		if (DBHelper.DBHelper.ExecuteDataTable(sqlSearch).Rows.Count != 0)
-		{
-			gvUser.DataSource = DBHelper.DBHelper.ExecuteDataTable(sqlSearch);
-			gvUser.DataKeyNames = new string[] { "U_ID" };
-			gvUser.DataBind();
-		}
-		else
-		{
-			Response.Write("<script>alert('没有该项目对应的员工！！！');</script>");
-		}
+		int projID = Convert.ToInt32(DBHelper.DBHelper.ExecuteScalar("select P_ProjID from tb_ProjectName where P_ProjectName='" + proName +"'"));
+		string sqlBindDep = "select D_DepartmentName from tb_Department where D_DepartmentProID='" + projID + "'";
+		ddlDepartment.DataSource = DBHelper.DBHelper.ExecuteDataTable(sqlBindDep);
+		ddlDepartment.DataTextField = "D_DepartmentName";
+		ddlDepartment.DataBind();
+		//string depName = ddlDepartment.SelectedItem.Text.ToString();
+		//string sqlSearch = "select * from tb_UserInfo where U_Department = '" + depName + "' and U_ProjectName = '" + proName + "'";
+		//if (DBHelper.DBHelper.ExecuteDataTable(sqlSearch).Rows.Count != 0)
+		//{
+		//	gvUser.DataSource = DBHelper.DBHelper.ExecuteDataTable(sqlSearch);
+		//	gvUser.DataKeyNames = new string[] { "U_ID" };
+		//	gvUser.DataBind();
+		//}
+		//else
+		//{
+		//	Response.Write("<script>alert('没有该项目对应的员工！！！');</script>");
+		//}
 	}
 
 	protected void gvUser_RowCommand(object sender, GridViewCommandEventArgs e)

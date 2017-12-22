@@ -38,7 +38,7 @@
 	<script src="../res/js/jquery-1.12.3-min.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
-			$('#btnReadFiles').click(function () {
+			$('#tbFilesPath').click(function () {
 				$('#<%=fuFiles.ClientID %>').click();
 			});
 			//修改出现C:\fakepath\,使用internet选项--安全--自定义级别--将文件上载到服务器时包含本地目录路径..--点上启用
@@ -62,11 +62,11 @@
 				<div class="layui-input-block">
 					<asp:FileUpload ID="fuFiles" runat="server" />
 					<asp:TextBox ID="tbFilesPath" runat="server" autocomplete="off" CssClass="layui-input"></asp:TextBox>
-					<input id="btnReadFiles" type="button" value="浏览..." class="layui-btn" />
+					<%--<input id="btnReadFiles" type="button" value="浏览..." class="layui-btn" />--%>
 				</div>
 			</div>
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 16%;">
-				<asp:Button ID="btnSave" runat="server" Text="添加项目名称" CssClass="layui-btn" Width="310px" OnClick="btnSave_Click" />
+				<asp:Button ID="btnSave" runat="server" Text="添加项目信息" CssClass="layui-btn" Width="310px" OnClick="btnSave_Click" />
 				<asp:Label ID="lbShowTips" runat="server" Text="" ForeColor="Red"></asp:Label>
 			</div>
 		</div>

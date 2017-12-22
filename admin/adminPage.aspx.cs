@@ -49,7 +49,7 @@ public partial class admin_adminPage : System.Web.UI.Page
 	{
 		display1.Visible = false;
 		display2.Visible = true;
-		display2.Attributes.Add("style", "display:block");
+		display2.Attributes.Add("style", "padding:1.2%;display:block;text-align-last:center;");
 		display3.Visible = false;
 		display4.Visible = false;
 		display5.Visible = false;
@@ -71,7 +71,7 @@ public partial class admin_adminPage : System.Web.UI.Page
 		display2.Visible = false;
 		display3.Visible = false;
 		display4.Visible = true;
-		display4.Attributes.Add("style", "display:block");
+		display4.Attributes.Add("style", "padding:1.2%;display:block;text-align-last:center;");
 		display5.Visible = false;
 	}
 
@@ -82,13 +82,13 @@ public partial class admin_adminPage : System.Web.UI.Page
 		display3.Visible = false;
 		display4.Visible = false;
 		display5.Visible = true;
-		display5.Attributes.Add("style", "display:block");
+		display5.Attributes.Add("style", "padding:1.2%;display:block;text-align-last:center;");
 	}
 	#endregion
 
 	protected void lbtnAddProjectName_Click(object sender, EventArgs e)
 	{
-		Response.Write("<script>window.open('addProjectName.aspx','','width=460,height=240,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((1920-720)/2, (1080-500)/2);</script>");
+		Response.Write("<script>window.open('addProjectName.aspx','','width=460,height=200,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((1920-720)/2, (1080-500)/2);</script>");
 	}
 
 	protected void lbtnAddDepName_Click(object sender, EventArgs e)
