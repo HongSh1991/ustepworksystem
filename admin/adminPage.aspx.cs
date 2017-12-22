@@ -88,7 +88,7 @@ public partial class admin_adminPage : System.Web.UI.Page
 
 	protected void lbtnAddProjectName_Click(object sender, EventArgs e)
 	{
-		Response.Write("<script>window.open('addProjectName.aspx','','width=460,height=120,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((1920-660)/2, (1080-500)/2);</script>");
+		Response.Write("<script>window.open('addProjectName.aspx','','width=460,height=240,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((1920-720)/2, (1080-500)/2);</script>");
 	}
 
 	protected void lbtnAddDepName_Click(object sender, EventArgs e)

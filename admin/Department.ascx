@@ -28,7 +28,7 @@
 			<asp:Button ID="btnSearchDep" runat="server" Text="查询部门" CssClass="layui-btn" OnClick="btnSearchDep_Click" />
 		</div>
 	</div>
-	<asp:GridView ID="gvDepartment" runat="server" OnPageIndexChanging="gvDepartment_PageIndexChanging" OnRowDataBound="gvDepartment_RowDataBound" OnRowCommand="gvDepartment_RowCommand" AutoGenerateColumns="False" AllowPaging="true" PageSize="10" CssClass="layui-table">
+	<asp:GridView ID="gvDepartment" runat="server" OnPageIndexChanging="gvDepartment_PageIndexChanging" OnRowDataBound="gvDepartment_RowDataBound" OnRowCommand="gvDepartment_RowCommand" AutoGenerateColumns="False" AllowPaging="true" PageSize="9" CssClass="layui-table">
 		<Columns>
 			<asp:TemplateField HeaderText="序号" ItemStyle-Width="4.6%">
 				<ItemStyle HorizontalAlign="Center" />

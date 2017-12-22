@@ -9,7 +9,10 @@ public partial class admin_addProjectName : System.Web.UI.Page
 {
 	protected void Page_Load(object sender, EventArgs e)
 	{
-
+		if(!IsPostBack)
+		{
+			this.fuFiles.Style.Add("display", "none");
+		}
 	}
 
 	protected void btnSave_Click(object sender, EventArgs e)
@@ -24,9 +27,30 @@ public partial class admin_addProjectName : System.Web.UI.Page
 			string sqlCheckNull = "select * from tb_ProjectName";
 			if (DBHelper.DBHelper.ExecuteDataTable(sqlCheckNull).Rows.Count == 0)
 			{
-				string sqlInsert = "insert into tb_ProjectName(P_ProjectName) values('" + getProjName + "')";
-				DBHelper.DBHelper.ExectueNonQuery(sqlInsert);
-				Response.Write("<script>alert('项目名称添加成功！！！');window.close();window.opener.location.href='adminPage.aspx';</script>");
+				try
+				{
+					if (fuFiles.PostedFile.FileName == "")
+					{
+						lbShowTips.Text = "要上传的文件不允许为空！";
+						return;
+					}
+					else
+					{
+						string filePath = fuFiles.PostedFile.FileName;
+						string fileName = filePath.Substring(filePath.LastIndexOf("\\") + 1);
+						string fileExtension = filePath.Substring(filePath.LastIndexOf(".") + 1);
+						string projectFilePath = Server.MapPath("~\\upload") + "\\" + fileName;
+						this.fuFiles.PostedFile.SaveAs(projectFilePath);
+
+						string sqlInsert = "insert into tb_ProjectName(P_ProjectName, P_ProjectFilesUrl) values('" + getProjName + "', '" + projectFilePath + "')";
+						DBHelper.DBHelper.ExectueNonQuery(sqlInsert);
+						Response.Write("<script>alert('项目名称添加成功！！！');window.close();window.opener.location.href='adminPage.aspx';</script>");
+					}
+				}
+				catch (Exception error)
+				{
+					lbShowTips.Text = "处理发生错误！原因： " + error.ToString();
+				}
 			}
 			else if (DBHelper.DBHelper.ExecuteDataTable(sqlCheckNull).Rows.Count > 0)
 			{
@@ -37,9 +61,30 @@ public partial class admin_addProjectName : System.Web.UI.Page
 				}
 				else
 				{
-					string sqlInsert = "insert into tb_ProjectName(P_ProjectName) values('" + getProjName + "')";
-					DBHelper.DBHelper.ExectueNonQuery(sqlInsert);
-					Response.Write("<script>alert('项目名称添加成功！！！');window.close();window.opener.location.href='adminPage.aspx';</script>");
+					try
+					{
+						if (fuFiles.PostedFile.FileName == "")
+						{
+							lbShowTips.Text = "要上传的文件不允许为空！";
+							return;
+						}
+						else
+						{
+							string filePath = fuFiles.PostedFile.FileName;
+							string fileName = filePath.Substring(filePath.LastIndexOf("\\") + 1);
+							string fileExtension = filePath.Substring(filePath.LastIndexOf(".") + 1);
+							string projectFilePath = Server.MapPath("~\\upload") + "\\" + fileName;
+							this.fuFiles.PostedFile.SaveAs(projectFilePath);
+
+							string sqlInsert = "insert into tb_ProjectName(P_ProjectName, P_ProjectFilesUrl) values('" + getProjName + "', '" + projectFilePath + "')";
+							DBHelper.DBHelper.ExectueNonQuery(sqlInsert);
+							Response.Write("<script>alert('项目名称添加成功！！！');window.close();window.opener.location.href='adminPage.aspx';</script>");
+						}
+					}
+					catch (Exception error)
+					{
+						lbShowTips.Text = "处理发生错误！原因： " + error.ToString();
+					}
 				}
 			}
 		}
