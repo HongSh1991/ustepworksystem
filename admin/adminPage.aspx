@@ -85,13 +85,13 @@
 						<a href="javascript:;">新增公司资源</a>
 						<dl class="layui-nav-child" style="font-weight: 600;">
 							<dd>
-								<asp:LinkButton ID="lbtnAddFilesClassify" runat="server" >[ 新增 ] 文档分类</asp:LinkButton>
+								<asp:LinkButton ID="lbtnAddFilesClassify" runat="server" OnClick="lbtnAddFilesClassify_Click" >[ 新增 ] 文档分类</asp:LinkButton>
 							</dd>
 							<dd>
 								<asp:LinkButton ID="lbtnAddComFiles" runat="server" OnClick="lbtnAddComFiles_Click">[ 新增 ] 公司文档</asp:LinkButton>
 							</dd>
 							<dd>
-								<asp:LinkButton ID="lbtnAddSoftClassify" runat="server" >[ 新增 ] 软件分类</asp:LinkButton>
+								<asp:LinkButton ID="lbtnAddSoftClassify" runat="server" OnClick="lbtnAddSoftClassify_Click" >[ 新增 ] 软件分类</asp:LinkButton>
 							</dd>
 							<dd>
 								<asp:LinkButton ID="lbtnAddComSofts" runat="server" OnClick="lbtnAddComSofts_Click">[ 新增 ] 软件资源</asp:LinkButton>
