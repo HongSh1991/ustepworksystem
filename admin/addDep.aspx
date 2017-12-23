@@ -42,7 +42,7 @@
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 16%; margin-top: 12px;">
 				<label class="layui-form-label" style="text-align: right">部门名称:</label>
 				<div class="layui-input-block">
-					<asp:TextBox ID="tbAddDep" runat="server" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" CssClass="layui-input"></asp:TextBox>
+					<asp:TextBox ID="tbAddDep" runat="server" required lay-verify="required" placeholder="请输入部门名称" autocomplete="off" CssClass="layui-input"></asp:TextBox>
 				</div>
 			</div>
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 16%;">

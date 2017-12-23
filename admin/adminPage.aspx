@@ -85,7 +85,13 @@
 						<a href="javascript:;">新增公司资源</a>
 						<dl class="layui-nav-child" style="font-weight: 600;">
 							<dd>
+								<asp:LinkButton ID="lbtnAddFilesClassify" runat="server" >[ 新增 ] 文档分类</asp:LinkButton>
+							</dd>
+							<dd>
 								<asp:LinkButton ID="lbtnAddComFiles" runat="server" OnClick="lbtnAddComFiles_Click">[ 新增 ] 公司文档</asp:LinkButton>
+							</dd>
+							<dd>
+								<asp:LinkButton ID="lbtnAddSoftClassify" runat="server" >[ 新增 ] 软件分类</asp:LinkButton>
 							</dd>
 							<dd>
 								<asp:LinkButton ID="lbtnAddComSofts" runat="server" OnClick="lbtnAddComSofts_Click">[ 新增 ] 软件资源</asp:LinkButton>
@@ -119,13 +125,13 @@
 							<a class="" href="javascript:;">员工信息管理</a>
 							<dl class="layui-nav-child">
 								<dd>
-									<asp:LinkButton ID="lbtnEmployeeMana" runat="server" OnClick="lbtnEmployeeMana_Click">[删改查]员工信息</asp:LinkButton>
+									<asp:LinkButton ID="lbtnEmployeeMana" runat="server" OnClick="lbtnEmployeeMana_Click">[ 删改查 ] 员工信息</asp:LinkButton>
 								</dd>
 								<dd>
-									<asp:LinkButton ID="lbtnProMana" runat="server" OnClick="lbtnProMana_Click">[删改查]项目名称</asp:LinkButton>
+									<asp:LinkButton ID="lbtnProMana" runat="server" OnClick="lbtnProMana_Click">[ 删改查 ] 项目名称</asp:LinkButton>
 								</dd>
 								<dd>
-									<asp:LinkButton ID="lbtnDepMana" runat="server" OnClick="lbtnDepMana_Click">[删改查]部门名称</asp:LinkButton>
+									<asp:LinkButton ID="lbtnDepMana" runat="server" OnClick="lbtnDepMana_Click">[ 删改查 ] 部门名称</asp:LinkButton>
 								</dd>
 							</dl>
 						</li>
@@ -133,10 +139,13 @@
 							<a href="javascript:;">公司资源管理</a>
 							<dl class="layui-nav-child">
 								<dd>
-									<asp:LinkButton ID="lbtnComFilesMana" runat="server" OnClick="lbtnComFilesMana_Click">[删改查]公司文档</asp:LinkButton>
+									<asp:LinkButton ID="lbtnFilesAndSoftWareClassify" runat="server" OnClick="lbtnFilesAndSoftWareClassify_Click">[ 删改查 ] 文档 / 软件分类</asp:LinkButton>
 								</dd>
 								<dd>
-									<asp:LinkButton ID="lbtnComSoftWMana" runat="server" OnClick="lbtnComSoftWMana_Click">[删改查]软件资源</asp:LinkButton>
+									<asp:LinkButton ID="lbtnComFilesMana" runat="server" OnClick="lbtnComFilesMana_Click">[ 删改查 ] 公司文档</asp:LinkButton>
+								</dd>
+								<dd>
+									<asp:LinkButton ID="lbtnComSoftWMana" runat="server" OnClick="lbtnComSoftWMana_Click">[ 删改查 ] 软件资源</asp:LinkButton>
 								</dd>
 							</dl>
 						</li>
@@ -161,14 +170,19 @@
 					<uc3:Department ID="Department" runat="server" />
 				</div>
 
-				<!--[删改查]公司文档-->
+				<!--[删改查]文档/软件分类-->
 				<div id ="display4" runat="server" style="padding: 1.2%;display:none; text-align-last:center">
+					4
+				</div>
 
+				<!--[删改查]公司文档-->
+				<div id ="display5" runat="server" style="padding: 1.2%;display:none; text-align-last:center">
+					5
 				</div>
 
 				<!--[删改查]软件资源-->
-				<div id ="display5" runat="server" style="padding: 1.2%;display:none; text-align-last:center">
-
+				<div id ="display6" runat="server" style="padding: 1.2%;display:none; text-align-last:center">
+					6
 				</div>
 			</div>
   

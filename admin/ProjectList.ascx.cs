@@ -46,7 +46,7 @@ public partial class admin_ProjectList : System.Web.UI.UserControl
 			if (e.Row.RowState == DataControlRowState.Normal || e.Row.RowState == DataControlRowState.Alternate)
 			{
 				ImageButton imgbtn = (ImageButton) e.Row.FindControl("ImageButton2");
-				imgbtn.Attributes.Add("onclick", "javascript:return confirm('你确认要删除：\"" + e.Row.Cells[1].Text + "\"吗?')");
+				imgbtn.Attributes.Add("onclick", "javascript:return confirm('你确认要删除吗?')");
 			}
 		}
 	}
@@ -63,7 +63,7 @@ public partial class admin_ProjectList : System.Web.UI.UserControl
 		}
 		else if (cmd == "Ed")
 		{
-			Response.Write("<script>window.open('modifyProj.aspx?departmentname=" + e.CommandArgument + "','','width=460,height=200,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((1920-660)/2, (1080-500)/2);</script>");
+			Response.Write("<script>window.open('modifyProj.aspx?projectname=" + e.CommandArgument + "','','width=460,height=200,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((window.screen.availWidth-10-460)/2, (window.screen.availHeight-30-200)/2);</script>");
 		}
 	}
 
