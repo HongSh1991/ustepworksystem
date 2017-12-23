@@ -27,7 +27,7 @@ public partial class admin_Department : System.Web.UI.UserControl
 	protected void btnSearchDep_Click(object sender, EventArgs e)
 	{
 		string getDepName = tbSearchDepartment.Text.Trim().ToString();
-		string sqlSearch = "select * from tb_Department where D_DepartmentName='" + getDepName + "'";
+		string sqlSearch = "select * from tb_Department where D_DepartmentName like '%" + getDepName + "%'";
 		if(DBHelper.DBHelper.ExecuteDataTable(sqlSearch).Rows.Count == 0)
 		{
 			//Page.RegisterStartupScript("ServiceManHistoryButtonClick","<script>alert('部门名称不存在！！！');</script>"); //已经过时
@@ -41,6 +41,12 @@ public partial class admin_Department : System.Web.UI.UserControl
 			gvDepartment.DataKeyNames = new string[] { "D_DepID" };
 			gvDepartment.DataBind();
 		}
+	}
+
+	protected void btnReset_Click(object sender, EventArgs e)
+	{
+		tbSearchDepartment.Text = "";
+		BindDep();
 	}
 
 	protected void gvDepartment_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -84,7 +90,7 @@ public partial class admin_Department : System.Web.UI.UserControl
 		}
 		else if (cmd == "Ed")
 		{
-			Response.Write("<script>window.open('modifyDep.aspx?departmentname=" + e.CommandArgument + "','','width=460,height=200,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((1920-660)/2, (1080-500)/2);</script>");
+			Response.Write("<script>window.open('modifyDep.aspx?departmentname=" + e.CommandArgument + "','','width=460,height=240,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((window.screen.availWidth-10-460)/2, (window.screen.availHeight-30-240)/2);</script>");
 		}
 	}
 }

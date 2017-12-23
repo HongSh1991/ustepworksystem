@@ -25,6 +25,7 @@
 			line-height: 38px;
 			overflow: hidden;
 		}
+
 		.ddl {
 			height: 38px;
 			width: 190px;
@@ -37,6 +38,23 @@
 			border-left: Gainsboro 1px solid;
 			border-bottom: Gainsboro 1px solid;
 		}
+
+		a:link {
+			color: deepskyblue;
+		}
+		/* 未被访问的链接 */
+		a:visited {
+			color: deepskyblue;
+		}
+		/* 已被访问的链接 */
+		a:hover {
+			color: #ff6a00;
+		}
+		/* 鼠标指针移动到链接上 */
+		a:active {
+			color: darkorchid;
+		}
+		/* 正在被点击的链接 */
 	</style>
 </head>
 <body class="layui-layout-body">

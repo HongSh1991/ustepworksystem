@@ -38,14 +38,15 @@
 	<div class="layui-form-item">
 		<label class="layui-form-label">项目名称:</label>
 		<div class="layui-input-inline">
-			<asp:TextBox ID="tbSearchDepartment" runat="server" placeholder="请输入项目名称" autocomplete="off" CssClass="layui-input"></asp:TextBox>
+			<asp:TextBox ID="tbSearchProject" runat="server" placeholder="请输入项目名称" autocomplete="off" CssClass="layui-input"></asp:TextBox>
 		</div>
 
 		<div class="layui-input-inline">
 			<asp:Button ID="btnSearchProj" runat="server" Text="查询项目" CssClass="layui-btn" OnClick="btnSearchProj_Click" />
+			<asp:Button ID="btnReset" runat="server" Text="重置" CssClass="layui-btn" OnClick="btnReset_Click" />
 		</div>
 	</div>
-	<asp:GridView ID="gvPeojectInfo" runat="server" OnPageIndexChanging="gvPeojectInfo_PageIndexChanging" OnRowDataBound="gvPeojectInfo_RowDataBound" OnRowCommand="gvPeojectInfo_RowCommand" AutoGenerateColumns="false" AllowPaging="true" PageSize="9" CssClass="layui-table">
+	<asp:GridView ID="gvPeojectInfo" runat="server" OnPageIndexChanging="gvPeojectInfo_PageIndexChanging" OnRowDataBound="gvPeojectInfo_RowDataBound" OnRowCommand="gvPeojectInfo_RowCommand" AutoGenerateColumns="false" AllowPaging="true" PageSize="10" CssClass="layui-table">
 		<Columns>
 			<asp:TemplateField HeaderText="序号" ItemStyle-Width="4.6%">
 				<ItemStyle HorizontalAlign="Center" />
@@ -53,7 +54,8 @@
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="项目名称">
 				<ItemTemplate>
-					<asp:LinkButton ID="lbtnDownLoadProject" runat="server" CommandName="Dl" CommandArgument='<%#Eval("P_ProjectName") %>'><%#Eval("P_ProjectName") %></asp:LinkButton>
+					<a href="/downLoadFiles.aspx?P_ProjectName='<%#Eval("P_ProjectName")%>'" target="_blank"><span style="font-weight:500"><%#Eval("P_ProjectName") %></span></a>
+					<%--<asp:LinkButton ID="lbtnDownLoadProject" runat="server" CommandName="Dl" CommandArgument='<%#Eval("P_ProjectName") %>'><%#Eval("P_ProjectName") %></asp:LinkButton>--%>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="编辑" ItemStyle-Width="4.6%">

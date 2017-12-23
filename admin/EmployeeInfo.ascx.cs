@@ -124,19 +124,27 @@ public partial class admin_EmployeeInfo : System.Web.UI.UserControl
 	protected void btnSearch_Click(object sender, EventArgs e)
 	{
 		string getName = tbSearchUserName.Text.ToString();
-		string depName = ddlDepartment.SelectedItem.Text.ToString();
 		string proName = ddlProjectName.SelectedItem.Text.ToString();
-		string sqlSearch = "select * from tb_UserInfo where U_UserName = '" + getName + "' and U_Department = '" + depName + "' and U_ProjectName = '" + proName + "'";
-
-		if (DBHelper.DBHelper.ExecuteDataTable(sqlSearch).Rows.Count != 0)
+		if(ddlProjectName.SelectedIndex == 0)
 		{
-			gvUser.DataSource = DBHelper.DBHelper.ExecuteDataTable(sqlSearch);
-			gvUser.DataKeyNames = new string[] { "U_ID" };
-			gvUser.DataBind();
+			Page.ClientScript.RegisterStartupScript(this.GetType(), "ServiceManHistoryButtonClick", "<script>alert('请选择项目名称！！！');</script>");
 		}
 		else
 		{
-			Response.Write("<script>alert('没有该用户！！！');</script>");
+			string depName = ddlDepartment.SelectedItem.Text.ToString();
+			string sqlSearch = "select * from tb_UserInfo where U_UserName = '" + getName + "' and U_Department = '" + depName + "' and U_ProjectName = '" + proName + "'";
+
+			if (DBHelper.DBHelper.ExecuteDataTable(sqlSearch).Rows.Count != 0)
+			{
+				gvUser.DataSource = DBHelper.DBHelper.ExecuteDataTable(sqlSearch);
+				gvUser.DataKeyNames = new string[] { "U_ID" };
+				gvUser.DataBind();
+			}
+			else
+			{
+				Page.ClientScript.RegisterStartupScript(this.GetType(), "ServiceManHistoryButtonClick", "<script>alert('没有该用户！！！');</script>");
+				//Response.Write("<script>alert('没有该用户！！！');</script>");
+			}
 		}
 	}
 

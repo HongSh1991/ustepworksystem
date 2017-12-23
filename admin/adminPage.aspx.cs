@@ -88,17 +88,17 @@ public partial class admin_adminPage : System.Web.UI.Page
 
 	protected void lbtnAddProjectName_Click(object sender, EventArgs e)
 	{
-		Response.Write("<script>window.open('addProjectName.aspx','','width=460,height=200,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((1920-720)/2, (1080-500)/2);</script>");
+		Response.Write("<script>window.open('addProjectName.aspx','','width=460,height=200,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((window.screen.availWidth-10-460)/2, (window.screen.availHeight-30-200)/2);</script>");
 	}
 
 	protected void lbtnAddDepName_Click(object sender, EventArgs e)
 	{
-		Response.Write("<script>window.open('addDep.aspx','','width=460,height=200,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((1920-660)/2, (1080-500)/2);</script>");
+		Response.Write("<script>window.open('addDep.aspx','','width=460,height=200,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((window.screen.availWidth-10-460)/2, (window.screen.availHeight-30-200)/2);</script>");
 	}
 
 	protected void lbtnAddEmpoyee_Click(object sender, EventArgs e)
 	{
-		Response.Write("<script>window.open('addEmployeeInfo.aspx','','width=460,height=520,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((1920-800)/2, (1080-820)/2);</script>");
+		Response.Write("<script>window.open('addEmployeeInfo.aspx','','width=460,height=520,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((window.screen.availWidth-10-460)/2, (window.screen.availHeight-30-520)/2);</script>");
 	}
 
 	protected void lbtnAddComFiles_Click(object sender, EventArgs e)

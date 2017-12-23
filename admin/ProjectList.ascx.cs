@@ -26,7 +26,7 @@ public partial class admin_ProjectList : System.Web.UI.UserControl
 	protected void gvPeojectInfo_PageIndexChanging(object sender, GridViewPageEventArgs e)
 	{
 		gvPeojectInfo.PageIndex = e.NewPageIndex;
-
+		BindProj();
 	}
 
 	protected void gvPeojectInfo_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -65,14 +65,30 @@ public partial class admin_ProjectList : System.Web.UI.UserControl
 		{
 			Response.Write("<script>window.open('modifyProj.aspx?departmentname=" + e.CommandArgument + "','','width=460,height=200,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((1920-660)/2, (1080-500)/2);</script>");
 		}
-		else if(cmd == "Dl")
-		{
-
-		}
 	}
 
 	protected void btnSearchProj_Click(object sender, EventArgs e)
 	{
+		string getProjName = tbSearchProject.Text.Trim().ToString();
+		string sqlSearch = "select * from tb_ProjectName where P_ProjectName like'%" + getProjName + "%'";
+		if (DBHelper.DBHelper.ExecuteDataTable(sqlSearch).Rows.Count == 0)
+		{
+			//Page.RegisterStartupScript("ServiceManHistoryButtonClick","<script>alert('部门名称不存在！！！');</script>"); //已经过时
+			Page.ClientScript.RegisterStartupScript(this.GetType(), "ServiceManHistoryButtonClick", "<script>alert('项目名称不存在！！！');</script>");
+			BindProj();
+			tbSearchProject.Text = "";
+		}
+		else
+		{
+			gvPeojectInfo.DataSource = DBHelper.DBHelper.ExecuteDataTable(sqlSearch);
+			gvPeojectInfo.DataKeyNames = new string[] { "P_ProjID" };
+			gvPeojectInfo.DataBind();
+		}
+	}
 
+	protected void btnReset_Click(object sender, EventArgs e)
+	{
+		tbSearchProject.Text = "";
+		BindProj();
 	}
 }
