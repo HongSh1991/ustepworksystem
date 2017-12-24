@@ -12,7 +12,18 @@ public partial class admin_addSoftWares : System.Web.UI.Page
 		if (!IsPostBack)
 		{
 			this.fuFiles.Style.Add("display", "none");
+			BindSoftsClassify();
 		}
+	}
+
+	private void BindSoftsClassify()
+	{
+		string bindSofts = "select * from tb_SoftsClassify";
+		ddlSoftsName.DataSource = DBHelper.DBHelper.ExecuteDataTable(bindSofts);
+		ddlSoftsName.DataTextField = "SC_ClassifyName";
+		ddlSoftsName.DataValueField = "SC_ID";
+		ddlSoftsName.DataBind();
+		ddlSoftsName.Items.Insert(0, new ListItem("----请选择软件分类----"));
 	}
 
 	protected void btnSave_Click(object sender, EventArgs e)
@@ -35,7 +46,7 @@ public partial class admin_addSoftWares : System.Web.UI.Page
 					fuFiles.MoveTo(savePath, Brettle.Web.NeatUpload.MoveToOptions.Overwrite);
 					string url= @"G:\webfiles\softwares\" + DateTime.Now.ToString("yyyy-MM-dd") + extensionName;
 					float fileSize = (float) System.Math.Round((float) fuFiles.ContentLength / 1024000, 1);
-					string sqlInsert = "insert into tb_ComSoftWare(CS_SoftName, CS_SoftPath) values('" + getSoftsName + "', '" + savePath + "')";
+					string sqlInsert = "insert into tb_ComSoftWare(CS_SoftName, CS_SoftPath, CS_SoftClassify) values('" + getSoftsName + "', '" + savePath + "', '" + ddlSoftsName.SelectedItem.Text.ToString() + "')";
 					DBHelper.DBHelper.ExectueNonQuery(sqlInsert);
 					Response.Write("<script>alert('软件添加成功！！！');window.close();window.opener.location.href='adminPage.aspx';</script>");
 				}
@@ -74,7 +85,7 @@ public partial class admin_addSoftWares : System.Web.UI.Page
 						fuFiles.MoveTo(savePath, Brettle.Web.NeatUpload.MoveToOptions.Overwrite);
 						string url = @"G:\webfiles\softwares\" + DateTime.Now.ToString("yyyy-MM-dd") + extensionName;
 						float fileSize = (float) System.Math.Round((float) fuFiles.ContentLength / 1024000, 1);
-						string sqlInsert = "insert into tb_ComSoftWare(CS_SoftName, CS_SoftPath) values('" + getSoftsName + "', '" + savePath + "')";
+						string sqlInsert = "insert into tb_ComSoftWare(CS_SoftName, CS_SoftPath, CS_SoftClassify) values('" + getSoftsName + "', '" + savePath + "', '" + ddlSoftsName.SelectedItem.Text.ToString() + "')";
 						DBHelper.DBHelper.ExectueNonQuery(sqlInsert);
 						Response.Write("<script>alert('软件添加成功！！！');window.close();window.opener.location.href='adminPage.aspx';</script>");
 					}

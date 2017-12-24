@@ -23,7 +23,7 @@
 		}
 		.ddl {
 			height: 38px;
-			width: 190px;
+			width: 202px;
 			cursor: pointer;
 			color: gray;
 			text-align: center;
@@ -62,6 +62,12 @@
 				<div class="layui-input-block">
 					<asp:FileUpload ID="fuFiles" runat="server" />
 					<asp:TextBox ID="tbFilesPath" runat="server" autocomplete="off" CssClass="layui-input"></asp:TextBox>
+				</div>
+			</div>
+			<div class="layui-form-item" style="margin-left: 16%; margin-right: 16%;">
+				<label class="layui-form-label" style="text-align: right">分类名称:</label>
+				<div class="layui-input-block">
+					<asp:DropDownList ID="ddlFilesName" runat="server" CssClass="ddl"></asp:DropDownList>
 				</div>
 			</div>
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 16%;">

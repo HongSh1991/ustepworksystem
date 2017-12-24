@@ -32,7 +32,7 @@ public partial class admin_comResClassify_addSoftsClassify : System.Web.UI.Page
 			{
 				if (DBHelper.DBHelper.ExecuteDataTable(sqlCheckExist).Rows.Count > 0)
 				{
-					Page.ClientScript.RegisterStartupScript(this.GetType(), "ServiceManHistoryButtonClick", "<script>alert('部门分类名称已存在！！！');</script>");
+					Page.ClientScript.RegisterStartupScript(this.GetType(), "ServiceManHistoryButtonClick", "<script>alert('软件分类名称已存在！！！');</script>");
 				}
 				else
 				{

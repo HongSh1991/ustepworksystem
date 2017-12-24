@@ -54,12 +54,12 @@ public partial class admin_modifyProj : System.Web.UI.Page
 						string filePath = fuFiles.PostedFile.FileName;
 						string fileName = filePath.Substring(filePath.LastIndexOf("\\") + 1);
 						string fileExtension = filePath.Substring(filePath.LastIndexOf(".") + 1);
-						string projectFilePath = Server.MapPath("~\\upload") + "\\" + fileName;
+						string projectFilePath = @"G:\webfiles\projectfies\" + fileName;
 						this.fuFiles.PostedFile.SaveAs(projectFilePath);
 
 						string sqlInsert = "update tb_ProjectName set P_ProjectName='" + getProjName + "', P_ProjectFilesUrl='" + projectFilePath + "' where P_ProjectName='" + projectName + "'";
 						DBHelper.DBHelper.ExectueNonQuery(sqlInsert);
-						Response.Write("<script>alert('项目名称添加成功！！！');window.close();window.opener.location.href='adminPage.aspx';</script>");
+						Response.Write("<script>alert('项目信息添加成功！！！');window.close();window.opener.location.href='adminPage.aspx';</script>");
 					}
 				}
 				catch (Exception error)

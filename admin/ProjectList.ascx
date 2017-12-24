@@ -32,7 +32,7 @@
 	/* 正在被点击的链接 */
 </style>
 
-<blockquote style="position: absolute; top: 0.8%">[删改查]项目信息</blockquote>
+<blockquote style="position: absolute; top: 0.8%">[ 删改查 ] 项目信息</blockquote>
 <hr class="layui-bg-green">
 <div>
 	<div class="layui-form-item">

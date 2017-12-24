@@ -20,6 +20,14 @@ public partial class downLoadFiles : System.Web.UI.Page
 																					  //fileFullName = Server.MapPath(fileFullName);//将虚拟路径转化为物理路径
 				DownloadFile(fileFullName);//下载文件
 			}
+			else if(Request.QueryString["filesname"] != null)
+			{
+				string fileFullName;
+				string fileName = Request.QueryString["filesname"].ToString();//取出文件名称
+				string selectData = "select CF_FilesPath from tb_ComFiles where CF_FilesName='" + fileName + "'";
+				fileFullName = DBHelper.DBHelper.ExecuteScalar(selectData).ToString();//取出文件下载路径
+				DownloadFile(fileFullName);//下载文件
+			}
 		}
 	}
 

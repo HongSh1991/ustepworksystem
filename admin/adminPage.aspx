@@ -3,6 +3,9 @@
 <%@ Register Src="~/userascx/pagefooter.ascx" TagName="pagefooter" TagPrefix="uc2" %>
 <%@ Register Src="~/admin/Department.ascx" TagName="Department" TagPrefix="uc3" %>
 <%@ Register Src="~/admin/ProjectList.ascx" TagName="ProjectList" TagPrefix="uc4" %>
+<%@ Register Src="~/admin/comResClassify/FilesAndSoftsList.ascx" TagName="FilesAndSoftsList" TagPrefix="uc5" %>
+<%@ Register Src="~/admin/ClassifyOfFiles.ascx" TagName="ClassifyOfFiles" TagPrefix="uc6" %>
+<%@ Register Src="~/admin/ClassifyOfSofts.ascx" TagName="ClassifyOfSofts" TagPrefix="uc7" %>
 
 <!DOCTYPE html>
 
@@ -128,10 +131,10 @@
 									<asp:LinkButton ID="lbtnEmployeeMana" runat="server" OnClick="lbtnEmployeeMana_Click">[ 删改查 ] 员工信息</asp:LinkButton>
 								</dd>
 								<dd>
-									<asp:LinkButton ID="lbtnProMana" runat="server" OnClick="lbtnProMana_Click">[ 删改查 ] 项目名称</asp:LinkButton>
+									<asp:LinkButton ID="lbtnProMana" runat="server" OnClick="lbtnProMana_Click">[ 删改查 ] 项目信息</asp:LinkButton>
 								</dd>
 								<dd>
-									<asp:LinkButton ID="lbtnDepMana" runat="server" OnClick="lbtnDepMana_Click">[ 删改查 ] 部门名称</asp:LinkButton>
+									<asp:LinkButton ID="lbtnDepMana" runat="server" OnClick="lbtnDepMana_Click">[ 删改查 ] 部门信息</asp:LinkButton>
 								</dd>
 							</dl>
 						</li>
@@ -172,17 +175,17 @@
 
 				<!--[删改查]文档/软件分类-->
 				<div id ="display4" runat="server" style="padding: 1.2%;display:none; text-align-last:center">
-					4
+					<uc5:FilesAndSoftsList ID="FilesAndSoftsList" runat="server" />
 				</div>
 
 				<!--[删改查]公司文档-->
 				<div id ="display5" runat="server" style="padding: 1.2%;display:none; text-align-last:center">
-					5
+					<uc6:ClassifyOfFiles ID="ClassifyOfFiles" runat="server" />
 				</div>
 
 				<!--[删改查]软件资源-->
 				<div id ="display6" runat="server" style="padding: 1.2%;display:none; text-align-last:center">
-					6
+					<uc7:ClassifyOfSofts ID="ClassifyOfSofts" runat="server" />
 				</div>
 			</div>
   

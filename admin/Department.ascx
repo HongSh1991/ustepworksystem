@@ -15,7 +15,7 @@
 	}
 </style>
 
-<blockquote style="position: absolute; top: 0.8%">[删改查]部门名称</blockquote>
+<blockquote style="position: absolute; top: 0.8%">[ 删改查 ] 部门信息</blockquote>
 <hr class="layui-bg-green">
 <div>
 	<div class="layui-form-item">

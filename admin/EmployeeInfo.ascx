@@ -15,7 +15,7 @@
 	}
 </style>
 
-<blockquote style="position: absolute; top: 0.8%">[删改查]员工信息</blockquote>
+<blockquote style="position: absolute; top: 0.8%">[ 删改查 ] 员工信息</blockquote>
 <hr class="layui-bg-green">
 <div>
 	<div class="layui-form-item">
