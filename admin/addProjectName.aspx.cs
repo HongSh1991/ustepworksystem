@@ -39,7 +39,7 @@ public partial class admin_addProjectName : System.Web.UI.Page
 						string filePath = fuFiles.PostedFile.FileName;
 						string fileName = filePath.Substring(filePath.LastIndexOf("\\") + 1);
 						string fileExtension = filePath.Substring(filePath.LastIndexOf(".") + 1);
-						string projectFilePath = @"G:\webfiles\projectfies\" + fileName;
+						string projectFilePath = @"G:\webfiles\comfiles\projectfiles\" + fileName;
 						this.fuFiles.PostedFile.SaveAs(projectFilePath);
 
 						string sqlInsert = "insert into tb_ProjectName(P_ProjectName, P_ProjectFilesUrl) values('" + getProjName + "', '" + projectFilePath + "')";
@@ -73,7 +73,7 @@ public partial class admin_addProjectName : System.Web.UI.Page
 							string filePath = fuFiles.PostedFile.FileName;
 							string fileName = filePath.Substring(filePath.LastIndexOf("\\") + 1);
 							string fileExtension = filePath.Substring(filePath.LastIndexOf(".") + 1);
-							string projectFilePath = @"G:\webfiles\projectfies\" + fileName;
+							string projectFilePath = @"G:\webfiles\comfiles\projectfiles\" + fileName;
 							this.fuFiles.PostedFile.SaveAs(projectFilePath);
 
 							string sqlInsert = "insert into tb_ProjectName(P_ProjectName, P_ProjectFilesUrl) values('" + getProjName + "', '" + projectFilePath + "')";

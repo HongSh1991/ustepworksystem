@@ -108,11 +108,11 @@
 							<img alt="" src="../resources/images/admin.jpg" class="layui-nav-img" />
 							<asp:Label ID="lbUserName" runat="server" Text=""></asp:Label>
 						</a>
-						<dl class="layui-nav-child">
-							<dd>
+						<%--<dl class="layui-nav-child">
+							<%--<dd>
 								<a href=""><i class="layui-icon">&#xe612;</i>&nbsp;&nbsp;&nbsp;&nbsp;用户中心</a>
 							</dd>
-						</dl>
+						</dl>--%>
 					</li>
 					<li class="layui-nav-item">
 						<asp:LinkButton ID="lbtnExitSystem" runat="server" OnClick="lbtnExitSystem_Click">退出系统</asp:LinkButton>

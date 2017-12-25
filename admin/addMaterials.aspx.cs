@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 public partial class admin_addMaterials : System.Web.UI.Page
@@ -24,15 +20,7 @@ public partial class admin_addMaterials : System.Web.UI.Page
 		ddlFilesName.DataTextField = "FC_ClassifyName";
 		ddlFilesName.DataValueField = "FC_ID";
 		ddlFilesName.DataBind();
-		//绑定已有数据
-		if(!string.IsNullOrEmpty(Request.QueryString["filesname"].ToString()))//Request.QueryString["filesname"].ToString() != null
-		{
-			string getFilesName = Request.QueryString["filesname"].ToString();
-			ddlFilesName.Items.Insert(0, new ListItem(DBHelper.DBHelper.ExecuteScalar("select CF_FilesClassify from tb_ComFiles where CF_FilesName='" + getFilesName + "'").ToString()));
-			tbFilesName.Text = getFilesName;
-			tbFilesPath.Text = DBHelper.DBHelper.ExecuteScalar("select CF_FilesPath from tb_ComFiles where CF_FilesName='" + getFilesName + "'").ToString();
-			btnSave.Text = "修改文档信息";
-		}
+		ddlFilesName.Items.Insert(0, new ListItem("----请选择文件分类----"));
 	}
 
 	protected void btnSave_Click(object sender, EventArgs e)
@@ -97,19 +85,9 @@ public partial class admin_addMaterials : System.Web.UI.Page
 							string innerFilePath = @"G:\webfiles\comfiles\" + fileName;
 							this.fuFiles.PostedFile.SaveAs(innerFilePath);
 
-							if(!string.IsNullOrEmpty(Request.QueryString["filesname"].ToString()))
-							{
-								string getFilesNamePart = Request.QueryString["filesname"].ToString();
-								string sqlUpdate = "update tb_ComFiles set CF_FilesName= '" + getFilesName + "' , CF_FilesPath= '" + innerFilePath + "' , CF_FilesClassify= '" + ddlFilesName.SelectedItem.Text + "' where CF_FilesName='" + getFilesNamePart + "'";
-								DBHelper.DBHelper.ExectueNonQuery(sqlUpdate);
-								Response.Write("<script>alert('文件修改成功！！！');window.close();window.opener.location.href='adminPage.aspx';</script>");
-							}
-							else
-							{
-								string sqlInsert = "insert into tb_ComFiles(CF_FilesName, CF_FilesPath, CF_FilesClassify) values('" + getFilesName + "', '" + innerFilePath + "', '" + ddlFilesName.SelectedItem.Text + "')";
-								DBHelper.DBHelper.ExectueNonQuery(sqlInsert);
-								Response.Write("<script>alert('文件添加成功！！！');window.close();window.opener.location.href='adminPage.aspx';</script>");
-							}
+							string sqlInsert = "insert into tb_ComFiles(CF_FilesName, CF_FilesPath, CF_FilesClassify) values('" + getFilesName + "', '" + innerFilePath + "', '" + ddlFilesName.SelectedItem.Text + "')";
+							DBHelper.DBHelper.ExectueNonQuery(sqlInsert);
+							Response.Write("<script>alert('文件添加成功！！！');window.close();window.opener.location.href='adminPage.aspx';</script>");
 						}
 					}
 					catch (Exception error)

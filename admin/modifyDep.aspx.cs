@@ -24,7 +24,8 @@ public partial class admin_modifyDep : System.Web.UI.Page
 		ddlProjectName.DataTextField = "P_ProjectName";
 		ddlProjectName.DataValueField = "P_ProjID";
 		ddlProjectName.DataBind();
-		ddlProjectName.Items.Insert(0, new ListItem("----请选择项目名称----"));
+		string projName = DBHelper.DBHelper.ExecuteScalar("select U_ProjectName from tb_UserInfo where U_Department='" + departmentname + "'").ToString();
+		ddlProjectName.Items.Insert(0, new ListItem(projName));
 		//string projName = DBHelper.DBHelper.ExecuteScalar("select U_ProjectName from tb_UserInfo where U_Department='" + departmentname + "'").ToString();
 	}
 

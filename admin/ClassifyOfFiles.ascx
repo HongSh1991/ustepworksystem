@@ -21,7 +21,7 @@
 	<div class="layui-form-item">
 		<label class="layui-form-label">文档名称:</label>
 		<div class="layui-input-inline">
-			<asp:TextBox ID="tbFilesName" runat="server" required lay-verify="required" placeholder="请输入文档名称" autocomplete="off" CssClass="layui-input"></asp:TextBox>
+			<asp:TextBox ID="tbFilesName" runat="server" placeholder="请输入文档名称" autocomplete="off" CssClass="layui-input"></asp:TextBox>
 		</div>
 		<label class="layui-form-label">分类名称:</label>
 		<div class="layui-input-inline">
@@ -40,7 +40,7 @@
 				<HeaderStyle HorizontalAlign="Center" Width="4.6%" />
 			</asp:TemplateField>
 			<asp:BoundField DataField="CF_FilesName" HeaderText="文档名称" />
-			<asp:BoundField DataField="CF_FilesClassify" HeaderText="分类名称" />
+			<asp:BoundField DataField="CF_FilesClassify" HeaderText="分类名称" ItemStyle-Width="24%" />
 			<asp:TemplateField HeaderText="下载" ItemStyle-Width="4.6%">
 				<ItemTemplate>
 					<asp:ImageButton ID="ImageButton0" runat="server" ImageUrl="~/resources/images/download.png" Height="21" Width="21" CommandName="Dl" CommandArgument='<%#Eval("CF_FilesName") %>'></asp:ImageButton>
@@ -64,6 +64,6 @@
 			</asp:TemplateField>
 		</Columns>
 		<HeaderStyle HorizontalAlign="Center" BackColor="#2F4056" ForeColor="White" Height="42px" />
-		<RowStyle HorizontalAlign="Center" />
+		<RowStyle HorizontalAlign="Center" Height="42px" />
 	</asp:GridView>
 </div>

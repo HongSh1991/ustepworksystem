@@ -217,7 +217,7 @@ public partial class admin_EmployeeInfo : System.Web.UI.UserControl
 		}
 		else if(cmd == "Ed")
 		{
-			Response.Write("<script>window.open('modifyUserInfo.aspx?username=" + e.CommandArgument + "','','width=460,height=420,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((1920-720)/2, (1080-640)/2);</script>");
+			Response.Write("<script>window.open('modifyUserInfo.aspx?username=" + e.CommandArgument + "','','width=460,height=420,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((window.screen.availWidth-10-460)/2, (window.screen.availHeight-30-420)/2);</script>");
 		}
 	}
 }

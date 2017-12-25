@@ -54,7 +54,7 @@
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 16%; margin-top: 12px;">
 				<label class="layui-form-label" style="text-align: right">项目名称:</label>
 				<div class="layui-input-block">
-					<asp:TextBox ID="tbProjectName" runat="server" required lay-verify="required"  placeholder="请输入项目名称" autocomplete="off" CssClass="layui-input"></asp:TextBox>
+					<asp:TextBox ID="tbProjectName" runat="server" placeholder="请输入项目名称" autocomplete="off" CssClass="layui-input"></asp:TextBox>
 				</div>
 			</div>
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 16%;">

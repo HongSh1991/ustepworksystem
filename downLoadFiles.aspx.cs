@@ -25,7 +25,11 @@ public partial class downLoadFiles : System.Web.UI.Page
 			}
 			else if (Request.QueryString["softsname"] != null)
 			{
-
+				string fileFullName;
+				string fileName = Request.QueryString["softsname"].ToString();//取出文件名称
+				string selectData = "select CS_SoftPath from tb_ComSoftWare where CS_SoftName='" + fileName + "'";
+				fileFullName = DBHelper.DBHelper.ExecuteScalar(selectData).ToString();//取出文件下载路径
+				DownloadFile(fileFullName);//下载文件
 			}
 		}
 	}

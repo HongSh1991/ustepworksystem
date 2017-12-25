@@ -33,4 +33,37 @@
 			<asp:Button ID="btnReset" runat="server" Text="重			置" CssClass="layui-btn" OnClick="btnReset_Click" />
 		</div>
 	</div>
+	<asp:GridView ID="gvSoftsList" runat="server" OnPageIndexChanging="gvSoftsList_PageIndexChanging" OnRowDataBound="gvSoftsList_RowDataBound" OnRowCommand="gvSoftsList_RowCommand" AutoGenerateColumns="False" AllowPaging="true" PageSize="10" CssClass="layui-table">
+		<Columns>
+			<asp:TemplateField HeaderText="序号" ItemStyle-Width="4.6%">
+				<ItemStyle HorizontalAlign="Center" />
+				<HeaderStyle HorizontalAlign="Center" Width="4.6%" />
+			</asp:TemplateField>
+			<asp:BoundField DataField="CS_SoftName" HeaderText="文档名称" />
+			<asp:BoundField DataField="CS_SoftClassify" HeaderText="分类名称" ItemStyle-Width="24%" />
+			<asp:TemplateField HeaderText="下载" ItemStyle-Width="4.6%">
+				<ItemTemplate>
+					<asp:ImageButton ID="ImageButton0" runat="server" ImageUrl="~/resources/images/download.png" Height="21" Width="21" CommandName="Dl" CommandArgument='<%#Eval("CS_SoftName") %>'></asp:ImageButton>
+				</ItemTemplate>
+				<ItemStyle HorizontalAlign="Center" />
+				<HeaderStyle HorizontalAlign="Center" Width="4.6%" />
+			</asp:TemplateField>
+			<asp:TemplateField HeaderText="编辑" ItemStyle-Width="4.6%">
+				<ItemTemplate>
+					<asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/resources/images/edit2.png" Height="21" Width="21" CommandName="Ed" CommandArgument='<%#Eval("CS_SoftName") %>'></asp:ImageButton>
+				</ItemTemplate>
+				<ItemStyle HorizontalAlign="Center" />
+				<HeaderStyle HorizontalAlign="Center" Width="4.6%" />
+			</asp:TemplateField>
+			<asp:TemplateField HeaderText="删除" ItemStyle-Width="4.6%">
+				<ItemTemplate>
+					<asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/resources/images/delete1.png" Height="21" Width="21" CommandName="De" CommandArgument='<%#Eval("CS_SoftName") %>'></asp:ImageButton>
+				</ItemTemplate>
+				<ItemStyle HorizontalAlign="Center" />
+				<HeaderStyle HorizontalAlign="Center" Width="4.6%" />
+			</asp:TemplateField>
+		</Columns>
+		<HeaderStyle HorizontalAlign="Center" BackColor="#2F4056" ForeColor="White" Height="42px" />
+		<RowStyle HorizontalAlign="Center" Height="42px" />
+	</asp:GridView>
 </div>

@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public partial class login_login : System.Web.UI.Page
 {
@@ -34,6 +29,11 @@ public partial class login_login : System.Web.UI.Page
 				{
 					Response.Redirect("../admin/adminPage.aspx?username=" + userName);
 					//Response.Write("<script>alert('登录成功！'); window.location.href='../admin/adminPage.aspx';</script>");
+				}
+				else if (role == "项目经理")
+				{
+					Response.Redirect("../projectmanager/projManagerPage.aspx?username=" + userName);
+					//Response.Write("<script>alert('登录成功！'); window.location.href='../common/commonPage.aspx';</script>");
 				}
 				else if (role == "普通员工")
 				{

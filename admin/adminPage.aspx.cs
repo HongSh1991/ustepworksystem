@@ -13,7 +13,6 @@ public partial class admin_adminPage : System.Web.UI.Page
 		{
 			Response.Write("<script>alert('请先登录！'); window.location='../login/login.aspx';</script>");
 		}
-
 		else if (Session["UserName"].ToString() != null)
 		{
 			string searChineseName = "select U_ChineseName from tb_UserInfo where U_UserName = '" + Session["UserName"].ToString() + "'";
