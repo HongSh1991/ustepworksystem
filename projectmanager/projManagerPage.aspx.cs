@@ -35,20 +35,29 @@ public partial class projectmanager_projManagerPage : System.Web.UI.Page
 
 	private void BindData()
 	{
-		string sqlBind = "select * from tb_UserInfo where U_UserName = '" + Session["UserName"].ToString() + "'";
-		gvProjectList.DataSource = DBHelper.DBHelper.ExecuteDataTable(sqlBind);
-		gvProjectList.DataKeyNames = new string[] { "U_UserName" };
-		gvProjectList.DataBind();
+		if (Session["UserName"] != null)
+		{
+			string sqlBind = "select * from tb_UserInfo where U_UserName = '" + Session["UserName"].ToString() + "'";
+			gvProjectList.DataSource = DBHelper.DBHelper.ExecuteDataTable(sqlBind);
+			gvProjectList.DataKeyNames = new string[] { "U_UserName" };
+			gvProjectList.DataBind();
+		}
 	}
 
 	protected void gvProjectList_PageIndexChanging(object sender, GridViewPageEventArgs e)
 	{
-
+		gvProjectList.PageIndex = e.NewPageIndex;
+		BindData();
 	}
 
 	protected void gvProjectList_RowDataBound(object sender, GridViewRowEventArgs e)
 	{
-
+		if (e.Row.RowIndex != -1)
+		{
+			//如果使用了分页控件且希望序号在翻页后不重新计算，使用下面方法  
+			int indexID = (gvProjectList.PageIndex) * gvProjectList.PageSize + e.Row.RowIndex + 1;
+			e.Row.Cells[0].Text = indexID.ToString();
+		}
 	}
 
 	protected void gvProjectList_RowCommand(object sender, GridViewCommandEventArgs e)
