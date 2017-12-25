@@ -108,7 +108,7 @@ public partial class admin_ClassifyOfFiles : System.Web.UI.UserControl
 		}
 		else if (cmd == "Ed")
 		{
-			Response.Write("<script>window.open('addMaterials.aspx?filesname=" + e.CommandArgument + "','','width=460,height=240,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((window.screen.availWidth-10-460)/2, (window.screen.availHeight-30-240)/2);</script>");
+			Response.Write("<script>window.open('modifyMaterials.aspx?filesname=" + e.CommandArgument + "','','width=460,height=240,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((window.screen.availWidth-10-460)/2, (window.screen.availHeight-30-240)/2);</script>");
 		}
 		else if(cmd == "Dl")
 		{
