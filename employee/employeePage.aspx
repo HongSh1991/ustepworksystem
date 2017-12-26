@@ -99,17 +99,17 @@
 											<ItemStyle HorizontalAlign="Center" />
 											<HeaderStyle HorizontalAlign="Center" Width="6.8%" />
 										</asp:TemplateField>
-										<asp:BoundField DataField="U_ProjectName" HeaderText="项目名称" />
+										<asp:BoundField DataField="ATPM_ProjectName" HeaderText="项目名称" />
 										<asp:TemplateField HeaderText="查看项目详情" ItemStyle-Width="13.2%">
 											<ItemTemplate>
-												<asp:ImageButton ID="ImageButton0" runat="server" ImageUrl="~/resources/images/view.png" Height="21" Width="21" CommandName="Dl" CommandArgument='<%#Eval("PM_ProjectName") %>'></asp:ImageButton>
+												<asp:ImageButton ID="ImageButton0" runat="server" ImageUrl="~/resources/images/view.png" Height="21" Width="21" CommandName="Dl" CommandArgument='<%#Eval("ATPM_ProjectName") %>'></asp:ImageButton>
 											</ItemTemplate>
 											<ItemStyle HorizontalAlign="Center" />
 											<HeaderStyle HorizontalAlign="Center" Width="13.2%" />
 										</asp:TemplateField>
 										<asp:TemplateField HeaderText="下载项目文档" ItemStyle-Width="13.2%">
 											<ItemTemplate>
-												<asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/resources/images/download.png" Height="21" Width="21" CommandName="Dl" CommandArgument='<%#Eval("PM_ProjectName") %>'></asp:ImageButton>
+												<asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/resources/images/download.png" Height="21" Width="21" CommandName="Dl" CommandArgument='<%#Eval("ATPM_ProjectName") %>'></asp:ImageButton>
 											</ItemTemplate>
 											<ItemStyle HorizontalAlign="Center" />
 											<HeaderStyle HorizontalAlign="Center" Width="13.2%" />

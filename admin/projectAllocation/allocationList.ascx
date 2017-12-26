@@ -21,16 +21,12 @@
 	<div class="layui-form-item">
 		<label class="layui-form-label">项目名称:</label>
 		<div class="layui-input-inline">
-			<asp:DropDownList ID="ddlProjectName" runat="server" CssClass="ddl"></asp:DropDownList>
+			<asp:DropDownList ID="ddlProjectName" runat="server" CssClass="ddl" OnSelectedIndexChanged="ddlProjectName_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
 		</div>
 
 		<label class="layui-form-label">项目负责人:</label>
 		<div class="layui-input-inline">
-			<asp:DropDownList ID="ddlProjectCharge" runat="server" CssClass="ddl"></asp:DropDownList>
-		</div>
-
-		<div class="layui-input-block" style="position:absolute; left:31%">
-			<asp:Button ID="btnReset" runat="server" Text="重置" CssClass="layui-btn" OnClick="btnReset_Click" />
+			<asp:DropDownList ID="ddlProjectCharge" runat="server" CssClass="ddl" OnSelectedIndexChanged="ddlProjectCharge_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
 		</div>
 	</div>
 	<asp:GridView ID="gvAllocation" runat="server" OnPageIndexChanging="gvAllocation_PageIndexChanging" OnRowDataBound="gvAllocation_RowDataBound" OnRowCommand="gvAllocation_RowCommand" AutoGenerateColumns="false" AllowPaging="true" PageSize="10" CssClass="layui-table">
@@ -39,7 +35,24 @@
 				<ItemStyle HorizontalAlign="Center" />
 				<HeaderStyle HorizontalAlign="Center" Width="4.6%" />
 			</asp:TemplateField>
-
+			<asp:BoundField DataField="ATPM_ProjectName" HeaderText="项目名称" />
+			<asp:BoundField DataField="ATPM_ChargeUserName" HeaderText="项目负责人" ItemStyle-Width="12%" />
+			<asp:TemplateField HeaderText="编辑" ItemStyle-Width="4.6%">
+				<ItemTemplate>
+					<asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/resources/images/edit2.png" Height="21" Width="21" CommandName="Ed" CommandArgument='<%#Eval("ATPM_ProjectName") %>'></asp:ImageButton>
+				</ItemTemplate>
+				<ItemStyle HorizontalAlign="Center" />
+				<HeaderStyle HorizontalAlign="Center" Width="4.6%" />
+			</asp:TemplateField>
+			<asp:TemplateField HeaderText="删除" ItemStyle-Width="4.6%">
+				<ItemTemplate>
+					<asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/resources/images/delete1.png" Height="21" Width="21" CommandName="De" CommandArgument='<%#Eval("ATPM_ProjectName") %>'></asp:ImageButton>
+				</ItemTemplate>
+				<ItemStyle HorizontalAlign="Center" />
+				<HeaderStyle HorizontalAlign="Center" Width="4.6%" />
+			</asp:TemplateField>
 		</Columns>
+		<HeaderStyle HorizontalAlign="Center" BackColor="#2F4056" ForeColor="White" Height="42px" />
+		<RowStyle HorizontalAlign="Center" Height="42px" />
 	</asp:GridView>
 </div>

@@ -37,9 +37,10 @@ public partial class employee_employeePage : System.Web.UI.Page
 	{
 		if (Session["UserName"] != null)
 		{
-			string sqlBind = "select * from tb_ProjectManage where PM_UserName = '" + Session["UserName"].ToString() + "'";
+			string getChineseName = DBHelper.DBHelper.ExecuteScalar("select U_ChineseName from tb_UserInfo where U_UserName = '" + Session["UserName"].ToString() + "'").ToString();
+			string sqlBind = "select * from tb_AdminToProjMan where ATPM_ChargeUserName = '" + getChineseName + "'";
 			gvProjectList.DataSource = DBHelper.DBHelper.ExecuteDataTable(sqlBind);
-			gvProjectList.DataKeyNames = new string[] { "PM_UserName" };
+			//gvProjectList.DataKeyNames = new string[] { "ATPM_ChargeUserName" };
 			gvProjectList.DataBind();
 		}
 	}
