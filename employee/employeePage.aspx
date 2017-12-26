@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="projManagerPage.aspx.cs" Inherits="projectmanager_projManagerPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="employeePage.aspx.cs" Inherits="employee_employeePage" %>
 
 <!DOCTYPE html>
 
@@ -54,8 +54,20 @@
 			<ul class="layui-nav layui-nav-tree layui-inline">
 				<li class="layui-nav-item">
 					<a href="#">
+						<i class="layui-icon">&#xe68e;</i>
+						我的主页
+					</a>
+				</li>
+				<li class="layui-nav-item layui-this">
+					<a href="projManagerPage.aspx">
 						<i class="layui-icon">&#xe612;</i>
 						用户中心
+					</a>
+				</li>
+				<li class="layui-nav-item">
+					<a href="projManagerPage.aspx">
+						<i class="layui-icon">&#xe63c;</i>
+						项目任务分配
 					</a>
 				</li>
 			</ul>

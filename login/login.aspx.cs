@@ -23,22 +23,13 @@ public partial class login_login : System.Web.UI.Page
 			{
 				Session["UserName"] = userName;
 				Session.Timeout = 9000;
-				string searchRole = "select U_Role from tb_UserInfo where U_UserName = '" + userName + "'";
-				string role = DBHelper.DBHelper.ExecuteScalar(searchRole).ToString();
-				if (role == "系统管理员")
+				if (userName == "admin")
 				{
 					Response.Redirect("../admin/adminPage.aspx?username=" + userName);
-					//Response.Write("<script>alert('登录成功！'); window.location.href='../admin/adminPage.aspx';</script>");
 				}
-				else if (role == "项目经理")
+				else
 				{
-					Response.Redirect("../projectmanager/projManagerPage.aspx?username=" + userName);
-					//Response.Write("<script>alert('登录成功！'); window.location.href='../common/commonPage.aspx';</script>");
-				}
-				else if (role == "普通员工")
-				{
-					Response.Redirect("../common/commonPage.aspx?username=" + userName);
-					//Response.Write("<script>alert('登录成功！'); window.location.href='../common/commonPage.aspx';</script>");
+					Response.Redirect("../employee/employeePage.aspx?username=" + userName);
 				}
 			}
 		}

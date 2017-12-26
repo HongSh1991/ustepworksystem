@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class projectmanager_projManagerPage : System.Web.UI.Page
+public partial class employee_employeePage : System.Web.UI.Page
 {
 	protected void Page_Load(object sender, EventArgs e)
 	{
