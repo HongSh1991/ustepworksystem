@@ -59,15 +59,15 @@
 					</a>
 				</li>
 				<li class="layui-nav-item layui-this">
-					<a href="projManagerPage.aspx">
+					<a href="employeePage.aspx">
 						<i class="layui-icon">&#xe612;</i>
 						用户中心
 					</a>
 				</li>
 				<li class="layui-nav-item">
-					<a href="projManagerPage.aspx">
+					<a href="employeeAllocation.aspx">
 						<i class="layui-icon">&#xe63c;</i>
-						项目任务分配
+						项目任务分配 / 进度
 					</a>
 				</li>
 			</ul>
@@ -102,14 +102,14 @@
 										<asp:BoundField DataField="U_ProjectName" HeaderText="项目名称" />
 										<asp:TemplateField HeaderText="查看项目详情" ItemStyle-Width="13.2%">
 											<ItemTemplate>
-												<asp:ImageButton ID="ImageButton0" runat="server" ImageUrl="~/resources/images/view.png" Height="21" Width="21" CommandName="Dl" CommandArgument='<%#Eval("U_ProjectName") %>'></asp:ImageButton>
+												<asp:ImageButton ID="ImageButton0" runat="server" ImageUrl="~/resources/images/view.png" Height="21" Width="21" CommandName="Dl" CommandArgument='<%#Eval("PM_ProjectName") %>'></asp:ImageButton>
 											</ItemTemplate>
 											<ItemStyle HorizontalAlign="Center" />
 											<HeaderStyle HorizontalAlign="Center" Width="13.2%" />
 										</asp:TemplateField>
 										<asp:TemplateField HeaderText="下载项目文档" ItemStyle-Width="13.2%">
 											<ItemTemplate>
-												<asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/resources/images/download.png" Height="21" Width="21" CommandName="Dl" CommandArgument='<%#Eval("U_ProjectName") %>'></asp:ImageButton>
+												<asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/resources/images/download.png" Height="21" Width="21" CommandName="Dl" CommandArgument='<%#Eval("PM_ProjectName") %>'></asp:ImageButton>
 											</ItemTemplate>
 											<ItemStyle HorizontalAlign="Center" />
 											<HeaderStyle HorizontalAlign="Center" Width="13.2%" />

@@ -57,11 +57,11 @@
 					<asp:TextBox ID="tbChineseName" runat="server" required lay-verify="required" placeholder="请输入中文名" autocomplete="off" CssClass="layui-input" TextMode="SingleLine"></asp:TextBox>
 				</div>
 			</div>
-			<div class="layui-form-item" style="margin-left: 16%; margin-right: 16%">
+			<%--<div class="layui-form-item" style="margin-left: 16%; margin-right: 16%">
 				<label class="layui-form-label" style="text-align: right">权&nbsp;&nbsp;&nbsp;&nbsp;限:</label>
 				<div class="layui-input-inline" style="padding-top:9px">
 					<%--<input type="radio" name="role" runat="server" value="0" title="系统操作员" checked="true" />
-					<input type="radio" name="role" runat="server" value="1" title="普通用户" />--%>
+					<input type="radio" name="role" runat="server" value="1" title="普通用户" />
 					<asp:RadioButtonList ID="rblRole" runat="server" RepeatDirection="Horizontal" Width="200px" CellPadding="4">
 													<asp:ListItem Value="0" Selected="True">系统管理员</asp:ListItem>
 													<asp:ListItem Value="1">普通用户</asp:ListItem>
@@ -73,7 +73,7 @@
 				<div class="layui-input-block">
 					<asp:DropDownList ID="ddlProjName" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlProjName_SelectedIndexChanged" CssClass="ddl"></asp:DropDownList>
 				</div>
-			</div>
+			</div>--%>
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 16%">
 				<label class="layui-form-label" style="text-align: right">部门名称:</label>
 				<div class="layui-input-block">

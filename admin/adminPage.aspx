@@ -6,6 +6,7 @@
 <%@ Register Src="~/admin/comResClassify/FilesAndSoftsList.ascx" TagName="FilesAndSoftsList" TagPrefix="uc5" %>
 <%@ Register Src="~/admin/ClassifyOfFiles.ascx" TagName="ClassifyOfFiles" TagPrefix="uc6" %>
 <%@ Register Src="~/admin/ClassifyOfSofts.ascx" TagName="ClassifyOfSofts" TagPrefix="uc7" %>
+<%@ Register Src="~/admin/projectAllocation/allocationList.ascx" TagName="allocationList" TagPrefix="uc8" %>
 
 <!DOCTYPE html>
 
@@ -72,7 +73,7 @@
 					<li class="layui-nav-item"><a href="">用户</a></li>--%>
 					<li class="layui-nav-item">
 						<a href="javascript:;">新增员工信息</a>
-						<dl class="layui-nav-child" style="font-weight: 600; font-size:11pt">
+						<dl class="layui-nav-child" style="font-weight: 600; font-size: 11pt">
 							<dd>
 								<asp:LinkButton ID="lbtnAddProjectName" runat="server" OnClick="lbtnAddProjectName_Click">[ 新增 ] 项目信息</asp:LinkButton>
 							</dd>
@@ -88,18 +89,21 @@
 						<a href="javascript:;">新增公司资源</a>
 						<dl class="layui-nav-child" style="font-weight: 600;">
 							<dd>
-								<asp:LinkButton ID="lbtnAddFilesClassify" runat="server" OnClick="lbtnAddFilesClassify_Click" >[ 新增 ] 文档分类</asp:LinkButton>
+								<asp:LinkButton ID="lbtnAddFilesClassify" runat="server" OnClick="lbtnAddFilesClassify_Click">[ 新增 ] 文档分类</asp:LinkButton>
 							</dd>
 							<dd>
 								<asp:LinkButton ID="lbtnAddComFiles" runat="server" OnClick="lbtnAddComFiles_Click">[ 新增 ] 公司文档</asp:LinkButton>
 							</dd>
 							<dd>
-								<asp:LinkButton ID="lbtnAddSoftClassify" runat="server" OnClick="lbtnAddSoftClassify_Click" >[ 新增 ] 软件分类</asp:LinkButton>
+								<asp:LinkButton ID="lbtnAddSoftClassify" runat="server" OnClick="lbtnAddSoftClassify_Click">[ 新增 ] 软件分类</asp:LinkButton>
 							</dd>
 							<dd>
 								<asp:LinkButton ID="lbtnAddComSofts" runat="server" OnClick="lbtnAddComSofts_Click">[ 新增 ] 软件资源</asp:LinkButton>
 							</dd>
 						</dl>
+					</li>
+					<li class="layui-nav-item">
+						<asp:LinkButton ID="lbtnAllocateProject" runat="server" OnClick="lbtnAllocateProject_Click">项目分配</asp:LinkButton>
 					</li>
 				</ul>
 				<ul class="layui-nav layui-layout-right">
@@ -152,6 +156,9 @@
 								</dd>
 							</dl>
 						</li>
+						<li class="layui-nav-item">
+							<asp:LinkButton ID="lbtnAllocateList" runat="server" OnClick="lbtnAllocateList_Click">项目分配列表</asp:LinkButton>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -186,6 +193,11 @@
 				<!--[删改查]软件资源-->
 				<div id ="display6" runat="server" style="padding: 1.2%;display:none; text-align-last:center">
 					<uc7:ClassifyOfSofts ID="ClassifyOfSofts" runat="server" />
+				</div>
+
+				<!--[删改查]软件资源-->
+				<div id ="display7" runat="server" style="padding: 1.2%;display:none; text-align-last:center">
+					<uc8:allocationList ID="allocationList" runat="server" />
 				</div>
 			</div>
   

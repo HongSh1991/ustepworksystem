@@ -24,15 +24,15 @@
 			<asp:TextBox ID="tbSearchUserName" runat="server" placeholder="请输入用户名" autocomplete="off" CssClass="layui-input"></asp:TextBox>
 		</div>
 
-		<label class="layui-form-label">项目名称:</label>
+		<%--<label class="layui-form-label">项目名称:</label>
 		<div class="layui-input-inline">
 			<asp:DropDownList ID="ddlProjectName" runat="server" OnSelectedIndexChanged="ddlProjectName_SelectedIndexChanged" AutoPostBack="True" ForeColor="Gray" CssClass="ddl">
 			</asp:DropDownList>
-		</div>
+		</div>--%>
 
 		<label class="layui-form-label">所属部门:</label>
 		<div class="layui-input-inline">
-			<asp:DropDownList ID="ddlDepartment" runat="server" ForeColor="Gray" CssClass="ddl">
+			<asp:DropDownList ID="ddlDepartment" runat="server" ForeColor="Gray" OnSelectedIndexChanged="ddlDepartment_SelectedIndexChanged" AutoPostBack="true" CssClass="ddl">
 			</asp:DropDownList>
 		</div>
 
@@ -49,8 +49,8 @@
 			</asp:TemplateField>
 			<asp:BoundField DataField="U_UserName" HeaderText="用户名" ItemStyle-Width="8%" HeaderStyle-HorizontalAlign="Center" />
 			<asp:BoundField DataField="U_ChineseName" HeaderText="姓名" ItemStyle-Width="10%" HeaderStyle-HorizontalAlign="Center" />
-			<asp:BoundField DataField="U_Department" HeaderText="部门" ItemStyle-Width="12%" HeaderStyle-HorizontalAlign="Center" />
-			<asp:BoundField DataField="U_ProjectName" HeaderText="项目名称" ItemStyle-Width="44.2%" HeaderStyle-HorizontalAlign="Center" />
+			<asp:BoundField DataField="U_Department" HeaderText="部门" HeaderStyle-HorizontalAlign="Center" />
+			<%--<asp:BoundField DataField="U_ProjectName" HeaderText="项目名称" ItemStyle-Width="44.2%" HeaderStyle-HorizontalAlign="Center" />--%>
 			<asp:BoundField DataField="U_Contact" HeaderText="联系方式" ItemStyle-Width="12%" HeaderStyle-HorizontalAlign="Center" />
 			<asp:TemplateField HeaderText="编辑" ItemStyle-Width="4.6%">
 				<ItemTemplate>

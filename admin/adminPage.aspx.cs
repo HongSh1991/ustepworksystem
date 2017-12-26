@@ -44,6 +44,7 @@ public partial class admin_adminPage : System.Web.UI.Page
 		display4.Visible = false;
 		display5.Visible = false;
 		display6.Visible = false;
+		display7.Visible = false;
 	}
 
 	protected void lbtnProMana_Click(object sender, EventArgs e)
@@ -55,6 +56,7 @@ public partial class admin_adminPage : System.Web.UI.Page
 		display4.Visible = false;
 		display5.Visible = false;
 		display6.Visible = false;
+		display7.Visible = false;
 	}
 
 	protected void lbtnDepMana_Click(object sender, EventArgs e)
@@ -66,6 +68,7 @@ public partial class admin_adminPage : System.Web.UI.Page
 		display4.Visible = false;
 		display5.Visible = false;
 		display6.Visible = false;
+		display7.Visible = false;
 	}
 
 	protected void lbtnFilesAndSoftWareClassify_Click(object sender, EventArgs e)
@@ -77,6 +80,7 @@ public partial class admin_adminPage : System.Web.UI.Page
 		display4.Attributes.Add("style", "padding:1.2%;display:block;text-align-last:center;");
 		display5.Visible = false;
 		display6.Visible = false;
+		display7.Visible = false;
 	}
 
 	protected void lbtnComFilesMana_Click(object sender, EventArgs e)
@@ -88,6 +92,7 @@ public partial class admin_adminPage : System.Web.UI.Page
 		display5.Visible = true;
 		display5.Attributes.Add("style", "padding:1.2%;display:block;text-align-last:center;");
 		display6.Visible = false;
+		display7.Visible = false;
 	}
 
 	protected void lbtnComSoftWMana_Click(object sender, EventArgs e)
@@ -99,6 +104,19 @@ public partial class admin_adminPage : System.Web.UI.Page
 		display5.Visible = false;
 		display6.Visible = true;
 		display6.Attributes.Add("style", "padding:1.2%;display:block;text-align-last:center;");
+		display7.Visible = false;
+	}
+
+	protected void lbtnAllocateList_Click(object sender, EventArgs e)
+	{
+		display1.Visible = false;
+		display2.Visible = false;
+		display3.Visible = false;
+		display4.Visible = false;
+		display5.Visible = false;
+		display6.Visible = false;
+		display7.Visible = true;
+		display7.Attributes.Add("style", "padding:1.2%;display:block;text-align-last:center;");
 	}
 	#endregion
 
@@ -109,12 +127,12 @@ public partial class admin_adminPage : System.Web.UI.Page
 
 	protected void lbtnAddDepName_Click(object sender, EventArgs e)
 	{
-		Response.Write("<script>window.open('addDep.aspx','','width=460,height=200,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((window.screen.availWidth-10-460)/2, (window.screen.availHeight-30-200)/2);</script>");
+		Response.Write("<script>window.open('addDep.aspx','','width=460,height=120,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((window.screen.availWidth-10-460)/2, (window.screen.availHeight-30-120)/2);</script>");
 	}
 
 	protected void lbtnAddEmpoyee_Click(object sender, EventArgs e)
 	{
-		Response.Write("<script>window.open('addEmployeeInfo.aspx','','width=460,height=520,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((window.screen.availWidth-10-460)/2, (window.screen.availHeight-30-520)/2);</script>");
+		Response.Write("<script>window.open('addEmployeeInfo.aspx','','width=460,height=420,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((window.screen.availWidth-10-460)/2, (window.screen.availHeight-30-420)/2);</script>");
 	}
 
 	protected void lbtnAddComFiles_Click(object sender, EventArgs e)
@@ -135,5 +153,10 @@ public partial class admin_adminPage : System.Web.UI.Page
 	protected void lbtnAddSoftClassify_Click(object sender, EventArgs e)
 	{
 		Response.Write("<script>window.open('../admin/comResClassify/addSoftsClassify.aspx','','width=460,height=160,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((window.screen.availWidth-10-460)/2, (window.screen.availHeight-30-160)/2);</script>");
+	}
+
+	protected void lbtnAllocateProject_Click(object sender, EventArgs e)
+	{
+		Response.Write("<script>window.open('/admin/projectAllocation/projAllocation.aspx','','width=640,height=420,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((window.screen.availWidth-10-640)/2, (window.screen.availHeight-30-420)/2);</script>");
 	}
 }

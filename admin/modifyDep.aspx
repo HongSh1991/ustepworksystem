@@ -45,13 +45,13 @@
 					<asp:TextBox ID="tbModifyDepartment" runat="server" placeholder="请输入部门名称" autocomplete="off" CssClass="layui-input"></asp:TextBox>
 				</div>
 			</div>
-			<div class="layui-form-item" style="margin-left: 16%; margin-right: 16%;">
+			<%--<div class="layui-form-item" style="margin-left: 16%; margin-right: 16%;">
 				<label class="layui-form-label" style="text-align: right">项目名称:</label>
 				<div class="layui-input-block">
 					<asp:DropDownList ID="ddlProjectName" runat="server" CssClass="ddl">
 					</asp:DropDownList>
 				</div>
-			</div>
+			</div>--%>
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 16%;">
 					<asp:Button ID="btnModifyDep" runat="server" Text="修改部门" CssClass="layui-btn" Width="310px" OnClick="btnModifyDep_Click" />
 			</div>

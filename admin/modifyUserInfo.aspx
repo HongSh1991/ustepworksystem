@@ -23,7 +23,7 @@
 		}
 		.ddl {
 			height: 38px;
-			width: 190px;
+			width: 195px;
 			cursor: pointer;
 			color: gray;
 			text-align: center;
@@ -54,13 +54,7 @@
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%">
 				<label class="layui-form-label" style="text-align: right">部门名称:</label>
 				<div class="layui-input-block">
-					<asp:TextBox ID="tbDepName" runat="server" placeholder="请输入部门名称" autocomplete="off" CssClass="layui-input" TextMode="SingleLine"></asp:TextBox>
-				</div>
-			</div>
-			<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%">
-				<label class="layui-form-label" style="text-align: right">项目名称:</label>
-				<div class="layui-input-block">
-					<asp:TextBox ID="tbProjName" runat="server" placeholder="请输入项目名称" autocomplete="off" CssClass="layui-input" TextMode="SingleLine"></asp:TextBox>
+					<asp:DropDownList ID="ddlDepartment" runat="server" CssClass="ddl"></asp:DropDownList>
 				</div>
 			</div>
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%">
@@ -70,7 +64,7 @@
 				</div>
 			</div>
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 18%">
-				<asp:Button ID="btnUpdate" runat="server" Text="确认修改" CssClass="layui-btn" OnClick="btnUpdate_Click" />
+				<asp:Button ID="btnUpdate" runat="server" Text="确认修改" CssClass="layui-btn" Width="310px" OnClick="btnUpdate_Click" />
 			</div>
 		</div>
 	</form>

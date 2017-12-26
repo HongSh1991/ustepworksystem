@@ -37,9 +37,9 @@ public partial class employee_employeePage : System.Web.UI.Page
 	{
 		if (Session["UserName"] != null)
 		{
-			string sqlBind = "select * from tb_UserInfo where U_UserName = '" + Session["UserName"].ToString() + "'";
+			string sqlBind = "select * from tb_ProjectManage where PM_UserName = '" + Session["UserName"].ToString() + "'";
 			gvProjectList.DataSource = DBHelper.DBHelper.ExecuteDataTable(sqlBind);
-			gvProjectList.DataKeyNames = new string[] { "U_UserName" };
+			gvProjectList.DataKeyNames = new string[] { "PM_UserName" };
 			gvProjectList.DataBind();
 		}
 	}
