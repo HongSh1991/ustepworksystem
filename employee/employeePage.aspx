@@ -6,12 +6,12 @@
 <head runat="server">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<title>欢迎你，项目经理</title>
+	<title>禹步信息工单系统</title>
 	<link rel="stylesheet" href="../res/layui/css/layui.css" type="text/css" />
 	<link rel="stylesheet" href="../res/css/global.css" type="text/css" />
 </head>
 <body>
-	<form id="form1" runat="server">
+	<form id="form1" runat="server" class="layui-form-pane">
 		<div class="fly-header layui-bg-black">
 			<div class="layui-container">
 				<div class="layui-logo" style="color: aquamarine; font-size: 2.4em; font-family: 华文行楷; padding-top: 1.2%;">禹步工单系统</div>
@@ -27,6 +27,14 @@
 							<img alt="" src="../resources/images/admin.jpg" class="layui-nav-img" />
 							<asp:Label ID="lbUserName" runat="server" Text=""></asp:Label>
 						</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="employeePage.aspx"><i class="layui-icon">&#xe612;</i>用户中心</a>
+							</dd>
+							<dd>
+								<a href="#"><i class="layui-icon">&#xe63c;</i>反馈汇总</a>
+							</dd>
+						</dl>
 					</li>
 					<li class="layui-nav-item">
 						<asp:LinkButton ID="lbtnExitSystem" runat="server" OnClick="lbtnExitSystem_Click">退出系统</asp:LinkButton>
@@ -53,7 +61,7 @@
 		<div class="layui-container fly-marginTop fly-user-main">
 			<ul class="layui-nav layui-nav-tree layui-inline">
 				<li class="layui-nav-item">
-					<a href="#">
+					<a href="employeeDefault.aspx">
 						<i class="layui-icon">&#xe68e;</i>
 						我的主页
 					</a>
@@ -68,6 +76,12 @@
 					<a href="employeeAllocation.aspx">
 						<i class="layui-icon">&#xe63c;</i>
 						项目任务分配 / 进度
+					</a>
+				</li>
+				<li class="layui-nav-item">
+					<a href="employeeBack.aspx">
+						<i class="layui-icon">&#xe63a;</i>
+						项目反馈
 					</a>
 				</li>
 			</ul>
@@ -102,14 +116,14 @@
 										<asp:BoundField DataField="ATPM_ProjectName" HeaderText="项目名称" />
 										<asp:TemplateField HeaderText="查看项目详情" ItemStyle-Width="13.2%">
 											<ItemTemplate>
-												<asp:ImageButton ID="ImageButton0" runat="server" ImageUrl="~/resources/images/view.png" Height="21" Width="21" CommandName="Dl" CommandArgument='<%#Eval("ATPM_ProjectName") %>'></asp:ImageButton>
+												<asp:ImageButton ID="ImageButton0" runat="server" ImageUrl="~/resources/images/view.png" Height="21" Width="21" CommandName="View" CommandArgument='<%#Eval("ATPM_ProjectName") %>'></asp:ImageButton>
 											</ItemTemplate>
 											<ItemStyle HorizontalAlign="Center" />
 											<HeaderStyle HorizontalAlign="Center" Width="13.2%" />
 										</asp:TemplateField>
 										<asp:TemplateField HeaderText="下载项目文档" ItemStyle-Width="13.2%">
 											<ItemTemplate>
-												<asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/resources/images/download.png" Height="21" Width="21" CommandName="Dl" CommandArgument='<%#Eval("ATPM_ProjectName") %>'></asp:ImageButton>
+												<asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/resources/images/download.png" Height="21" Width="21" CommandName="DownLoad" CommandArgument='<%#Eval("ATPM_ProjectName") %>'></asp:ImageButton>
 											</ItemTemplate>
 											<ItemStyle HorizontalAlign="Center" />
 											<HeaderStyle HorizontalAlign="Center" Width="13.2%" />
@@ -121,11 +135,36 @@
 							</div>
 						</div>
 						<div class="layui-tab-item">
-							<ul class="mine-view jie-row">
-								<li>
-									<a class="jie-title" href="../jie/detail.html" target="_blank">测试用页</a>
-									<i>测试于23小时前</i>  </li>
-							</ul>
+							<div style="text-align-last: center; margin-top:-2%">
+								<asp:GridView ID="gvAttendList" runat="server" OnPageIndexChanging="gvAttendList_PageIndexChanging" OnRowDataBound="gvAttendList_RowDataBound" OnRowCommand="gvAttendList_RowCommand" AutoGenerateColumns="false" AllowPaging="true" PageSize="10" CssClass="layui-table">
+									<Columns>
+										<asp:TemplateField HeaderText="序号" ItemStyle-Width="6.8%">
+											<ItemStyle HorizontalAlign="Center" />
+											<HeaderStyle HorizontalAlign="Center" Width="6.8%" />
+										</asp:TemplateField>
+										<asp:BoundField DataField="PM_ProjectName" HeaderText="项目名称" />
+										<asp:BoundField DataField="PM_TaskName" HeaderText="任务名称" />
+										<asp:BoundField DataField="PM_UserName" HeaderText="项目负责人" />
+										<asp:BoundField DataField="PM_DeadLine" HeaderText="截止日期" DataFormatString="{0:yyyy-MM-dd}" />
+										<asp:TemplateField HeaderText="查看项目详情" ItemStyle-Width="13.2%">
+											<ItemTemplate>
+												<asp:ImageButton ID="ImageButton0" runat="server" ImageUrl="~/resources/images/view.png" Height="21" Width="21" CommandName="View" CommandArgument='<%#Eval("PM_ProjectName") %>'></asp:ImageButton>
+											</ItemTemplate>
+											<ItemStyle HorizontalAlign="Center" />
+											<HeaderStyle HorizontalAlign="Center" Width="13.2%" />
+										</asp:TemplateField>
+										<asp:TemplateField HeaderText="下载项目文档" ItemStyle-Width="13.2%">
+											<ItemTemplate>
+												<asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/resources/images/download.png" Height="21" Width="21" CommandName="DownLoad" CommandArgument='<%#Eval("PM_ProjectName") %>'></asp:ImageButton>
+											</ItemTemplate>
+											<ItemStyle HorizontalAlign="Center" />
+											<HeaderStyle HorizontalAlign="Center" Width="13.2%" />
+										</asp:TemplateField>
+									</Columns>
+									<HeaderStyle HorizontalAlign="Center" BackColor="#f2f2f2" ForeColor="black" Height="32px" />
+									<RowStyle HorizontalAlign="Center" Height="32px" />
+								</asp:GridView>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -138,9 +177,10 @@
 
 	<script src="../layui/layui.js"></script>
 	<script>
-		layui.use('element', function () {
+		layui.use(['form', 'element'], function () {
 			var $ = layui.jquery
-				, element = layui.element;
+				, element = layui.element,
+				form = layui.form;
 		});
 	</script>
 </body>

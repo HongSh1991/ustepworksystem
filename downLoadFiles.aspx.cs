@@ -31,6 +31,23 @@ public partial class downLoadFiles : System.Web.UI.Page
 				fileFullName = DBHelper.DBHelper.ExecuteScalar(selectData).ToString();//取出文件下载路径
 				DownloadFile(fileFullName);//下载文件
 			}
+			else if (Request.QueryString["allocatedFilesName"] != null)
+			{
+				string fileFullName;
+				string fileName = Request.QueryString["allocatedFilesName"].ToString();//取出文件名称
+				string selectData = "select ATPM_ProjectPath from tb_AdminToProjMan where ATPM_ProjectName='" + fileName + "'";
+				fileFullName = DBHelper.DBHelper.ExecuteScalar(selectData).ToString();//取出文件下载路径
+				DownloadFile(fileFullName);//下载文件
+			}
+			else if (Request.QueryString["attendFilesName"] != null)
+			{
+				string fileFullName;
+				string fileName = Request.QueryString["attendFilesName"].ToString();//取出文件名称
+				string selectData1 = "select ATPM_ProjectPath from tb_AdminToProjMan a, tb_ProjectManage b where a.ATPM_ProjectName = b.PM_ProjectName and a.ATPM_ProjectName = '" + fileName + "'";
+				//string selectData = "select ATPM_ProjectPath from tb_AdminToProjMan where ATPM_ProjectName='" + fileName + "'";
+				fileFullName = DBHelper.DBHelper.ExecuteScalar(selectData1).ToString();//取出文件下载路径
+				DownloadFile(fileFullName);//下载文件
+			}
 		}
 	}
 
