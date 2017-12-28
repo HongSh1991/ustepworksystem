@@ -33,7 +33,7 @@
 			<asp:Button ID="btnReset" runat="server" Text="重			置" CssClass="layui-btn" OnClick="btnReset_Click" />
 		</div>
 	</div>
-	<asp:GridView ID="gvFilesList" runat="server" OnPageIndexChanging="gvFilesList_PageIndexChanging" OnRowDataBound="gvFilesList_RowDataBound" OnRowCommand="gvFilesList_RowCommand" AutoGenerateColumns="False" AllowPaging="true" PageSize="10"  CssClass="layui-table">
+	<asp:GridView ID="gvFilesList" runat="server" OnPageIndexChanging="gvFilesList_PageIndexChanging" OnRowDataBound="gvFilesList_RowDataBound" OnRowCommand="gvFilesList_RowCommand" AutoGenerateColumns="False" AllowPaging="true" PageSize="10"  CssClass="layui-table" ShowHeaderWhenEmpty="true">
 		<Columns>
 			<asp:TemplateField HeaderText="序号" ItemStyle-Width="4.6%">
 				<ItemStyle HorizontalAlign="Center" />

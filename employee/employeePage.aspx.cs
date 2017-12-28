@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 public partial class employee_employeePage : System.Web.UI.Page
@@ -24,6 +20,7 @@ public partial class employee_employeePage : System.Web.UI.Page
 		{
 			BindData();
 			BindData1();
+			BindTaskStatus();
 		}
 	}
 
@@ -115,6 +112,39 @@ public partial class employee_employeePage : System.Web.UI.Page
 		else if (cmd == "DownLoad")
 		{
 			Response.Write("<script>window.open('/downLoadFiles.aspx?attendFilesName=" + e.CommandArgument + "','','width=460,height=240,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((window.screen.availWidth-10-460)/2, (window.screen.availHeight-30-240)/2);</script>");
+		}
+	}
+
+	private void BindTaskStatus()
+	{
+		if (Session["UserName"] != null)
+		{
+			string searChineseName = "select U_ChineseName from tb_UserInfo where U_UserName = '" + Session["UserName"].ToString() + "'";
+			string chineseName = DBHelper.DBHelper.ExecuteScalar(searChineseName).ToString();
+
+			if(DBHelper.DBHelper.ExecuteDataTable("select * from tb_TaskStatus").Rows.Count > 0)
+			{
+				string sqlBindStatus = "select * from tb_TaskStatus where TS_TaskEmployee='" + chineseName + "'";
+				gvTaskStatus.DataSource = DBHelper.DBHelper.ExecuteDataTable(sqlBindStatus);
+				gvTaskStatus.DataKeyNames = new string[] { "TS_TaskEmployee" };
+				gvTaskStatus.DataBind();
+			}
+		}
+	}
+
+	protected void gvTaskStatus_PageIndexChanging(object sender, GridViewPageEventArgs e)
+	{
+		gvTaskStatus.PageIndex = e.NewPageIndex;
+		BindTaskStatus();
+	}
+
+	protected void gvTaskStatus_RowDataBound(object sender, GridViewRowEventArgs e)
+	{
+		if (e.Row.RowIndex != -1)
+		{
+			//如果使用了分页控件且希望序号在翻页后不重新计算，使用下面方法  
+			int indexID = (gvTaskStatus.PageIndex) * gvTaskStatus.PageSize + e.Row.RowIndex + 1;
+			e.Row.Cells[0].Text = indexID.ToString();
 		}
 	}
 }

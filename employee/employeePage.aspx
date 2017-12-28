@@ -79,6 +79,12 @@
 					</a>
 				</li>
 				<li class="layui-nav-item">
+					<a href="projectChargerCheck.aspx">
+						<i class="layui-icon">&#x1005;</i>
+						任务审批
+					</a>
+				</li>
+				<li class="layui-nav-item">
 					<a href="employeeBack.aspx">
 						<i class="layui-icon">&#xe63a;</i>
 						项目反馈
@@ -103,6 +109,7 @@
 					<ul class="layui-tab-title">
 						<li class="layui-this">我负责的项目</li>
 						<li>我参与的项目</li>
+						<li>任务状态列表</li>
 					</ul>
 					<div class="layui-tab-content" style="padding: 20px 0;">
 						<div class="layui-tab-item layui-show">
@@ -143,7 +150,6 @@
 											<HeaderStyle HorizontalAlign="Center" Width="6.8%" />
 										</asp:TemplateField>
 										<asp:BoundField DataField="PM_ProjectName" HeaderText="项目名称" />
-										<asp:BoundField DataField="PM_TaskName" HeaderText="任务名称" />
 										<asp:BoundField DataField="PM_UserName" HeaderText="项目负责人" />
 										<asp:BoundField DataField="PM_DeadLine" HeaderText="截止日期" DataFormatString="{0:yyyy-MM-dd}" />
 										<asp:TemplateField HeaderText="查看项目详情" ItemStyle-Width="13.2%">
@@ -160,6 +166,23 @@
 											<ItemStyle HorizontalAlign="Center" />
 											<HeaderStyle HorizontalAlign="Center" Width="13.2%" />
 										</asp:TemplateField>
+									</Columns>
+									<HeaderStyle HorizontalAlign="Center" BackColor="#f2f2f2" ForeColor="black" Height="32px" />
+									<RowStyle HorizontalAlign="Center" Height="32px" />
+								</asp:GridView>
+							</div>
+						</div>
+						<div class="layui-tab-item">
+							<div style="text-align-last: center; margin-top:-2%">
+								<asp:GridView ID="gvTaskStatus" runat="server" OnPageIndexChanging="gvTaskStatus_PageIndexChanging" OnRowDataBound="gvTaskStatus_RowDataBound" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" AllowPaging="true" PageSize="10" CssClass="layui-table">
+									<Columns>
+										<asp:TemplateField HeaderText="序号" ItemStyle-Width="6.8%">
+											<ItemStyle HorizontalAlign="Center" />
+											<HeaderStyle HorizontalAlign="Center" Width="6.8%" />
+										</asp:TemplateField>
+										<asp:BoundField DataField="TS_TaskName" HeaderText="任务名称" />
+										<asp:BoundField DataField="TS_ProjectName" HeaderText="任务所属项目" />
+										<asp:BoundField DataField="TS_TaskStatusNow" HeaderText="任务状态" />
 									</Columns>
 									<HeaderStyle HorizontalAlign="Center" BackColor="#f2f2f2" ForeColor="black" Height="32px" />
 									<RowStyle HorizontalAlign="Center" Height="32px" />

@@ -79,6 +79,12 @@
 						项目任务分配 / 进度
 					</a>
 				</li>
+				<li class="layui-nav-item">
+					<a href="projectChargerCheck.aspx">
+						<i class="layui-icon">&#x1005;</i>
+						任务审批
+					</a>
+				</li>
 				<li class="layui-nav-item layui-this">
 					<a href="employeeBack.aspx">
 						<i class="layui-icon">&#xe63a;</i>
@@ -98,21 +104,15 @@
 			<div class="site-mobile-shade"></div>
 
 			<div class="fly-panel fly-panel-user" style="padding: 1.2%;">
-				<blockquote class="layui-elem-quote" style="line-height: 10px!important;">项目任务分配 / 进度</blockquote>
+				<blockquote class="layui-elem-quote" style="line-height: 10px!important;">项目反馈</blockquote>
 				<div class="layui-tab layui-tab-brief">
 					<ul class="layui-tab-title">
-						<li class="layui-this">项目任务分配</li>
-						<li>项目进度</li>
+						<li class="layui-this">项目任务反馈</li>
 					</ul>
 					<div class="layui-tab-content" style="padding: 20px 0;">
 						<div class="layui-form layui-form-pane layui-tab-item layui-show">
 							<div style="margin-top: -1%">
 								
-							</div>
-						</div>
-						<div class="layui-tab-item">
-							<div style="text-align-last: center; margin-top:-2%">
-								test1
 							</div>
 						</div>
 					</div>

@@ -21,6 +21,12 @@
 			border-left: Gainsboro 1px solid;
 			border-bottom: Gainsboro 1px solid;
 		}
+		.lb{
+			text-align:right;
+			position:absolute;
+			right:1.6%;
+			font-size:9pt;
+		}
 	</style>
 </head>
 <body>
@@ -66,7 +72,27 @@
 			<div class="fly-panel fly-panel-user" style="padding: 1.2%;">
 				<blockquote class="layui-elem-quote" style="line-height: 10px!important;">个人工单列表</blockquote>
 				<div class="layui-tab layui-tab-brief">
-					test1
+					<asp:GridView ID="gvTaskList" runat="server" OnPageIndexChanging="gvTaskList_PageIndexChanging" OnRowDataBound="gvTaskList_RowDataBound" AutoGenerateColumns="false" AllowPaging="true" PageSize="10" ShowHeader="false" CssClass="layui-table" RowStyle-BorderStyle="Dashed" RowStyle-BorderWidth="1.6">
+						<Columns>
+							<asp:TemplateField HeaderText="序号" ItemStyle-Width="4.2%">
+								<ItemStyle HorizontalAlign="Center" />
+								<HeaderStyle HorizontalAlign="Center" Width="4.2%" />
+							</asp:TemplateField>
+							<asp:TemplateField HeaderText="任务名称/截止日期">
+								<ItemTemplate>
+									<a href="taskListDetails.aspx?taskname=<%#Eval("PM_TaskName") %>">
+										<asp:Label ID="lbtasklist" runat="server" Text='<%#Eval("PM_TaskName") %>'></asp:Label>&nbsp;&nbsp;
+										<asp:Label ID="lbfont" runat="server" class="layui-icon" style="font-size:8pt; color:red;" Text=""></asp:Label>
+									</a>
+									<asp:Label ID="lbDeadLine" runat="server" CssClass="lb">截止日期:<%#Eval("PM_DeadLine","{0:yyyy-MM-dd}") %></asp:Label>
+								</ItemTemplate>
+							</asp:TemplateField>
+							<%--<asp:BoundField DataField="PM_TaskName" HeaderText="任务名称" />
+							<asp:BoundField DataField="PM_DeadLine" HeaderText="截止日期" DataFormatString="{0:yyyy-MM-dd}" />--%>
+						</Columns>
+						<HeaderStyle />
+						<RowStyle Height="42px" />
+					</asp:GridView>
 				</div>
 			</div>
 		</div>

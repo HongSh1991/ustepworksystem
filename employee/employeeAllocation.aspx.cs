@@ -84,8 +84,18 @@ public partial class employee_employeeAllocation : System.Web.UI.Page
 		string datetime = tbDeadLine.Text.Trim();
 		string getTaskDetails = tbTaskDetails.Text.Trim().ToString();
 
-		string sqlInsert = "insert into tb_ProjectManage(PM_ProjectName, PM_TaskName, PM_TaskRate, PM_UserName, PM_AttenderName, PM_DeadLine, PM_TaskDetails )values('" + getProjectName + "', '" + getTaskName + "', '" + getTaskRate + "', '" + userChineseName + "', '" + getAttenderName + "', '" + datetime + "', '" + getTaskDetails + "')";
-		DBHelper.DBHelper.ExectueNonQuery(sqlInsert);
-		Page.ClientScript.RegisterStartupScript(this.GetType(), "ServiceManHistoryButtonClick", "<script>alert('项目任务指派成功！！！');window.location.href='employeePage.aspx'</script>");
+		string compareTime = DateTime.Now.ToString("yyyy-MM-dd");
+		DateTime dt1 = Convert.ToDateTime(datetime);
+		DateTime dt2 = Convert.ToDateTime(compareTime);
+		if (DateTime.Compare(dt1, dt2) <= 0)
+		{
+			Page.ClientScript.RegisterStartupScript(this.GetType(), "ServiceManHistoryButtonClick", "<script>alert('指派时间不得小于当前时间！！！');</script>");
+		}
+		else
+		{
+			string sqlInsert = "insert into tb_ProjectManage(PM_ProjectName, PM_TaskName, PM_TaskRate, PM_UserName, PM_AttenderName, PM_DeadLine, PM_TaskDetails )values('" + getProjectName + "', '" + getTaskName + "', '" + getTaskRate + "', '" + userChineseName + "', '" + getAttenderName + "', '" + datetime + "', '" + getTaskDetails + "')";
+			DBHelper.DBHelper.ExectueNonQuery(sqlInsert);
+			Page.ClientScript.RegisterStartupScript(this.GetType(), "ServiceManHistoryButtonClick", "<script>alert('项目任务指派成功！！！');window.location.href='employeePage.aspx'</script>");
+		}
 	}
 }

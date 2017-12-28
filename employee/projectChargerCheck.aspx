@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="employeeAllocation.aspx.cs" Inherits="employee_employeeAllocation" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="projectChargerCheck.aspx.cs" Inherits="employee_projectChargerCheck" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>项目任务分配</title>
+	<title>项目任务审批</title>
 	<link rel="stylesheet" href="../res/layui/css/layui.css" type="text/css" />
 	<link rel="stylesheet" href="../res/css/global.css" type="text/css" />
 	<style type="text/css">
@@ -73,13 +73,13 @@
 						用户中心
 					</a>
 				</li>
-				<li class="layui-nav-item layui-this">
+				<li class="layui-nav-item">
 					<a href="employeeAllocation.aspx">
 						<i class="layui-icon">&#xe63c;</i>
 						项目任务分配 / 进度
 					</a>
 				</li>
-				<li class="layui-nav-item">
+				<li class="layui-nav-item layui-this">
 					<a href="projectChargerCheck.aspx">
 						<i class="layui-icon">&#x1005;</i>
 						任务审批
@@ -105,60 +105,33 @@
 
 
 			<div class="fly-panel fly-panel-user" style="padding: 1.2%;">
-				<blockquote class="layui-elem-quote" style="line-height: 10px!important;">项目任务分配 / 进度</blockquote>
+				<blockquote class="layui-elem-quote" style="line-height: 10px!important;">项目任务审批</blockquote>
 				<div class="layui-tab layui-tab-brief">
 					<ul class="layui-tab-title">
-						<li class="layui-this">项目任务分配</li>
-						<li>项目进度</li>
+						<li class="layui-this">待审批任务列表</li>
 					</ul>
 					<div class="layui-tab-content" style="padding: 20px 0;">
 						<div class="layui-form layui-form-pane layui-tab-item layui-show">
-							<div style="margin-top: -1%">
-								<div class="layui-form-item">
-									<label class="layui-form-label">项目名称</label>
-									<div class="layui-input-inline">
-										<asp:DropDownList ID="ddlProjectName" runat="server" CssClass="ddl" ForeColor="Gray"></asp:DropDownList>
-									</div>
-								</div>
-								<div class="layui-form-item">
-									<label class="layui-form-label">任务名称</label>
-									<div class="layui-input-inline">
-										<asp:TextBox ID="tbTaskName" runat="server" placeholder="请填写任务名称" CssClass="layui-input"></asp:TextBox>
-									</div>
-								</div>
-								<div class="layui-form-item">
-									<label class="layui-form-label">任务紧急度</label>
-									<div class="layui-input-inline">
-										<asp:DropDownList ID="ddlTaskRate" runat="server"></asp:DropDownList>
-									</div>
-								</div>
-								<div class="layui-form-item">
-									<label class="layui-form-label">指派给</label>
-									<div class="layui-input-inline" style="line-height:36px">
-										<asp:DropDownList ID="ddlAssginEmployee" runat="server" CssClass="ddl" ForeColor="Gray"></asp:DropDownList>
-										<%--<asp:CheckBoxList ID="cblEmployee" runat="server" RepeatDirection="Horizontal" CellPadding="4" RepeatColumns="6" RepeatLayout="Table" TextAlign="Right"></asp:CheckBoxList>--%>
-									</div>
-								</div>
-								<div class="layui-form-item">
-									<label class="layui-form-label">完成时间</label>
-									<div class="layui-input-inline">
-										<asp:TextBox ID="tbDeadLine" runat="server" TextMode="Date" CssClass="layui-input"></asp:TextBox>
-									</div>
-								</div>
-								<div class="layui-form-item layui-form-text">
-									<label class="layui-form-label" style="padding-left:2.6%">任务详情</label>
-									<div class="layui-input-block">
-										<asp:TextBox ID="tbTaskDetails" runat="server" placeholder="填写对项目任务的一些说明~" TextMode="MultiLine" CssClass="layui-textarea"></asp:TextBox>
-									</div>
-								</div>
-								<div class="layui-form-item">
-									<asp:Button ID="btnAssignTask" runat="server" Text="指派任务" CssClass="layui-btn" OnClick="btnAssignTask_Click" />
-								</div>
-							</div>
-						</div>
-						<div class="layui-tab-item">
-							<div style="text-align-last: center; margin-top:-2%">
-								test1
+							<div style="margin-top: -1%; text-align-last:center">
+								<asp:GridView ID="gvApprovalList" runat="server" OnPageIndexChanging="gvApprovalList_PageIndexChanging" OnRowDataBound="gvApprovalList_RowDataBound" OnRowCommand="gvApprovalList_RowCommand" AutoGenerateColumns="false" AllowPaging="true" PageSize="10" CssClass="layui-table" ShowHeaderWhenEmpty="true">
+									<Columns>
+										<asp:TemplateField HeaderText="序号" ItemStyle-Width="6.8%">
+											<ItemStyle HorizontalAlign="Center" />
+											<HeaderStyle HorizontalAlign="Center" Width="6.8%" />
+										</asp:TemplateField>
+										<asp:BoundField DataField="TS_TaskName" HeaderText="任务名称" />
+										<asp:BoundField DataField="TS_ProjectName" HeaderText="项目名称" />
+										<asp:TemplateField HeaderText="审批任务" ItemStyle-Width="12%">
+											<ItemTemplate>
+												<asp:ImageButton ID="ImageButton0" runat="server" ImageUrl="~/resources/images/approval.png" Height="21" Width="21" CommandName="Approval" CommandArgument='<%#Eval("TS_TaskName") %>'></asp:ImageButton>
+											</ItemTemplate>
+											<ItemStyle HorizontalAlign="Center" />
+											<HeaderStyle HorizontalAlign="Center" Width="12%" />
+										</asp:TemplateField>
+									</Columns>
+									<HeaderStyle HorizontalAlign="Center" BackColor="#f2f2f2" ForeColor="black" Height="32px" />
+									<RowStyle HorizontalAlign="Center" Height="32px" />
+								</asp:GridView>
 							</div>
 						</div>
 					</div>
