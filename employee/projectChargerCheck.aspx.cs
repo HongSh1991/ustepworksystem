@@ -70,7 +70,7 @@ public partial class employee_projectChargerCheck : System.Web.UI.Page
 		string cmd = e.CommandName;
 		if(cmd == "Approval")
 		{
-			Response.Write("<script>window.open('approvalDialog.aspx','','width=640,height=560,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((window.screen.availWidth-10-640)/2, (window.screen.availHeight-30-560)/2);</script>");
+			Page.ClientScript.RegisterStartupScript(this.GetType(), "ServiceManHistoryButtonClick","<script>window.open('approvalDialog.aspx?taskname=" + e.CommandArgument + "','','width=720,height=720,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((window.screen.availWidth-10-720)/2, (window.screen.availHeight-30-720)/2);</script>");
 		}
 	}
 }

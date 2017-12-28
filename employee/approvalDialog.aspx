@@ -32,6 +32,13 @@
 			border-left: Gainsboro 1px solid;
 			border-bottom: Gainsboro 1px solid;
 		}
+		.lb{
+			text-align:left;
+			font-size:10.6pt;
+			/*line-height:12px;*/
+			padding-left:6%;
+			padding-top:2.4%;
+		}
 	</style>
 	<base id="baseB" runat="server" target="_self"/>
 </head>
@@ -39,43 +46,47 @@
 	<form id="form1" runat="server" class="layui-form-pane">
 		<div class="site-text site-block">
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 16%; margin-top: 12px;">
-				<label class="layui-form-label">任务名称</label>
-				<div class="layui-input-inline">
-					<asp:Label ID="lbTaskName" runat="server"></asp:Label>
+				<label class="layui-form-label">任务名称:</label>
+				<div class="layui-input-block">
+					<asp:Label ID="lbTaskName" runat="server" CssClass="lb layui-input"></asp:Label>
 				</div>
 			</div>
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 16%; margin-top: 12px;">
-				<label class="layui-form-label">所属项目</label>
-				<div class="layui-input-inline">
-					<asp:Label ID="lbProjectName" runat="server"></asp:Label>
+				<label class="layui-form-label">所属项目:</label>
+				<div class="layui-input-block">
+					<asp:Label ID="lbProjectName" runat="server" CssClass="lb layui-input"></asp:Label>
 				</div>
 			</div>
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 16%;">
-				<label class="layui-form-label">员工姓名</label>
-				<div class="layui-input-inline">
-					<asp:Label ID="lbTaskEmployee" runat="server"></asp:Label>
+				<label class="layui-form-label">员工姓名:</label>
+				<div class="layui-input-block">
+					<asp:Label ID="lbTaskEmployee" runat="server" CssClass="lb layui-input"></asp:Label>
 				</div>
 			</div>
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 16%; margin-top: 12px;">
-				<label class="layui-form-label">完成时间</label>
-				<div class="layui-input-inline">
-					<asp:Label ID="lbFinishedTime" runat="server"></asp:Label>
+				<label class="layui-form-label">完成时间:</label>
+				<div class="layui-input-block">
+					<asp:Label ID="lbFinishedTime" runat="server" CssClass="lb layui-input"></asp:Label>
 				</div>
 			</div>
 			<div class="layui-form-item layui-form-text" style="margin-left: 16%; margin-right: 16%;">
-				<label class="layui-form-label">进度说明</label>
-				<div class="layui-input-inline">
-					<asp:Label ID="lbTaskProgressState" runat="server" CssClass="layui-textarea"></asp:Label>
+				<label class="layui-form-label" style="padding-left:5.1%">任务状态说明:</label>
+				<div class="layui-input-block">
+					<asp:Label ID="lbTaskProgressState" runat="server"  CssClass="layui-textarea"></asp:Label>
 				</div>
 			</div>
+			<hr class="layui-bg-green" style="margin-left: 16%; margin-right: 16%;" />
+			<blockquote class="layui-elem-quote" style="line-height: 4px!important;margin-left: 16%; margin-right: 16%;">项目负责人审批</blockquote>
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 16%;">
-				<label class="layui-form-label">是否通过</label>
-				<div class="layui-input-inline">
-					<asp:DropDownList ID="ddlPass" runat="server" CssClass="layui-input ddl">
-						<asp:ListItem Value="0" Text="请选择"></asp:ListItem>
-						<asp:ListItem Value="1" Text="通过"></asp:ListItem>
-						<asp:ListItem Value="2" Text="不通过"></asp:ListItem>
-					</asp:DropDownList>
+				<label class="layui-form-label">是否通过:</label>
+				<div class="layui-input-block">
+					<asp:DropDownList ID="ddlPass" runat="server" CssClass="ddl"></asp:DropDownList>
+				</div>
+			</div>
+			<div class="layui-form-item layui-form-text" style="margin-left: 16%; margin-right: 16%;">
+				<label class="layui-form-label" style="padding-left: 5.1%">审批意见:</label>
+				<div class="layui-input-block">
+					<asp:TextBox ID="tbApprovalOpinion" runat="server" CssClass="layui-textarea" TextMode="MultiLine" placeholder="填写审批意见"></asp:TextBox>
 				</div>
 			</div>
 			<div class="layui-form-item" style="margin-left: 16%; margin-right: 16%;">
