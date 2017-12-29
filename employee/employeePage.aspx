@@ -114,7 +114,7 @@
 					<div class="layui-tab-content" style="padding: 20px 0;">
 						<div class="layui-tab-item layui-show">
 							<div style="text-align-last: center; margin-top:-2%">
-								<asp:GridView ID="gvProjectList" runat="server" OnPageIndexChanging="gvProjectList_PageIndexChanging" OnRowDataBound="gvProjectList_RowDataBound" OnRowCommand="gvProjectList_RowCommand" AutoGenerateColumns="false" AllowPaging="true" PageSize="10" CssClass="layui-table">
+								<asp:GridView ID="gvProjectList" runat="server" OnPageIndexChanging="gvProjectList_PageIndexChanging" OnRowDataBound="gvProjectList_RowDataBound" OnRowCommand="gvProjectList_RowCommand" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" AllowPaging="true" PageSize="10" CssClass="layui-table">
 									<Columns>
 										<asp:TemplateField HeaderText="序号" ItemStyle-Width="6.8%">
 											<ItemStyle HorizontalAlign="Center" />
@@ -143,7 +143,7 @@
 						</div>
 						<div class="layui-tab-item">
 							<div style="text-align-last: center; margin-top:-2%">
-								<asp:GridView ID="gvAttendList" runat="server" OnPageIndexChanging="gvAttendList_PageIndexChanging" OnRowDataBound="gvAttendList_RowDataBound" OnRowCommand="gvAttendList_RowCommand" AutoGenerateColumns="false" AllowPaging="true" PageSize="10" CssClass="layui-table">
+								<asp:GridView ID="gvAttendList" runat="server" OnPageIndexChanging="gvAttendList_PageIndexChanging" OnRowDataBound="gvAttendList_RowDataBound" OnRowCommand="gvAttendList_RowCommand" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" AllowPaging="true" PageSize="10" CssClass="layui-table">
 									<Columns>
 										<asp:TemplateField HeaderText="序号" ItemStyle-Width="6.8%">
 											<ItemStyle HorizontalAlign="Center" />

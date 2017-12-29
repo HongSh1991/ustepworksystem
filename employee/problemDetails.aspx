@@ -95,11 +95,19 @@
 							<asp:Label ID="lbProblemDetails" runat="server" CssClass="layui-textarea"></asp:Label>
 						</div>
 					</div>
-					<div style="display:none">
+					<div id="showDiv" runat="server" style="display:none">
 						<hr class="layui-bg-green" />
 						<asp:DataList ID="dlReply" runat="server" RepeatDirection="Vertical">
 							<ItemTemplate>
-
+								<div class="layui-form-item">
+									<asp:Label ID="lbReplyer" runat="server" CssClass="layui-form-label" Text='<%#Eval("PR_ReplyEmployee") %>'></asp:Label>
+									<div class="layui-input-block">
+										<asp:Label ID="lbReply" runat="server" TextMode="MultiLine" CssClass="layui-textarea" Text='<%#Eval("PR_ProblemReply") %>'></asp:Label>
+									</div>
+									<div class="layui-form-text" style="text-align-last:right;">
+										<asp:Label ID="lbReplyTime" runat="server" Text='<%#Eval("PR_ReplyTime") %>'></asp:Label>
+									</div>
+								</div>
 							</ItemTemplate>
 						</asp:DataList>
 					</div>

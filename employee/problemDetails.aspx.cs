@@ -23,6 +23,7 @@ public partial class employee_problemDetails : System.Web.UI.Page
 		if (!IsPostBack)
 		{
 			BindData();
+			BindReplyData();
 		}
 	}
 
@@ -39,6 +40,18 @@ public partial class employee_problemDetails : System.Web.UI.Page
 			lbProjectName.Text = projectName;
 			lbTaskName.Text = taskName;
 			lbProblemDetails.Text = problemDetails;
+		}
+	}
+
+	private void BindReplyData()
+	{
+		string sqlBind = "select * from tb_ProblemReply";
+		if(DBHelper.DBHelper.ExecuteDataTable(sqlBind).Rows.Count > 0)
+		{
+			showDiv.Attributes.Add("style", "display:block;");
+
+			dlReply.DataSource = DBHelper.DBHelper.ExecuteDataTable(sqlBind);
+			dlReply.DataBind();
 		}
 	}
 

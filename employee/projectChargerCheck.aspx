@@ -113,7 +113,7 @@
 					<div class="layui-tab-content" style="padding: 20px 0;">
 						<div class="layui-form layui-form-pane layui-tab-item layui-show">
 							<div style="margin-top: -1%; text-align-last:center">
-								<asp:GridView ID="gvApprovalList" runat="server" OnPageIndexChanging="gvApprovalList_PageIndexChanging" OnRowDataBound="gvApprovalList_RowDataBound" OnRowCommand="gvApprovalList_RowCommand" AutoGenerateColumns="false" AllowPaging="true" PageSize="10" CssClass="layui-table" ShowHeaderWhenEmpty="true">
+								<asp:GridView ID="gvApprovalList" runat="server" OnPageIndexChanging="gvApprovalList_PageIndexChanging" OnRowDataBound="gvApprovalList_RowDataBound" OnRowCommand="gvApprovalList_RowCommand" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" AllowPaging="true" PageSize="10" CssClass="layui-table" >
 									<Columns>
 										<asp:TemplateField HeaderText="序号" ItemStyle-Width="6.8%">
 											<ItemStyle HorizontalAlign="Center" />
