@@ -1,0 +1,16 @@
+create table tb_SubmitProblem
+(
+	SP_ID int primary key not null,
+	SP_ProjectName nvarchar(100) not null,
+	SP_TaskName nvarchar(100) not null,
+	SP_ProblemClassify nvarchar(20) not null,
+	SP_ProblemState nvarchar(1000) not null
+);
+
+create table tb_ProblemReply
+(
+	PR_ID int primary key not null,
+	PR_ProblemReply nvarchar(1000) not null,
+	PR_ReplyTime datetime not null,
+	PR_ReplyEmployee nvarchar(50) not null
+);

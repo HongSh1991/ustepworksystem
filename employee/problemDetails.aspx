@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="employeeDefault.aspx.cs" Inherits="employee_employeeDefault" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="problemDetails.aspx.cs" Inherits="employee_problemDetails" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>我的主页</title>
+	<title>问题详情页</title>
 	<link rel="stylesheet" href="../res/layui/css/layui.css" type="text/css" />
 	<link rel="stylesheet" href="../res/css/global.css" type="text/css" />
 	<style type="text/css">
@@ -22,15 +22,17 @@
 			border-bottom: Gainsboro 1px solid;
 		}
 		.lb{
-			text-align:right;
+			/*text-align:right;
 			position:absolute;
-			right:1.6%;
-			font-size:9pt;
+			right:1.6%;*/
+			line-height:36px;
+			padding-left:1.2%;
+			font-size:10pt;
 		}
 	</style>
 </head>
 <body>
-	<form id="form1" runat="server" class="layui-form-pane">
+	<form id="form1" runat="server" class="layui-form">
 		<div class="fly-header layui-bg-black">
 			<div class="layui-container">
 				<div class="layui-logo" style="color: aquamarine; font-size: 2.4em; font-family: 华文行楷; padding-top: 1.2%;">禹步工单系统</div>
@@ -66,33 +68,53 @@
 		</div>
 
 		<div class="layui-container fly-marginTop">
-			<div class="fly-panel fly-panel-user" style="height:32px; padding-top:1.2%; padding-left:1.2%">
-				此页面工单列表包含正常任务，系统Bug，临时加急任务等
-			</div>
 			<div class="fly-panel fly-panel-user" style="padding: 1.2%;">
-				<blockquote class="layui-elem-quote" style="line-height: 10px!important;">个人工单列表</blockquote>
-				<div class="layui-tab layui-tab-brief">
-					<asp:GridView ID="gvTaskList" runat="server" OnPageIndexChanging="gvTaskList_PageIndexChanging" OnRowDataBound="gvTaskList_RowDataBound" AutoGenerateColumns="false" AllowPaging="true" PageSize="10" ShowHeader="false" CssClass="layui-table" RowStyle-BorderStyle="Dashed" RowStyle-BorderWidth="1.6">
-						<Columns>
-							<asp:TemplateField HeaderText="序号" ItemStyle-Width="4.2%">
-								<ItemStyle HorizontalAlign="Center" />
-								<HeaderStyle HorizontalAlign="Center" Width="4.2%" />
-							</asp:TemplateField>
-							<asp:TemplateField HeaderText="任务名称/截止日期">
-								<ItemTemplate>
-									<a href="taskListDetails.aspx?taskname=<%#Eval("PM_TaskName") %>">
-										<asp:Label ID="lbtasklist" runat="server" Text='<%#Eval("PM_TaskName") %>'></asp:Label>&nbsp;&nbsp;
-										<asp:Label ID="lbfont" runat="server" class="layui-icon" style="font-size:8pt; color:red;" Text=""></asp:Label>
-									</a>
-									<asp:Label ID="lbDeadLine" runat="server" CssClass="lb">截止日期:<%#Eval("PM_DeadLine","{0:yyyy-MM-dd}") %></asp:Label>
-								</ItemTemplate>
-							</asp:TemplateField>
-							<%--<asp:BoundField DataField="PM_TaskName" HeaderText="任务名称" />
-							<asp:BoundField DataField="PM_DeadLine" HeaderText="截止日期" DataFormatString="{0:yyyy-MM-dd}" />--%>
-						</Columns>
-						<HeaderStyle />
-						<RowStyle Height="42px" />
-					</asp:GridView>
+				<blockquote class="layui-elem-quote" style="line-height: 10px!important;">反馈问题详情页</blockquote>
+				<div class="layui-tab layui-tab-brief layui-form-pane">
+					<div class="layui-form-item">
+						<label class="layui-form-label">问题名称:</label>
+						<div class="layui-input-block">
+							<asp:Label ID="lbProblemName" runat="server" CssClass="lb" Font-Bold="true"></asp:Label>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">所属项目:</label>
+						<div class="layui-input-block">
+							<asp:Label ID="lbProjectName" runat="server" CssClass="lb"></asp:Label>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">对应任务:</label>
+						<div class="layui-input-block">
+							<asp:Label ID="lbTaskName" runat="server" CssClass="lb"></asp:Label>
+						</div>
+					</div>
+					<div class="layui-form-item layui-form-text">
+						<label class="layui-form-label" style="padding-left:2.1%">问题详情:</label>
+						<div class="layui-input-block">
+							<asp:Label ID="lbProblemDetails" runat="server" CssClass="layui-textarea"></asp:Label>
+						</div>
+					</div>
+					<div style="display:none">
+						<hr class="layui-bg-green" />
+						<asp:DataList ID="dlReply" runat="server" RepeatDirection="Vertical">
+							<ItemTemplate>
+
+							</ItemTemplate>
+						</asp:DataList>
+					</div>
+					<div id="controlDiv" runat="server">
+						<hr class="layui-bg-green" />
+						<div class="layui-form-item layui-form-text">
+							<label class="layui-form-label" style="padding-left: 2.1%">发表回复:</label>
+							<div class="layui-input-block">
+								<asp:TextBox ID="tbReply" runat="server" TextMode="MultiLine" required lay-verify="required" CssClass="layui-textarea"></asp:TextBox>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<asp:Button ID="btnReply" runat="server" Text="回复" CssClass="layui-btn" OnClick="btnReply_Click" />
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

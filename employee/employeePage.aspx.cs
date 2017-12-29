@@ -15,8 +15,8 @@ public partial class employee_employeePage : System.Web.UI.Page
 			string chineseName = DBHelper.DBHelper.ExecuteScalar(searChineseName).ToString();
 			lbUserName.Text = chineseName;
 		}
-
-		if(!IsPostBack)
+		lbTime.Text = DateTime.Now.Year.ToString();
+		if (!IsPostBack)
 		{
 			BindData();
 			BindData1();

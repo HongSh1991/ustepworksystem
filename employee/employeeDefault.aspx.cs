@@ -15,7 +15,7 @@ public partial class employee_employeeDefault : System.Web.UI.Page
 			string chineseName = DBHelper.DBHelper.ExecuteScalar(searChineseName).ToString();
 			lbUserName.Text = chineseName;
 		}
-
+		lbTime.Text = DateTime.Now.Year.ToString();
 		if (!IsPostBack)
 		{
 			BindGrid();
@@ -34,7 +34,7 @@ public partial class employee_employeeDefault : System.Web.UI.Page
 		if(Session["UserName"] != null)
 		{
 			string getChineseName = DBHelper.DBHelper.ExecuteScalar("select U_ChineseName from tb_UserInfo where U_UserName = '" + Session["UserName"].ToString() + "'").ToString();
-			string sqlSearch = "select * from tb_ProjectManage where PM_UserName = '" + getChineseName + "'";
+			string sqlSearch = "select * from tb_ProjectManage where PM_AttenderName = '" + getChineseName + "'";
 			gvTaskList.DataSource = DBHelper.DBHelper.ExecuteDataTable(sqlSearch);
 			gvTaskList.DataKeyNames = new string[] { "PM_ID" };
 			gvTaskList.DataBind();
@@ -79,6 +79,13 @@ public partial class employee_employeeDefault : System.Web.UI.Page
 							lb2.Text = "&#xe658;&#xe658;&#xe658;";
 							break;
 						default:
+							lb2.Text = "(任务已关闭，请勿重复进行！)";
+							lb2.ForeColor = System.Drawing.Color.Gray;
+							//string checkTaskStatus = "select TS_TaskStatusNow from tb_TaskStatus where TS_TaskName = '" + taskName + "'";
+							//if (checkTaskStatus == "负责人已审批通过")
+							//{
+							//	lb2.Text = "任务已关闭，请勿重复进行！";
+							//}
 							return;
 					}
 				}

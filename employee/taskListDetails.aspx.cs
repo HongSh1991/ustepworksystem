@@ -19,11 +19,23 @@ public partial class employee_taskListDetails : System.Web.UI.Page
 			string chineseName = DBHelper.DBHelper.ExecuteScalar(searChineseName).ToString();
 			lbUserName.Text = chineseName;
 		}
-
-		if(!IsPostBack)
+		lbTime.Text = DateTime.Now.Year.ToString();
+		if (!IsPostBack)
 		{
 			BindTaskData();
 			BindTaskState();
+
+			if (Request.QueryString["taskname"] != null)
+			{
+				string taskName = Request.QueryString["taskname"].ToString();
+				string searChineseName = "select U_ChineseName from tb_UserInfo where U_UserName = '" + Session["UserName"].ToString() + "'";
+				string chineseName = DBHelper.DBHelper.ExecuteScalar(searChineseName).ToString();
+				int checkTaskStatus = Convert.ToInt32(DBHelper.DBHelper.ExecuteScalar("select PM_TaskRate from tb_ProjectManage where PM_TaskName = '" + taskName + "' and PM_AttenderName = '" + chineseName + "'").ToString());
+				if(checkTaskStatus == 0)
+				{
+					controlDiv.Visible = false;
+				}
+			}
 		}
 	}
 
@@ -73,17 +85,24 @@ public partial class employee_taskListDetails : System.Web.UI.Page
 
 	protected void btnCommitTaskStatus_Click(object sender, EventArgs e)
 	{
-		string taskStatus = ddlTaskState.SelectedItem.Text;
-		string taskName = Request.QueryString["taskname"].ToString();
-		string projectName = DBHelper.DBHelper.ExecuteScalar("select PM_ProjectName from tb_ProjectManage where PM_TaskName='" + taskName + "'").ToString();
+		if(tbTaskStatusState.Text != "")
+		{
+			string taskStatus = ddlTaskState.SelectedItem.Text;
+			string taskName = Request.QueryString["taskname"].ToString();
+			string projectName = DBHelper.DBHelper.ExecuteScalar("select PM_ProjectName from tb_ProjectManage where PM_TaskName='" + taskName + "'").ToString();
 
-		string searChineseName = "select U_ChineseName from tb_UserInfo where U_UserName = '" + Session["UserName"].ToString() + "'";
-		string chineseName = DBHelper.DBHelper.ExecuteScalar(searChineseName).ToString();
+			string searChineseName = "select U_ChineseName from tb_UserInfo where U_UserName = '" + Session["UserName"].ToString() + "'";
+			string chineseName = DBHelper.DBHelper.ExecuteScalar(searChineseName).ToString();
 
-		DateTime dt = Convert.ToDateTime(tbSubmitTime.Text);
-		string taskProgressState = tbTaskStatusState.Text.Trim().ToString();
-		string sqlInsert = "insert into tb_TaskStatus(TS_TaskName, TS_ProjectName, TS_TaskStatusNow, TS_SubmitTime, TS_TaskEmployee, TS_TaskState )values('" + taskName + "', '" + projectName + "', '" + taskStatus + "', '" + dt.ToShortDateString() + "', '" + chineseName + "', '" + taskProgressState + "')";
-		DBHelper.DBHelper.ExectueNonQuery(sqlInsert);
-		Page.ClientScript.RegisterStartupScript(this.GetType(), "ServiceManHistoryButtonClick", "<script>alert('任务状态提交成功！！！');window.location.href=''</script>");
+			DateTime dt = Convert.ToDateTime(tbSubmitTime.Text);
+			string taskProgressState = tbTaskStatusState.Text.Trim().ToString();
+			string sqlInsert = "insert into tb_TaskStatus(TS_TaskName, TS_ProjectName, TS_TaskStatusNow, TS_SubmitTime, TS_TaskEmployee, TS_TaskState )values('" + taskName + "', '" + projectName + "', '" + taskStatus + "', '" + dt.ToShortDateString() + "', '" + chineseName + "', '" + taskProgressState + "')";
+			DBHelper.DBHelper.ExectueNonQuery(sqlInsert);
+			Page.ClientScript.RegisterStartupScript(this.GetType(), "ServiceManHistoryButtonClick", "<script>alert('任务状态提交成功！！！');window.location.href=''</script>");
+		}
+		else
+		{
+			Page.ClientScript.RegisterStartupScript(this.GetType(), "ServiceManHistoryButtonClick", "<script>alert('请检查未填项！！！');window.location.href=''</script>");
+		}
 	}
 }

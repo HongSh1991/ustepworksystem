@@ -51,7 +51,7 @@
 								<a href="employeePage.aspx"><i class="layui-icon">&#xe612;</i>用户中心</a>
 							</dd>
 							<dd>
-								<a href="#"><i class="layui-icon">&#xe63c;</i>反馈汇总</a>
+								<a href="problemList.aspx"><i class="layui-icon">&#xe63c;</i>反馈汇总</a>
 							</dd>
 						</dl>
 					</li>
@@ -102,32 +102,34 @@
 							<asp:Label ID="lbTaskDetails" runat="server" CssClass="layui-textarea"></asp:Label>
 						</div>
 					</div>
-					<hr class="layui-bg-green" />
-					<blockquote class="layui-elem-quote" style="line-height: 10px!important;">暂存任务状态</blockquote>
-					<div class="layui-form-item layui-form">
-						<label class="layui-form-label">任务状态:</label>
-						<div class="layui-input-inline">
-							<asp:DropDownList ID="ddlTaskState" runat="server">
-								<asp:ListItem>未进行</asp:ListItem>
-								<asp:ListItem>进行中</asp:ListItem>
-								<asp:ListItem>待审批</asp:ListItem>
-							</asp:DropDownList>
+					<div id="controlDiv" runat="server">
+						<hr class="layui-bg-green" />
+						<blockquote class="layui-elem-quote" style="line-height: 10px!important;">暂存任务状态</blockquote>
+						<div class="layui-form-item layui-form">
+							<label class="layui-form-label">任务状态:</label>
+							<div class="layui-input-inline">
+								<asp:DropDownList ID="ddlTaskState" runat="server">
+									<asp:ListItem>未进行</asp:ListItem>
+									<asp:ListItem>进行中</asp:ListItem>
+									<asp:ListItem>待审批</asp:ListItem>
+								</asp:DropDownList>
+							</div>
 						</div>
-					</div>
-					<div class="layui-form-item">
-						<label class="layui-form-label">提交时间:</label>
-						<div class="layui-input-inline">
-							<asp:TextBox ID="tbSubmitTime" runat="server" TextMode="Date" CssClass="layui-input"></asp:TextBox>
+						<div class="layui-form-item">
+							<label class="layui-form-label">提交时间:</label>
+							<div class="layui-input-inline">
+								<asp:TextBox ID="tbSubmitTime" runat="server" TextMode="Date" CssClass="layui-input"></asp:TextBox>
+							</div>
 						</div>
-					</div>
-					<div class="layui-form-item layui-form-text">
-						<label class="layui-form-label" style="padding-left:2.1%">状态说明:</label>
-						<div class="layui-input-block">
-							<asp:TextBox ID="tbTaskStatusState" runat="server" CssClass="layui-textarea" TextMode="MultiLine" placeholder="填写任务完成情况说明"></asp:TextBox>
+						<div class="layui-form-item layui-form-text">
+							<label class="layui-form-label" style="padding-left: 2.1%">状态说明:</label>
+							<div class="layui-input-block">
+								<asp:TextBox ID="tbTaskStatusState" runat="server" CssClass="layui-textarea" required lay-verify="required"  TextMode="MultiLine" placeholder="填写任务完成情况说明"></asp:TextBox>
+							</div>
 						</div>
-					</div>
-					<div class="layui-form-item">
-						<asp:Button ID="btnCommitTaskStatus" runat="server" Text="提交任务状态" CssClass="layui-btn" OnClick="btnCommitTaskStatus_Click" />
+						<div class="layui-form-item">
+							<asp:Button ID="btnCommitTaskStatus" runat="server" Text="提交任务状态" CssClass="layui-btn" OnClick="btnCommitTaskStatus_Click" />
+						</div>
 					</div>
 				</div>
 			</div>

@@ -11,9 +11,9 @@
 	<style type="text/css">
 		.ddl {
 			height: 38px;
-			width: 190px;
+			width: 356px;
 			cursor: pointer;
-			color: gray!important;
+			color: darkgray!important;
 			text-align: center;
 			padding-left: 6px;
 			border-right: Gainsboro 1px solid;
@@ -45,7 +45,7 @@
 								<a href="employeePage.aspx"><i class="layui-icon">&#xe612;</i>用户中心</a>
 							</dd>
 							<dd>
-								<a href="#"><i class="layui-icon">&#xe63c;</i>反馈汇总</a>
+								<a href="problemList.aspx"><i class="layui-icon">&#xe63c;</i>反馈汇总</a>
 							</dd>
 						</dl>
 					</li>
@@ -110,9 +110,45 @@
 						<li class="layui-this">项目任务反馈</li>
 					</ul>
 					<div class="layui-tab-content" style="padding: 20px 0;">
-						<div class="layui-form layui-form-pane layui-tab-item layui-show">
+						<div class="layui-form-pane layui-tab-item layui-show">
 							<div style="margin-top: -1%">
-								
+								<div class="layui-form layui-form-item" style="margin-right:50%">
+									<label class="layui-form-label">问题名称</label>
+									<div class="layui-input-block">
+										<asp:TextBox ID="tbProblemName" runat="server" CssClass="layui-input"></asp:TextBox>
+									</div>
+								</div>
+								<div class="layui-form-item">
+									<label class="layui-form-label">项目名称</label>
+									<div class="layui-input-inline" style="text-align-last:left">
+										<asp:DropDownList ID="ddlProjectName" runat="server" OnSelectedIndexChanged="ddlProjectName_SelectedIndexChanged" AutoPostBack="true" CssClass="ddl"></asp:DropDownList>
+									</div>
+								</div>
+								<div class="layui-form layui-form-item" style="margin-right:50%">
+									<label class="layui-form-label">任务名称</label>
+									<div class="layui-input-block">
+										<asp:DropDownList ID="ddlTaskName" runat="server" AutoPostBack="true"></asp:DropDownList>
+									</div>
+								</div>
+								<div class="layui-form layui-form-item" style="margin-right:50%">
+									<label class="layui-form-label">问题分类</label>
+									<div class="layui-input-block">
+										<asp:DropDownList ID="ddlProblemClassify" runat="server">
+											<asp:ListItem Value="0" Text=""></asp:ListItem>
+											<asp:ListItem Value="1" Text="系统Bug"></asp:ListItem>
+											<asp:ListItem Value="2" Text="任务相关"></asp:ListItem>
+										</asp:DropDownList>
+									</div>
+								</div>
+								<div class="layui-form-item layui-form-text">
+									<label class="layui-form-label" style="padding-left:2.9%">问题描述</label>
+									<div class="layui-input-block">
+										<asp:TextBox ID="tbTaskDetails" runat="server" placeholder="详细说明问题" TextMode="MultiLine" CssClass="layui-textarea"></asp:TextBox>
+									</div>
+								</div>
+								<div class="layui-form-item">
+									<asp:Button ID="btnSubmitProblem" runat="server" Text="发布问题" CssClass="layui-btn" OnClick="btnSubmitProblem_Click" />
+								</div>
 							</div>
 						</div>
 					</div>
@@ -130,6 +166,10 @@
 			var $ = layui.jquery
 				, element = layui.element
 				, form = layui.form;
+
+			form.on('select(ddlProjectName)', function (data) {
+				data.elem.onchange();
+			});
 		});
 	</script>
 </body>

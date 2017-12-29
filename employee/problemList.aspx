@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="employeeDefault.aspx.cs" Inherits="employee_employeeDefault" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="problemList.aspx.cs" Inherits="employee_problemList" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>我的主页</title>
+	<title>问题反馈列表</title>
 	<link rel="stylesheet" href="../res/layui/css/layui.css" type="text/css" />
 	<link rel="stylesheet" href="../res/css/global.css" type="text/css" />
 	<style type="text/css">
@@ -67,28 +67,25 @@
 
 		<div class="layui-container fly-marginTop">
 			<div class="fly-panel fly-panel-user" style="height:32px; padding-top:1.2%; padding-left:1.2%">
-				此页面工单列表包含正常任务，系统Bug，临时加急任务等
+				此问题反馈列表包含正常任务，系统Bug等问题
 			</div>
 			<div class="fly-panel fly-panel-user" style="padding: 1.2%;">
-				<blockquote class="layui-elem-quote" style="line-height: 10px!important;">个人工单列表</blockquote>
+				<blockquote class="layui-elem-quote" style="line-height: 10px!important;">项目问题反馈列表</blockquote>
 				<div class="layui-tab layui-tab-brief">
-					<asp:GridView ID="gvTaskList" runat="server" OnPageIndexChanging="gvTaskList_PageIndexChanging" OnRowDataBound="gvTaskList_RowDataBound" AutoGenerateColumns="false" AllowPaging="true" PageSize="10" ShowHeader="false" CssClass="layui-table" RowStyle-BorderStyle="Dashed" RowStyle-BorderWidth="1.6">
+					<asp:GridView ID="gvProblemList" runat="server" OnPageIndexChanging="gvProblemList_PageIndexChanging" OnRowDataBound="gvProblemList_RowDataBound" AutoGenerateColumns="false" AllowPaging="true" PageSize="10" ShowHeader="false" CssClass="layui-table" RowStyle-BorderStyle="Dashed" RowStyle-BorderWidth="1.6">
 						<Columns>
 							<asp:TemplateField HeaderText="序号" ItemStyle-Width="4.2%">
 								<ItemStyle HorizontalAlign="Center" />
 								<HeaderStyle HorizontalAlign="Center" Width="4.2%" />
 							</asp:TemplateField>
-							<asp:TemplateField HeaderText="任务名称/截止日期">
+							<asp:TemplateField HeaderText="问题名称/发布日期">
 								<ItemTemplate>
-									<a href="taskListDetails.aspx?taskname=<%#Eval("PM_TaskName") %>">
-										<asp:Label ID="lbtasklist" runat="server" Text='<%#Eval("PM_TaskName") %>'></asp:Label>&nbsp;&nbsp;
-										<asp:Label ID="lbfont" runat="server" class="layui-icon" style="font-size:8pt; color:red;" Text=""></asp:Label>
+									<a href="problemDetails.aspx?problemname=<%#Eval("SP_ProblemName") %>">
+										<asp:Label ID="lbproblemlist" runat="server" Text='<%#Eval("SP_ProblemName") %>'></asp:Label>&nbsp;&nbsp;
 									</a>
-									<asp:Label ID="lbDeadLine" runat="server" CssClass="lb">截止日期:<%#Eval("PM_DeadLine","{0:yyyy-MM-dd}") %></asp:Label>
+									<asp:Label ID="lbDeadLine" runat="server" CssClass="lb">截止日期:<%#Eval("SP_DateTime","{0:yyyy年MM月dd日}") %></asp:Label>
 								</ItemTemplate>
 							</asp:TemplateField>
-							<%--<asp:BoundField DataField="PM_TaskName" HeaderText="任务名称" />
-							<asp:BoundField DataField="PM_DeadLine" HeaderText="截止日期" DataFormatString="{0:yyyy-MM-dd}" />--%>
 						</Columns>
 						<HeaderStyle />
 						<RowStyle Height="42px" />
